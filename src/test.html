@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>test_jsonp</title>
 </head>
 <script>
     const debounce = function(fn,time) {
@@ -19,7 +19,12 @@
     const handle = function() {
         console.log('asdasd')
     }
+    const getdata = (res) => {
+        console.log('拿到的数据：',res)
+    }
 </script>
+
+<script src="http://127.0.0.1:5000/?callback=getdata"></script>
 <body>
     <button onclick="debounce(handle,2000)">submit</button>
 </body>
