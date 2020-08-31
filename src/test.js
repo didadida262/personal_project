@@ -128,10 +128,10 @@ const quickSort = function(nums) {
 
     let test2 = myNew(Parent,'alice',23)
 
-    console.log('test:',test)
-    console.log('test2:',test2)
-    console.log('test.__proto__:',test.__proto__)
-    console.log('test2.__proto__:',test2.__proto__)
+    // console.log('test:',test)
+    // console.log('test2:',test2)
+    // console.log('test.__proto__:',test.__proto__)
+    // console.log('test2.__proto__:',test2.__proto__)
     // console.log(test instanceof Parent)
     // console.log(test.hasOwnProperty('name'))
     // console.log(test.hasOwnProperty('age'))
@@ -142,3 +142,21 @@ const quickSort = function(nums) {
 
 
     
+ // 4.vue原理
+let xx = {}
+Object.defineProperty(xx,'x',{
+    value: 'xxxxxx',
+    enumerable: true,
+    configurable: true,
+    get() {
+        return this.value
+    },
+    set(newval) {
+        this.value = newval
+    }
+}) 
+
+console.log(xx.x)
+xx.x = 'lalal'
+console.log(xx.x)
+
