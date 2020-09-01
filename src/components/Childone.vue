@@ -6,6 +6,7 @@
       <span>age: </span><input type="text" v-model="infoNow.age">
       <br>
       <button @click="handleInfo">submit</button>
+    
   </div>
 </template>
 
