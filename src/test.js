@@ -5,6 +5,7 @@
 // }
 
 
+
 // const promiseAlll = function(list) {
 //     return new Promise((resolve, reject) => {
 //         let resValues = [];
@@ -55,39 +56,42 @@ let bob = {
     name: 'bob',
 }
 
-
-
 Function.prototype.myCall = function() {
     const args = [...arguments]
-    let target = args[0]
-    target._f_ = this
-    let res = target._f_(...args.slice(1))
-    delete target._f_
+    const target = args[0]
+    target._f = this
+    let res = target._f(...args.slice(1))
+    delete target._f
     return res
 }
+
 
 Function.prototype.myApply = function() {
-    const args = [...arguments]
-    const target = args[0]
-    target._f_ = this
-    let res = target._f_(...args[1])
-    delete target._f_
+    let args = [...arguments]
+    let target = args[0]
+    target._f = this
+    let res =target._f(...args[1])
+    delete target._f
     return res
 }
 
-
 Function.prototype.myBind = function() {
-    const args = [...arguments]
-    const target = args[0]
-    target._f_ = this
-    let res = target._f_(...args.slice(1))
-    delete target._f_
+    let args = [...arguments]
+    let target = args[0]
+    target._f = this
+    let res = target._f(...args.slice(1))
+    delete target._f
     return function() {
         return res
     }
-
+    
 }
 
+
+
+// alex.sayHello.call(bob,26,1.65)
+// alex.sayHello.apply(bob,[26,1.65])
+// alex.sayHello.bind(bob,26,1.65)()
 
 // alex.sayHello.myCall(bob,26,1.65)
 // alex.sayHello.myApply(bob,[26,1.65])
@@ -95,13 +99,13 @@ Function.prototype.myBind = function() {
 
 
 // 2.快排js
-const quickSort = function(nums) {
-    if(nums.length == 0 || nums.length == 1)  return nums
-    let pivot = nums[0]
-    let left = nums.slice(1).filter(item => item < pivot)
-    let right = nums.slice(1).filter(item => item >= pivot)
-    return quickSort(left).concat(pivot).concat(quickSort(right))
-}
+// const quickSort = function(nums) {
+//     if(nums.length == 0 || nums.length == 1)  return nums
+//     let pivot = nums[0]
+//     let left = nums.slice(1).filter(item => item < pivot)
+//     let right = nums.slice(1).filter(item => item >= pivot)
+//     return quickSort(left).concat(pivot).concat(quickSort(right))
+// }
 
 // let arr = [5,2,7,8,4]
 // console.log(quickSort(arr))
@@ -109,25 +113,23 @@ const quickSort = function(nums) {
 
 // 3.new 一个对象发生了啥
     // 1) 创建一个空对象
-    let Parent = function (name, age) {
-        this.name = name;
-        this.age = age;
-    };
-    Parent.prototype.sayName = function () {
-        console.log(this.name);
-    };
+    // let Parent = function (name, age) {
+    //     this.name = name;
+    //     this.age = age;
+    // };
+    // Parent.prototype.sayName = function () {
+    //     console.log(this.name);
+    // };
 
-    let test = new Parent('alice',23)
-    const myNew = function() {
-        const args = [...arguments]
-        const parent = args[0]
-        let child = Object.create(parent.prototype)
-        let res = parent.apply(child,args.slice(1))
-        return typeof res === 'object'? res: child
-    }
-
-    let test2 = myNew(Parent,'alice',23)
-
+    // let test = new Parent('alice',23)
+    // const myNew = function() {
+    //     const args = [...arguments]
+    //     const parent = args[0]
+    //     let child = Object.create(parent.prototype)
+    //     let res = parent.apply(child,args.slice(1))
+    //     return typeof res === 'object'? res: child
+    // }
+    // let test2 = myNew(Parent,'alice',23)
     // console.log('test:',test)
     // console.log('test2:',test2)
     // console.log('test.__proto__:',test.__proto__)
@@ -143,20 +145,4 @@ const quickSort = function(nums) {
 
     
  // 4.vue原理
-let xx = {}
-Object.defineProperty(xx,'x',{
-    value: 'xxxxxx',
-    enumerable: true,
-    configurable: true,
-    get() {
-        return this.value
-    },
-    set(newval) {
-        this.value = newval
-    }
-}) 
-
-console.log(xx.x)
-xx.x = 'lalal'
-console.log(xx.x)
 

@@ -6,19 +6,19 @@ Vue.use(VueRouter)
 
   const routes: Array<RouteConfig> = [
   {
-    path: '/home',
+    path: '/',
     name: 'home',
     component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
   },
   {
-    path: '/',
+    path: '/One',
     name: 'One',
     component: () => import(/* webpackChunkName: "about" */ '../components/Childone.vue')
   },
-  {
-    path: '/One',
-    redirect: '/'
-  },  
+  // {
+  //   path: '/One',
+  //   redirect: '/'
+  // },  
   {
     path: '/two',
     name: 'Two',
