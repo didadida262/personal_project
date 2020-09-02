@@ -28,6 +28,11 @@ Vue.use(VueRouter)
     path: '/three',
     name: 'Three',
     component: () => import(/* webpackChunkName: "about" */ '../components/Childthree.vue')
+  },
+  {
+    path: '/fullpage',
+    name: 'fullpage',
+    component: () => import(/* webpackChunkName: "about" */ '../components/Fullpage.vue')
   }  
 ]
 

@@ -1,9 +1,13 @@
 <template>
   <div class="home">
-    <div><img alt="Vue logo" src="../assets/logo.jpg" width="300" height="200"></div>
-    <div class="btn" @click="toNewoWorld"><a-button>wolcome</a-button></div>
-    <!-- <img src="http://127.0.0.1:5000/?callback=getdata"> -->
+    <h1>胡说八道？胡说九道</h1>
+    <div class="logo"><img alt="Vue logo" src="../assets/logo.jpg" width="300" height="200"></div>
+    <div class="btn" @click="toNewoWorld"><a-button>Enter</a-button></div>
+    <Test
+      :data = data
+      >
 
+    </Test>
   </div>
 
 </template>
@@ -12,24 +16,34 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { commonAPI } from '../api/common'
+import Test from '../components/Test.vue'
 
-@Component
+@Component({
+  components:{
+    Test,
+  }
+})
 export default class Home extends Vue {
-  [x: string]: any;
+  
+
+  private data: any = "我是数据"
 
   private created(): void {
-    this.$axios({
-      method: "get",
-      // url: "https://api.coindesk.com/v1/bpi/currentprice.json"
-      url: "http://127.0.0.1:5000/test"
-    })
-      .then((res: any) => {
-        console.log('axios获取之数据：',res)
+    this.getUser()
+  }
+
+  private getUser(): void {
+    commonAPI.getUser()
+      .then( (res: any) => {
+        console.log('拿到作者:',res)
       })
       .catch((err: any) => {
-        console.log(err)
+        err
       })
   }
+
+
 
   private toNewoWorld(): void  {
     this.$router.push({ path: '/One'})
@@ -43,13 +57,16 @@ export default class Home extends Vue {
 
 <style scoped lang="scss">
 .home {
+  border-radius: 1%;
   display: flex;
   width: 100%;
-  padding: 10px;
+  height: 80%;
   justify-content: center;
   align-items: center;
-  height: 500px;
   flex-direction: column;
+  .logo {
+    box-shadow:3px 2px 14px #333333;
+  }
   .btn {
     margin-top: 10px;
   }
