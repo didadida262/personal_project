@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testHtml</title>
+ 
+</head>
+
+<body>
+    
+ 
+<div id="fullpage">
+    <h1>我是测试html</h1>
+    <div id="showBox"></div>
+</div>
+</body>
+<script>
+    if(window.Worker) {
+        var worker = new Worker("./test.js");
+        worker.postMessage(10);
+
+        worker.onmessage = function(event) {
+            document.getElementById("showBox").innerText = event.data;
+            if(event.data == 10) {
+                worker.terminate(); // 终止worker
+            }
+        }
+    }else{
+        alert("你的浏览器不支持worker");
+    }
+</script>
+</html>

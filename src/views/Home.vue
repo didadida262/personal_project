@@ -1,13 +1,13 @@
 <template>
   <div class="home">
-    <h1>胡说八道？胡说九道</h1>
+    <h1>{{word}}</h1>
     <div class="logo"><img alt="Vue logo" src="../assets/logo.jpg" width="300" height="200"></div>
     <div class="btn" @click="toNewoWorld"><a-button>Enter</a-button></div>
-    <Test
+    <!-- <Test
       :data = data
       >
-
-    </Test>
+    </Test> -->
+    <h1>ajax:{{data}}</h1>
   </div>
 
 </template>
@@ -19,24 +19,35 @@ import { Component, Vue } from 'vue-property-decorator';
 import { commonAPI } from '../api/common'
 import Test from '../components/Test.vue'
 
-@Component({
-  components:{
-    Test,
-  }
-})
+@Component
 export default class Home extends Vue {
   
 
-  private data: any = "我是数据"
+  private word: any = ""
+  private data: any = ""
 
   private created(): void {
-    this.getUser()
+    // this.getWord()
+    this.ajax()
+    
   }
 
-  private getUser(): void {
-    commonAPI.getUser()
+  private ajax(): void {
+    const xml = new XMLHttpRequest()
+    xml.onreadystatechange = () => {
+      if(xml.status == 200 && xml.readyState == 4) {
+        this.data = xml.responseText
+      }
+    }
+    xml.open("GET","http://127.0.0.1:5000/word")
+    xml.send()
+    
+  }
+
+  private getWord(): void {
+    commonAPI.getWord()
       .then( (res: any) => {
-        console.log('拿到作者:',res)
+        this.word = res.data.data
       })
       .catch((err: any) => {
         err
@@ -49,7 +60,7 @@ export default class Home extends Vue {
     this.$router.push({ path: '/One'})
   }
 
-  private getdata(res: any): void {
+  private getChildData(res: any): void {
     console.log(res)
   }
 }

@@ -1,7 +1,10 @@
 <template>
   <div class="hello">
-    <p>{{getdata}}</p>
-    
+    <div class="test one">1</div>
+    <div class="test">2</div>
+    <div class="test">3</div>
+    <div class="test">4</div>
+    <div class="test">5</div>
     
   </div>
 </template>
@@ -26,5 +29,20 @@ export default class Childthree extends Vue {
 </script>
 
 <style scoped lang="scss">
+.hello {
+  border: 1px solid black;
+  width: 100%;
+}
 
+.test {
+
+  width: 500px;
+  height: 500px;
+  border: 1px solid red;
+}
+.one {
+  position: sticky;
+  top: 100px;
+  border: 1px solid blue;  
+}
 </style>

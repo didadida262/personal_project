@@ -2,8 +2,8 @@ import axios from 'axios'
 import { ROOT } from '../url/main'
 
 const commonAPI = {
-    getUser() {
-        return axios.get(`${ROOT}/admin`)
+    getWord() {
+        return axios.get(`${ROOT}/word`)
     }
 }
 

@@ -54,6 +54,7 @@ export default class Childone extends Vue {
 
 <style scoped lang="scss">
 .Childone {
+  border: 1px solid red;
   width: 100%;
   display: flex;
   .sider {
