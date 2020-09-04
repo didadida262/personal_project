@@ -27,9 +27,13 @@ export default class Home extends Vue {
   private data: any = ""
 
   private created(): void {
-    // this.getWord()
-    this.ajax()
+    this.localSet()
     
+  }
+
+  private localSet(): void {
+    localStorage.setItem('name',"hhvcg")
+    console.log(localStorage.getItem("name"))
   }
 
   private ajax(): void {
