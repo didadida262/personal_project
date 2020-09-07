@@ -331,6 +331,7 @@ let vnodeNew = creatElement('ul',{class: "list-grop"},[
     // countNumber();
 
 
+<<<<<<< HEAD
     // 同花顺：
     // let arr = []
     // let numss = arr.map(item => parseInt(item))
@@ -372,3 +373,30 @@ let vnodeNew = creatElement('ul',{class: "list-grop"},[
     }
 
 // n个书中，取出kgege
+=======
+    // 9.全排列
+    // 1) 不含重复元素的数组，返回所有可能
+    // const arrange= function(arr) {
+    //     if(!arr.length) return []
+    //     let res = []
+    //     let visited = new Array(arr.length).fill(false)
+    //     const f = function(path){
+    //         if(path.length === arr.length) res.push(now)
+    //         for(let i = 0; i < arr.length;i++) {
+    //             if(visited[i]) continue
+    //             visited[i] = true
+    //             path.push(arr[i])
+    //             f(path)
+    //             path.pop()
+    //             visited[i] = false
+    //         }
+    //     }
+    //     let path = []
+    //     f(path)
+        
+        
+
+    // 10.给定一个范围，返回区间内的随机数
+        // 1) Math.random() 生成0-1之间的随机数，不包括1
+        
+>>>>>>> 4c10a700799ead33f406d6951b5feb6743b185a1
