@@ -3,11 +3,7 @@
     <h1>{{word}}</h1>
     <div class="logo"><img alt="Vue logo" src="../assets/logo.jpg" width="300" height="200"></div>
     <div class="btn" @click="toNewoWorld"><a-button>Enter</a-button></div>
-    <!-- <Test
-      :data = data
-      >
-    </Test> -->
-    <h1>ajax:{{data}}</h1>
+    <div class="word">{{data}}</div>
   </div>
 
 </template>
@@ -19,45 +15,34 @@ import { Component, Vue } from 'vue-property-decorator';
 import { commonAPI } from '../api/common'
 import Test from '../components/Test.vue'
 
+
 @Component
 export default class Home extends Vue {
-  
+
 
   private word: any = ""
   private data: any = ""
 
   private created(): void {
-    // this.getWord()
-    this.ajax()
-    
+    this.getWord()
   }
 
-  private ajax(): void {
-    const xml = new XMLHttpRequest()
-    xml.onreadystatechange = () => {
-      if(xml.status == 200 && xml.readyState == 4) {
-        this.data = xml.responseText
-      }
-    }
-    xml.open("GET","http://127.0.0.1:5000/word")
-    xml.send()
-    
-  }
+
 
   private getWord(): void {
-    commonAPI.getWord()
-      .then( (res: any) => {
-        this.word = res.data.data
-      })
-      .catch((err: any) => {
-        err
-      })
+    commonAPI.getWorld()
+    .then((res: any) => {
+      this.data = res.data.data
+    })
+    .catch((err: any) => {
+      console.log(err)
+    })
   }
 
 
 
   private toNewoWorld(): void  {
-    this.$router.push({ path: '/One'})
+    this.$router.push({ path: '/index'})
   }
 
   private getChildData(res: any): void {
@@ -80,6 +65,9 @@ export default class Home extends Vue {
   }
   .btn {
     margin-top: 10px;
+  }
+  .word {
+    font-size: 1rem;
   }
 }
 

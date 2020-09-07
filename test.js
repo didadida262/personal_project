@@ -329,3 +329,46 @@ let vnodeNew = creatElement('ul',{class: "list-grop"},[
     //     setTimeout(countNumber, 500)
     // }
     // countNumber();
+
+
+    // 同花顺：
+    // let arr = []
+    // let numss = arr.map(item => parseInt(item))
+    // let nums = numss.sort((a,b) => {
+    //     return a-b
+    // })
+    // for(let i=0;i< nums.length;i++) {
+    //     let temp = nums.slice(0,i).concat(nums.slice(i+1))
+    //     // console.log("yemp:",temp)
+    //     console.log(temp[Math.floor(temp.length/2)])
+    // }
+
+
+
+
+
+    const range = (arr) => {
+        if(!arr.length) return []
+        let visited = new Array(arr.length).fill(false)
+        let res = []
+        const f = (path) => {
+            if(path.length === arr.length) {
+                console.log("path:",path)
+                res.push([...path])
+                return
+            } 
+            for(let i =0;i < arr.length;i++) {
+                if(visited[i]) continue
+                visited[i] = true
+                path.push(arr[i])
+                f(path)
+                visited[i] = false
+                path.pop()
+            }
+        }
+        let path = []
+        f(path)
+        return res
+    }
+
+// n个书中，取出kgege

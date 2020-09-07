@@ -11,9 +11,9 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
   },
   {
-    path: '/One',
-    name: 'One',
-    component: () => import(/* webpackChunkName: "about" */ '../components/Childone.vue')
+    path: '/index',
+    name: 'index',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Index.vue')
   },
   // {
   //   path: '/One',
@@ -30,9 +30,14 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../components/Childthree.vue')
   },
   {
-    path: '/fullpage',
-    name: 'fullpage',
-    component: () => import(/* webpackChunkName: "about" */ '../components/Fullpage.vue')
+    path: '/music',
+    name: 'music',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Music.vue')
+  }, 
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')
   }  
 ]
 

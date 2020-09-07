@@ -9,10 +9,11 @@
             <a-icon type="pie-chart" />
             <span>Full page</span>
           </a-menu-item>
-          <a-menu-item key="2">
+          <a-menu-item key="music">
             <a-icon type="desktop" />
-            <span>Option 2</span>
-          </a-menu-item>
+            <span>Music</span>
+          </a-menu-item>          
+
         </a-menu>
 
     </div>
@@ -36,10 +37,13 @@ export default class Childone extends Vue {
   }
 
   private handleMenuChange(target: any): void {
-    console.log(target)
     if(target.key === 'fullpage') {
       this.$router.push({path: "/fullpage"})
     }
+    if(target.key === 'music') {
+      this.$router.push({path: "/music"})
+    }
+    
   }
 
   private handleInfo(): void {
