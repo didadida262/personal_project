@@ -24,33 +24,10 @@ export default class Home extends Vue {
   private data: any = ""
 
   private created(): void {
-<<<<<<< HEAD
     this.getWord()
   }
 
 
-=======
-    this.localSet()
-    
-  }
-
-  private localSet(): void {
-    localStorage.setItem('name',"hhvcg")
-    console.log(localStorage.getItem("name"))
-  }
-
-  private ajax(): void {
-    const xml = new XMLHttpRequest()
-    xml.onreadystatechange = () => {
-      if(xml.status == 200 && xml.readyState == 4) {
-        this.data = xml.responseText
-      }
-    }
-    xml.open("GET","http://127.0.0.1:5000/word")
-    xml.send()
-    
-  }
->>>>>>> 4c10a700799ead33f406d6951b5feb6743b185a1
 
   private getWord(): void {
     commonAPI.getWorld()

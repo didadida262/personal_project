@@ -38,6 +38,11 @@ Vue.use(VueRouter)
     path: '/login',
     name: 'login',
     component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')
+  },
+  {
+    path: '/fullpage',
+    name: 'fullpage',
+    component: () => import(/* webpackChunkName: "about" */ '../views/fullpage.vue')
   }  
 ]
 

@@ -8,49 +8,49 @@
 // console.log('test:',test)
 
 // 1.this指向问题
-// let alex = {
-//     name: 'alex',
-//     sayHello: function(age,tall) {
-//         console.log('i am ' + this.name + ',this year i am ' + age + ' years old... and i am ' + tall + ' m')
-//     }
-// }
+let alex = {
+    name: 'alex',
+    sayHello: function(age,tall) {
+        console.log('i am ' + this.name + ',this year i am ' + age + ' years old... and i am ' + tall + ' m')
+    }
+}
 
-// let bob = {
-//     name: 'bob',
-// }
-
-
-
-// Function.prototype.myCall = function() {
-//     const args = [...arguments]
-//     let target = args[0]
-//     target._f_ = this
-//     let res = target._f_(...args.slice(1))
-//     delete target._f_
-//     return res
-// }
-
-// Function.prototype.myApply = function() {
-//     const args = [...arguments]
-//     const target = args[0]
-//     target._f_ = this
-//     let res = target._f_(...args[1])
-//     delete target._f_
-//     return res
-// }
+let bob = {
+    name: 'bob',
+}
 
 
-// Function.prototype.myBind = function() {
-//     const args = [...arguments]
-//     const target = args[0]
-//     target._f_ = this
-//     let res = target._f_(...args.slice(1))
-//     delete target._f_
-//     return function() {
-//         return res
-//     }
 
-// }
+Function.prototype.myCall = function() {
+    const args = [...arguments]
+    let target = args[0]
+    target._f_ = this
+    let res = target._f_(...args.slice(1))
+    delete target._f_
+    return res
+}
+
+Function.prototype.myApply = function() {
+    const args = [...arguments]
+    const target = args[0]
+    target._f_ = this
+    let res = target._f_(...args[1])
+    delete target._f_
+    return res
+}
+
+
+Function.prototype.myBind = function() {
+    const args = [...arguments]
+    const target = args[0]
+    target._f_ = this
+    let res = target._f_(...args.slice(1))
+    delete target._f_
+    return function() {
+        return res
+    }
+
+}
 
 
 // alex.sayHello.myCall(bob,26,1.65)
@@ -102,21 +102,21 @@
 // 4.promise
 
     // 1).new promise时是同步执行回调函数，.then是异步的
-    const promise  = new Promise((resolve,reject) => {
-        console.log(1)
-        resolve()
-        // reject()
-        console.log(2)
-    })
+    // const promise  = new Promise((resolve,reject) => {
+    //     console.log(1)
+    //     resolve()
+    //     // reject()
+    //     console.log(2)
+    // })
 
-    promise
-    .then(() => {
-        console.log('resolve')
-    })
-    .catch(() => {
-        console.log('reject')
-    })
-    console.log(4)
+    // promise
+    // .then(() => {
+    //     console.log('resolve')
+    // })
+    // .catch(() => {
+    //     console.log('reject')
+    // })
+    // console.log(4)
 
     // 2).  抛出throw会执行catch方法
     // const promise = new Promise((resolve, reject) => {
