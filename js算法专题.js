@@ -42,3 +42,18 @@ var inorderTraversal = function(root) {
 
 // 2. 树的遍历--非递归版本
 // 先序
+var inorderTraversal = function(root) {
+    if(!root) return []
+    let res = []
+    let nodelist = []
+    nodelist.push(root)
+    while(nodelist.length > 0) {
+        let node = nodelist.pop()
+        res.push(node.val)
+        if(node.left) nodelist.push(node.left)
+        if(node.right) nodelist.push(node.right)
+    }
+    return res
+
+};
+
