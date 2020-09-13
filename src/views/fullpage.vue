@@ -1,42 +1,19 @@
 <template>
-<div>
-            <!-- <video controls width="250">
-
-    <source src="/media/cc0-videos/flower.webm"
-            type="video/webm">
-
-    <source src="/media/cc0-videos/flower.mp4"
-            type="video/mp4">
-
-    Sorry, your browser doesn't support embedded videos.
-</video> -->
-          <video constrols width="250">
-            <!-- <source src="/src/assets/flowers.mp4" type="video/mp4">
-            <source src="/src/assets/flowers.webm" type="video/webm"> -->
-                <source src="/media/cc0-videos/flower.webm"
-            type="video/webm">
-
-    <source src="/media/cc0-videos/flower.mp4"
-            type="video/mp4">
-          </video>
-</div>
-      <!-- <full-page ref="fullpage" :options="options" id="fullpage">
-        <div class="section">
-
-          <video id="myVideo" loop muted data-autoplay constrols>
-            <source src="/src/assets/flowers.mp4" type="video/mp4">
-            <source src="/src/assets/flowers.webm" type="video/webm">
-          </video>
-          <div class="layer">
-            <h1>fullPage.js videos</h1>
-          </div>          
-        </div>
-        <div class="section">          
-          <video id="myVideo" loop muted data-autoplay controls>
-            <source src="/src/assets/flowers.mp4" type="video/mp4">
-            <source src="/src/assets/flowers.webm" type="video/webm">
-          </video></div>
-      </full-page> -->
+  <full-page ref="fullpage" :options="options" id="fullpage">
+    <div class="section">
+      <video id="myVideo" loop muted data-autoplay constrols>
+        <source src="../assets/flowers.mp4" type="video/mp4">
+        <source src="../assets/flowers.webm" type="video/webm">
+      </video>
+      <div class="layer">
+        <h1>fullPage.js videos</h1>
+      </div>          
+    </div>
+    <div class="section">          
+      <audio src="../assets/foshuo.mp3" controls autoplay loop>
+        你的浏览器不支持audio标签
+        </audio>
+  </full-page>
 </template>
 
 <script lang="ts">
