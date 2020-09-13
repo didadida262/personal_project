@@ -1,21 +1,42 @@
 <template>
   <div class="login">
-    <div class="header">Login In</div>
     <div class="content">
-      <div><input type="text" v-model="loginForm.username" placeholder="用户名"/></div>
-      <div><input type="text" v-model="loginForm.password" placeholder="密码"/></div>
-      <button @click="login">登录</button>
-      <button @click="signup">注册</button>
+      <div class="_header"><h1>Login In</h1></div>
+      <div class="_content">
+          <div>
+            <a-input
+             placeholder="用户名" 
+             v-model="loginForm.username"/></div>
+          <div>
+            <a-input-password
+              placeholder="密码" 
+              v-model="loginForm.password"/></div>
+      </div>
+      <div class="_footer">
+        <a-button @click="login">登录</a-button>
+        <a-button @click="signup" class="sign_up">注册</a-button>
+      </div>
     </div>
 </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 import { commonAPI } from '../api/common'
 
 @Component
 export default class Childthree extends Vue {
+
+  @Watch("loginForm.username",{ immediate: true })
+  private nameChange(newvalue: any,oldvalue: any): void {
+    console.log("newvalue:",newvalue)
+    console.log("oldvalue:",oldvalue)
+  }
+  
+  @Watch("loginForm.password",{ immediate: true })
+  private pwChange(): void {
+    console.log("pd")
+  }
 
   private loginForm: any = {
     username: "",
@@ -33,6 +54,10 @@ export default class Childthree extends Vue {
       })
   }
 
+  private signup(): void {
+    console.log("注册")
+  }
+
   
   
 }
@@ -40,16 +65,40 @@ export default class Childthree extends Vue {
 
 <style scoped lang="scss">
 .login {
-  margin: 18px auto;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(120deg,#155799,#159957);
   display: flex;
   align-items: center;
   justify-content: space-around;
-  flex-direction: column;
-  border: 1px solid black;
-  width: 500px;
-  height: 150px;
   .content {
-    // flex: 1;
+    width: 400px;
+    height: 400px;
+    border-radius: 1px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    ._header {
+      text-align: center;
+      width: 100%;
+      height: 100px;
+      line-height: 100px;
+    }
+    ._content {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      height: 200px;
+    }
+    ._footer {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 100px;
+    }
   }
 }
 

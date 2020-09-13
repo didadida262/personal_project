@@ -1,18 +1,31 @@
 <template>
   <full-page ref="fullpage" :options="options" id="fullpage">
     <div class="section">
-      <video id="myVideo" loop muted data-autoplay constrols>
-        <source src="../assets/flowers.mp4" type="video/mp4">
-        <source src="../assets/flowers.webm" type="video/webm">
-      </video>
-      <div class="layer">
-        <h1>fullPage.js videos</h1>
-      </div>          
+      <div class="first">
+        <div class="header">
+          <span>这帮孙子！！！</span>
+        </div>
+      <div class="imgg">
+        <img src="../assets/dog.png" alt="">      
+      </div>
+      </div>
+
     </div>
-    <div class="section">          
-      <audio src="../assets/foshuo.mp3" controls autoplay loop>
-        你的浏览器不支持audio标签
-        </audio>
+    <div class="section">   
+        <img src="../assets/bg1.jpg" alt="" width="100%">      
+    </div>
+    <div class="section">      
+      <img src="../assets/bg2.jpg" alt="" width="100%">      
+    </div>
+    <div class="section">      
+      <img src="../assets/bg3.jpg" alt="" width="100%">      
+    </div>
+    <div class="section">      
+      <img src="../assets/bg4.jpg" alt="" width="100%">      
+    </div>
+    <div class="section">      
+      <img src="../assets/bg5.jpg" alt="" width="100%">      
+    </div>
   </full-page>
 </template>
 
@@ -98,39 +111,20 @@ export default class Childthree extends Vue {
 </script>
 
 <style scoped lang="scss">
-.fullpage {
-  border: 1px solid black;
-  width: 100%;
-  #myVideo{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    top:0;
-    width: 100%;
-    height: 100%;
-    background-size: 100% 100%;
-    background-color: black; /* in case the video doesn't fit the whole page*/
-    // background-image: /* our video */;
-    background-position: center center;
-    background-size: contain;
-    object-fit: cover; /*cover video background */
-    z-index:3;
-	}
-.layer{
-		position: absolute;
-		z-index: 4;
-		width: 100%;
-		left: 0;
-		top: 43%;
-
-		/*
-		* Preventing flicker on some browsers
-		* See http://stackoverflow.com/a/36671466/1081396  or issue #183
-		*/
-		-webkit-transform: translate3d(0,0,0);
-		-ms-transform: translate3d(0,0,0);
-		transform: translate3d(0,0,0);
-	}
+#fullpage {
+  .first {
+    .header {
+      font-size: 5rem;
+      text-align: center;
+      line-height: 200px;
+      color: white;
+      background-image: linear-gradient(120deg,#155799,#159957);
+      height: 200px;
+    }
+    .imgg {
+      text-align: center;
+    }
+  }
 }
 
 </style>
