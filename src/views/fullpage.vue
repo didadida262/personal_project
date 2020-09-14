@@ -11,18 +11,20 @@
       </div>
 
     </div>
-    <div class="section">   
+   <div class="section">   
+      <div class="slide">
         <img src="../assets/bg1.jpg" alt="" width="100%">      
-    </div>
-    <div class="section">      
-      <img src="../assets/bg2.jpg" alt="" width="100%">      
-    </div>
-    <div class="section">      
-      <img src="../assets/bg3.jpg" alt="" width="100%">      
-    </div>
-    <div class="section">      
-      <img src="../assets/bg4.jpg" alt="" width="100%">      
-    </div>
+      </div>
+      <div class="slide">
+        <img src="../assets/bg2.jpg" alt="" width="100%">      
+      </div>
+      <div class="slide">
+        <img src="../assets/bg3.jpg" alt="" width="100%">      
+      </div>
+      <div class="slide">
+        <img src="../assets/bg4.jpg" alt="" width="100%">      
+      </div>
+    </div> -->
     <div class="section">      
       <img src="../assets/bg5.jpg" alt="" width="100%">      
     </div>
@@ -57,7 +59,7 @@ export default class Childthree extends Vue {
     // //是否使用css3 transform来实现滚动效果
     // css3: false,
     // //滚动到最顶部后是否连续滚动到底部
-    // loopTop: true,
+    loopTop: true,
     // //滚动到最底部后是否连续滚动到顶部
     // //横向slide幻灯片是否循环滚动
     // loopHorizontal: false,
@@ -84,7 +86,7 @@ export default class Childthree extends Vue {
     // //绑定菜单，设定相关属性和anchors的值对应后，菜单可以控制幻灯片滚动
     // // menu: '.nav',
     // //是否显示导航，设为true会显示小圆点作为导航
-    // navigation: true,
+    navigation: true,
     // //导航小圆点的位置，可以设置为left或者right
     // navigationPosition: 'left',
     // //鼠标移动到小圆点上时显示出的提示信息
@@ -96,9 +98,9 @@ export default class Childthree extends Vue {
     // //横向幻灯片导航的位置，可以为top或者bottom
     slidesNavPosition: 'bottom',
     // //内容超过满屏时是否显示滚动条，需要jquery.slimscroll插件
-    scrollOverflow: true,
+    // scrollOverflow: true,
     // //section选择器
-    sectionSelector: ".section",
+    // sectionSelector: ".section",
     // //slide选择器
     // slideSelector: ".slide"
     }

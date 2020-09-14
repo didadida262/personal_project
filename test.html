@@ -8,36 +8,30 @@
 </head>
 
 <body>
-    
+    <div>
+        测试
+    </div>    
  
-<div id="fullpage">
-    <h1>我是测试html</h1>
-    <div id="showBox"></div>
-      <video controls>
-        <source src="src/assets/万达紫金.mp4" type="video/ogg">
-        <source src="foo.mp4" type="video/mp4">
-        Your browser does not support the <code>video</code> element.
-      </video>
-      <audio src="https://music.163.com/#/song?id=465275049" controls autoplay loop>
-        你的浏览器不支持audio标签
-        </audio>
-        <!-- <video id="video" src="src/assets/万达紫金.mp4" loop data-autoplay constrols>
-        </video> -->
-</div>
+
 </body>
 <script>
-    if(window.Worker) {
-        var worker = new Worker("./test.js");
-        worker.postMessage(10);
-
-        worker.onmessage = function(event) {
-            document.getElementById("showBox").innerText = event.data;
-            if(event.data == 10) {
-                worker.terminate(); // 终止worker
-            }
-        }
-    }else{
-        alert("你的浏览器不支持worker");
+    function A() {
+        this.n = 0
     }
+
+    A.prototype.callMe = function() {
+        console.log(this.n)
+    }
+    let a = new A()
+    console.log('a.callMe:',a.callMe)
+    console.log('a.callMe:',a.callMe())
+    // document.addEventListener("click",a.callMe)
+    // document.addEventListener('click',() => {
+    //     a.callMe()
+    // })
+    // document.addEventListener("click",function () {
+    //     a.callMe()
+    // })
+
 </script>
 </html>
