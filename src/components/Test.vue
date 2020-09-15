@@ -1,6 +1,5 @@
 <template>
   <div class="test">
-    <h1>{{pdata}}</h1>
     <a-button @click="handleData">改变数据</a-button>
     <a-input placeholder="Basic usage" v-model="inputData"/>
   </div>
@@ -11,7 +10,6 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 
 @Component
 export default class Test extends Vue {
-  @Prop() private data!: string;
 
 
   @Watch("inputData", { immediate: true })
@@ -21,7 +19,6 @@ export default class Test extends Vue {
   }
 
   private inputData: any = ""
-  private pdata: any = this.data
 
   private created(): void{
     console.log('debounce()',this.debounce(this.fn,3000))
@@ -30,7 +27,6 @@ export default class Test extends Vue {
 
 
   private handleData(): void {
-    this.pdata = "asas"
     this.$emit("getChildData","bbbbabababbabab")
   }
 
@@ -50,5 +46,7 @@ export default class Test extends Vue {
 </script>
 
 <style scoped lang="scss">
-
+.test {
+  border: 1px solid red;
+}
 </style>

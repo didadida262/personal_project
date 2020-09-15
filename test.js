@@ -177,25 +177,25 @@
     // obj2.foo()()
 
     // 7.事件循环
-    // async function async1() {
-    //     console.log("async1 start");
-    //     await async2();
-    //     console.log("async1 end");
-    //     setTimeout(() => {
-    //       console.log('timer1')
-    //     }, 0)
-    //   }
-    // async function async2() {
-    //     setTimeout(() => {
-    //       console.log('timer2')
-    //     }, 0)
-    //     console.log("async2");
-    //   }
-    // async1();
-    // setTimeout(() => {
-    // console.log('timer3')
-    // }, 0)
-    // console.log("start")
+    async function async1() {
+        console.log("async1 start");
+        await async2();
+        console.log("async1 end");
+        setTimeout(() => {
+          console.log('timer1')
+        }, 0)
+      }
+    async function async2() {
+        setTimeout(() => {
+          console.log('timer2')
+        }, 0)
+        console.log("async2");
+      }
+    async1();
+    setTimeout(() => {
+    console.log('timer3')
+    }, 0)
+    console.log("start")
 
     // 8.worker--创建独立于主线成的线程--啥啥啥？都特么是啥玩意儿
     // var i = 0, count = 0; 

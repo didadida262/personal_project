@@ -2,8 +2,11 @@
   <div class="home">
     <h1>{{word}}</h1>
     <div class="logo"><img alt="Vue logo" src="../assets/logo.jpg" width="300" height="200"></div>
-    <div class="btn" @click="toNewoWorld"><a-button>Enter</a-button></div>
+    <div class="btn" @click="toNewoWorld">
+      <a-button>Enter</a-button>
+    </div>
     <div class="word">{{data}}</div>
+    <Test/>
   </div>
 
 </template>
@@ -16,7 +19,11 @@ import { commonAPI } from '../api/common'
 import Test from '../components/Test.vue'
 
 
-@Component
+@Component({
+  components:({
+    Test
+  })
+})
 export default class Home extends Vue {
 
 
@@ -49,10 +56,14 @@ export default class Home extends Vue {
     console.log(res)
   }
 }
+
 </script>
 
 <style scoped lang="scss">
 .home {
+  .test {
+  border: 2px solid green;
+}
   border-radius: 1%;
   display: flex;
   width: 100%;
@@ -70,7 +81,4 @@ export default class Home extends Vue {
     font-size: 1rem;
   }
 }
-
-
-
 </style>
