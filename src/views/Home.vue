@@ -6,6 +6,7 @@
       <a-button>Enter</a-button>
     </div>
     <div class="word">{{data}}</div>
+    <div class="testcss"></div>
     <Test/>
   </div>
 
@@ -32,6 +33,20 @@ export default class Home extends Vue {
 
   private created(): void {
     this.getWord()
+  }
+
+  private fn = function() {
+    console.log("click")
+  }
+
+  private debounce = function(fn: any,delay: any) {
+    let timer = null as any
+    const x = function(){
+      clearTimeout(timer)
+      timer = setTimeout(fn,delay)
+    }
+    x()
+    
   }
 
 
@@ -61,9 +76,7 @@ export default class Home extends Vue {
 
 <style scoped lang="scss">
 .home {
-  .test {
-  border: 2px solid green;
-}
+
   border-radius: 1%;
   display: flex;
   width: 100%;

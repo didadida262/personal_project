@@ -86,6 +86,7 @@ Function.prototype.myBind = function() {
     //     const args = [...arguments]
     //     const parent = args[0]
     //     let child = Object.create(parent.prototype)
+    //     console.log(child)
     //     let res = parent.apply(child,args.slice(1))
     //     return typeof res === 'object'? res: child
     // }
@@ -334,3 +335,40 @@ Function.prototype.myBind = function() {
 // i = 1
 // getnum()
 // getnum()
+
+// 7.防抖截流
+    const debounce = function(fn,delay) {
+        let timer = null
+        return (function() {
+            clearTimeout(timer)
+            timer = setTimeout(fn,delay)
+        })()
+    }
+
+    const throttle = function(fn,delay) {
+        let timer = null
+        let flag = true
+        return (function(){
+            if(flag) {
+                timer = setTimeout(function(){
+                    fn(),
+                    flag = true
+                },delay)
+            }
+            flag = false
+        })()
+    }
+
+    // 8.sort的方法实现机制
+    // let arr = [3,4,2,13,5,6,2]
+    // arr.sort((a,b) => {
+    //     return a-b
+    // })
+    // console.log(arr)
+
+    // 9.map和reduce
+    let arr = [1,2,3,4]
+    let ne = arr.map(item => {
+        return item + 1
+    })
+    console.log(ne)

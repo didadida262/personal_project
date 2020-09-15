@@ -4,34 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>testHtml</title>
- 
+    <style>
+    *{
+    margin: 0;
+    padding: 0;
+    }
+    .box {
+        width: 100%;
+        border: 1px solid #000;
+        display: inline-block;
+    }
+    .info1 {
+        border: 1px solid red;
+        color: #222;
+        width: 100px;
+        float: left;
+    }    
+    .info2 {
+        border: 1px solid red;
+        color: #222;
+        width: 100px;
+        float: right;
+    }
+    .info3 {
+        border: 1px solid green;
+        color: #222;
+    }
+    </style>
 </head>
 
 <body>
-    <div>
-        测试
-    </div>    
+    <div class="box">
+        <div class="info1">left</div>
+        <div class="info2">mid</div>
+        <div class="info3">right</div>
+    </div> 
  
 
 </body>
 <script>
-    function A() {
-        this.n = 0
+    const debounce = function(fn,delay) {
+        let timer = null
+        return function() {
+            clearTimeout(timer)
+            timer = setTimeout(fn,delay)
+        }
+    }
+    const fn = function() {
+        console.log("click")
+    }
+    const throttle = function(fn,delay) {
+        let timer = null
+        let flag = true
+        return function(){
+            if(flag) {
+                timer = setTimeout(function(){
+                    fn(),
+                    flag = true
+                },delay)
+            }
+            flag = false
+        }
     }
 
-    A.prototype.callMe = function() {
-        console.log(this.n)
-    }
-    let a = new A()
-    console.log('a.callMe:',a.callMe)
-    console.log('a.callMe:',a.callMe())
-    // document.addEventListener("click",a.callMe)
-    // document.addEventListener('click',() => {
-    //     a.callMe()
-    // })
-    // document.addEventListener("click",function () {
-    //     a.callMe()
-    // })
+    // let target = document.getElementById("test")
+    
+    // target.addEventListener("click",throttle(fn,2000))
 
 </script>
 </html>
