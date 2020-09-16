@@ -5,6 +5,8 @@
 //     configurable: true
 // })
 
+
+
 // console.log('test:',test)
 
 // 1.this指向问题
@@ -21,42 +23,75 @@ let bob = {
 
 
 
+
+
+
 Function.prototype.myCall = function() {
+    // eslint-disable-next-line prefer-rest-params
     const args = [...arguments]
-    let target = args[0]
-    target._f_ = this
-    let res = target._f_(...args.slice(1))
-    delete target._f_
+    const target = args[0]
+    target._f = this
+    const res = target._f(...args.splice(1))
+    delete target._f
     return res
+    
 }
 
 Function.prototype.myApply = function() {
     const args = [...arguments]
     const target = args[0]
-    target._f_ = this
-    let res = target._f_(...args[1])
-    delete target._f_
+    target._f = this
+    const res = target._f(...args[1])
+    delete target._f
     return res
 }
-
 
 Function.prototype.myBind = function() {
     const args = [...arguments]
     const target = args[0]
-    target._f_ = this
-    let res = target._f_(...args.slice(1))
-    delete target._f_
+    target._f = this
+    const res = target._f(...args.splice(1))
+    delete target._f
     return function() {
         return res
     }
-
+    
 }
 
 
-// alex.sayHello.myCall(bob,26,1.65)
-// alex.sayHello.myApply(bob,[26,1.65])
-// alex.sayHello.myBind(bob,26,1.65)()
 
+// Function.prototype.myCall = function() {
+//     const args = [...arguments]
+//     let target = args[0]
+//     target._f_ = this
+//     let res = target._f_(...args.slice(1))
+//     delete target._f_
+//     return res
+// }
+
+// Function.prototype.myApply = function() {
+//     const args = [...arguments]
+//     const target = args[0]
+//     target._f_ = this
+//     let res = target._f_(...args[1])
+//     delete target._f_
+//     return res
+// }
+
+
+// Function.prototype.myBind = function() {
+//     const args = [...arguments]
+//     const target = args[0]
+//     target._f_ = this
+//     let res = target._f_(...args.slice(1))
+//     delete target._f_
+//     return function() {
+//         return res
+//     }
+// }
+alex.sayHello.myCall(bob,26,1.65)
+alex.sayHello.myApply(bob,[26,1.65])
+alex.sayHello.myBind(bob,26,1.65)
 
 // 2.快排js
 // const quickSort = function(nums) {
@@ -367,8 +402,8 @@ Function.prototype.myBind = function() {
     // console.log(arr)
 
     // 9.map和reduce
-    let arr = [1,2,3,4]
-    let ne = arr.map(item => {
-        return item + 1
-    })
-    console.log(ne)
+    // let arr = [1,2,3,4]
+    // let ne = arr.map(item => {
+    //     return item + 1
+    // })
+    // console.log(ne)
