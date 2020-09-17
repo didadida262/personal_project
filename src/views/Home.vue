@@ -1,13 +1,17 @@
 <template>
   <div class="home">
-    <h1>{{word}}</h1>
+
+    <!-- <h1>{{word}}</h1> -->
+
     <div class="logo"><img alt="Vue logo" src="../assets/logo.jpg" width="300" height="200"></div>
+
     <div class="btn" @click="toNewoWorld">
       <a-button>Enter</a-button>
     </div>
     <div class="word">{{data}}</div>
     <div class="testcss"></div>
     <Test/>
+
   </div>
 
 </template>
@@ -32,7 +36,38 @@ export default class Home extends Vue {
   private data: any = ""
 
   private created(): void {
-    this.getWord()
+    // this.getWord()
+    this.getImg('https://baike.baidu.com/pic/%E8%92%99%E5%A5%87%C2%B7D%C2%B7%E8%B7%AF%E9%A3%9E/726966/1/a8014c086e061d95f662155f76f40ad162d9cab5?fr=lemma&ct=single#aid=1&pic=a8014c086e061d95f662155f76f40ad162d9cab5')
+    console.log('kaiji')
+  }
+
+  private getImg = (url: any) => {
+    return new Promise((resolve,reject) => {
+        const xml = new XMLHttpRequest()
+        xml.onreadystatechange = function() {
+          if(xml.readyState == 4 && xml.status === 200) {
+            resolve(xml.responseText)
+          }
+        }
+        xml.open('GET','http://127.0.0.1:5000/word')
+        xml.send()
+      })
+        .then((res) => {
+          console.log("res")
+        })
+        .catch(err => {
+          console.log('err')
+        })
+        
+
+    // const xml = new XMLHttpRequest()
+    // xml.onreadystatechange = function(){
+    //   if(xml.readyState === 4 && xml.status === 200) {
+    //     console.log('获取图片数据：',xml.responseText)
+    //   }
+    // }
+    // xml.open('Get','http://127.0.0.1:5000/word',true)
+    // xml.send()
   }
 
   private fn = function() {
@@ -52,13 +87,13 @@ export default class Home extends Vue {
 
 
   private getWord(): void {
-    commonAPI.getWorld()
-    .then((res: any) => {
-      this.data = res.data.data
-    })
-    .catch((err: any) => {
-      console.log(err)
-    })
+    // commonAPI.getWorld()
+    // .then((res: any) => {
+    //   this.data = res.data.data
+    // })
+    // .catch((err: any) => {
+    //   console.log(err)
+    // })
   }
 
 

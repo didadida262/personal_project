@@ -97,17 +97,7 @@
 
 
 
-// 5.类型相关的坑
-// typeof 可以返回除null和array的所有类型紫的字符串结果
-// console.log(typeof "123")
-// console.log(typeof 123)
-// console.log(typeof [1,2,3,4])
-// console.log(typeof undefined)
-// console.log(typeof null)
-// console.log(typeof Symbol(112))
-// console.log(typeof function(){})
-// console.log(typeof {})
-// console.log(typeof true)
+
 
 // 6. 作用域相关--被一图科技搞死
     // 1）
@@ -118,7 +108,7 @@
     // var a = 1;
     // console.log(a);
 
-    // // part2--这尼玛考察啥？
+    // // part2--这尼玛考察啥？---还是考察变凉提升
     // var foo = 1;
     // console.log(foo); 
     // function foo() {};
@@ -146,9 +136,6 @@
     //     }
     //     return f;
     // }
-    // checkscope()();
-    // let test = checkscope()
-    // console.log('test:',test())
     // let res = checkscope()()
     // console.log('res:',res)
 
@@ -177,25 +164,26 @@
     // obj2.foo()()
 
     // 7.事件循环
-    async function async1() {
-        console.log("async1 start");
-        await async2();
-        console.log("async1 end");
-        setTimeout(() => {
-          console.log('timer1')
-        }, 0)
-      }
-    async function async2() {
-        setTimeout(() => {
-          console.log('timer2')
-        }, 0)
-        console.log("async2");
-      }
-    async1();
-    setTimeout(() => {
-    console.log('timer3')
-    }, 0)
-    console.log("start")
+    // 很神奇，只能勉强解释
+    // async function async1() {
+    //     console.log("async1 start");
+    //     await async2();
+    //     console.log("async1 end");
+    //     setTimeout(() => {
+    //       console.log('timer1')
+    //     }, 0)
+    //   }
+    // async function async2() {
+    //     setTimeout(() => {
+    //       console.log('timer2')
+    //     }, 0)
+    //     console.log("async2");
+    //   }
+    // async1();
+    // setTimeout(() => {
+    // console.log('timer3')
+    // }, 0)
+    // console.log("start")
 
     // 8.worker--创建独立于主线成的线程--啥啥啥？都特么是啥玩意儿
     // var i = 0, count = 0; 

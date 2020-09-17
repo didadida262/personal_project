@@ -1,7 +1,8 @@
 <template>
   <div class="test">
-    <a-button @click="handleData">改变数据</a-button>
-    <a-input placeholder="Basic usage" v-model="inputData"/>
+    <div class="info1">1</div>
+    <div class="info2">2</div>
+
   </div>
 </template>
 
@@ -48,5 +49,18 @@ export default class Test extends Vue {
 <style scoped lang="scss">
 .test {
   border: 1px solid red;
+  height: 522px;
+  width: 100%;
+  display: inline-block;
+  .info1 {
+    width: 100px;
+    background-color: red;
+    height: 100px;
+    float: left;
+  }
+  .info2 {
+    background-color: green;
+    height: 100px;
+  }
 }
 </style>

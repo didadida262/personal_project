@@ -10,16 +10,25 @@
 // console.log('test:',test)
 
 // 1.this指向问题
-let alex = {
-    name: 'alex',
-    sayHello: function(age,tall) {
-        console.log('i am ' + this.name + ',this year i am ' + age + ' years old... and i am ' + tall + ' m')
-    }
-}
+// let alex = {
+//     name: 'alex',
+//     sayHello: function(age,tall) {
+//         console.log('i am ' + this.name + ',this year i am ' + age + ' years old... and i am ' + tall + ' m')
+//     },
+//     test: function(){
+//         console.log("this:",this)
+//     },
+//     test2: () => {
+//         console.log("this:",this)
+//     }
+// }
+// // alex.test()
+// // alex.test2()
 
-let bob = {
-    name: 'bob',
-}
+// let bob = {
+//     name: 'bob',
+// }
+
 
 
 
@@ -31,35 +40,30 @@ Function.prototype.myCall = function() {
     const args = [...arguments]
     const target = args[0]
     target._f = this
-    const res = target._f(...args.splice(1))
+    target._f(...args.splice(1))
     delete target._f
-    return res
-    
 }
 
 Function.prototype.myApply = function() {
     const args = [...arguments]
     const target = args[0]
     target._f = this
-    const res = target._f(...args[1])
+    target._f(...args[1])
     delete target._f
-    return res
 }
 
 Function.prototype.myBind = function() {
     const args = [...arguments]
     const target = args[0]
     target._f = this
-    const res = target._f(...args.splice(1))
-    delete target._f
-    return function() {
-        return res
+    return () => {
+        target._f(...args.slice(1))
+        delete target._f
     }
-    
 }
+// 上述代码，堪称完美
 
-
-
+// ----------------------错误写法 为什么要有return呢你大爷的
 // Function.prototype.myCall = function() {
 //     const args = [...arguments]
 //     let target = args[0]
@@ -89,9 +93,78 @@ Function.prototype.myBind = function() {
 //         return res
 //     }
 // }
-alex.sayHello.myCall(bob,26,1.65)
-alex.sayHello.myApply(bob,[26,1.65])
-alex.sayHello.myBind(bob,26,1.65)
+// ------------------------------------------
+
+
+
+// alex.sayHello.myCall(bob,26,1.65)
+// alex.sayHello.myApply(bob,[26,1.65])
+// alex.sayHello.myBind(bob,26,1.65)()
+
+// 习题轰炸
+// 1). 默认绑定
+    // function a(){
+    //     var user = '剃了胡子';
+    //     console.log(this.user);    // undefined
+    //     console.log(this);    // window
+    //     }
+    // a();    // 这里相当于 window.a();
+    // this 最终指向的是调用它的对象，这里的函数a实际是被 window 对象所点出来的
+
+    // var o = {
+    //         a: 10,
+    //         b: {
+    //             a: 12,
+    //             fn: function(){
+    //                 console.log(this.a);    // undefined
+    //                 console.log(this);    // window
+    //             }
+    //         }
+    //     }
+    //     var j = o.b.fn;
+    //     j();
+
+// 2). 隐士绑定
+    // var a = {
+    //     user: '剃了胡子',
+    //     fn: function(){
+    //         console.log(this.user);    // 剃了胡子
+    //         console.log(this);    // {user: '剃了胡子', fn:  ƒ}
+    //     }
+    // }
+
+    // a.fn();    // this 执行时被它的上一级对象 o{user: "剃了胡子", fn: ƒ} 调用
+
+// 3). 当this遇到return，这里其实可以考察对new的理解
+    // function fn(){
+    //     this.user = '剃了胡子';
+    //     return {};
+    // }
+    // const fn2 = function() {
+    //     this.user = "nima"
+    //     return {}
+    // }
+
+    // let a = new fn();
+    // console.log("a:",a.user);    // undefined,因为return了一个空对象
+
+    // function fn(){
+    //     this.user = '剃了胡子';
+    //     return function() {};
+    // }
+    // var a = new fn;
+    // console.log(a.user);    // undefined
+
+    // function fn(){
+    //     this.user = '剃了胡子';
+    //     return 1
+    // }
+    // var a = new fn;
+    // console.log(a.user);    // 剃了胡子，因为1是数字不是对象类型
+    // function fn() { this.user = '剃了胡子'; return undefined; } var a = new fn; console.log(a.user); //剃了胡子
+    // function fn() { this.user = '剃了胡子'; return null; } var a = new fn; console.log(a.user); //剃了胡子，null比较特殊
+
+ 
 
 // 2.快排js
 // const quickSort = function(nums) {
@@ -158,17 +231,18 @@ alex.sayHello.myBind(bob,26,1.65)
     // const promise = new Promise((resolve, reject) => {
     //     setTimeout(() => {
     //       resolve('success')
+    //       console.log('sss')
     //     }, 1000)
     //   })
-    //   console.log(promise)
-    //   promise
-    //     .then(() => {
-    //       console.log(promise)
-    //       throw new Error('error!!!')
-    //     })
-    //     .catch(err => {
-    //       console.log(err)
-    //     })    
+    // console.log(promise)
+    // promise
+    // .then(() => {
+    //     console.log(promise)
+    //     throw new Error('error!!!')
+    // })
+    // .catch(err => {
+    //     console.log(err)
+    // })    
     
     // 3).new promise时的回调函数只执行第一次的resolve或者reject
     // const promise = new Promise((resolve, reject) => {
@@ -207,16 +281,16 @@ alex.sayHello.myBind(bob,26,1.65)
     //     }, 1000)
     //   })
       
-    //   const start = Date.now()
-    //   console.log('start:',start)
-    //   promise.then((res) => {
+    // const start = Date.now()
+    // console.log('start:',start)
+    // promise.then((res) => {
     //     console.log('now1:',Date.now())
     //     console.log(res, Date.now() - start)
-    //   })
-    //   promise.then((res) => {
+    // })
+    // promise.then((res) => {
     //     console.log('now2:',Date.now())
     //     console.log(res, Date.now() - start)
-    //   })
+    // })
 
     // 6). return刨除错误并不会捕获catch还是走的then
     // Promise.resolve()
@@ -234,7 +308,7 @@ alex.sayHello.myBind(bob,26,1.65)
 
     // const promise = Promise.resolve()
     //     .then(() => {
-    //     return promise
+    //         return promise
     //     })
     // promise.catch(console.error)    
 
@@ -266,7 +340,7 @@ alex.sayHello.myBind(bob,26,1.65)
     //     console.log('then')
     // })
     // setImmediate(() => {
-    // console.log('setImmediate')
+    //     console.log('setImmediate')
     // })
     // console.log('end')
 
@@ -292,35 +366,38 @@ alex.sayHello.myBind(bob,26,1.65)
     //             .catch(err => {
     //                 return 'err'
     //             })
-    //         })
+    //         }) 
+    //     })
+    // }
+    // let promise = new Promise((resolve,reject) => {
+    //     resolve()
+    // })
+    // promise.then(() => {
+    //       console.log("succ")
+    //   })
+    //   .catch(() => {
+    //       console.log('fail')
+    //   })
+
+
+    // const promiseAll = function(arr) {
+    //     return new Promise((resolve,reject) => {
+    //         let n = 0
+    //         let resolveArr = []
+    //         for(let i=0;i < arr.length;i++) {
+    //             arr[i]
+    //               .then(() => {
+    //                     n++
+    //                     resolvedArr.push(res)
+    //                     if(n === arr.length) resolve(resolvedArr)
+    //               })
+    //               .catch((err) => {
+    //                   reject(err)
+    //               })
+    //         }
     //     })
     // }
 
-
-    // function all(promises) {
-    //     let len = promises.length, res = []
-    //     if (len) {
-    //         return new Promise(function (resolve, reject) {
-                
-    //             for(let i=0; i<len; i++) {
-    //                 let promise = promises[i];
-    //                 promise.then(response => {
-    //                     res[i] = response
-    
-    //                     // 当返回结果为最后一个时
-    //                     if (res.length === len) {
-    //                         resolve(res)
-    //                     }
-                        
-    //                 }, error => {
-    //                     reject(error)
-    //                 })
-        
-    //             }
-    //         })
-    //     }
-    // }
-    
     // test
     // let p1 = new Promise(function (resolve, reject) {
     //         resolve(1)
@@ -372,27 +449,27 @@ alex.sayHello.myBind(bob,26,1.65)
 // getnum()
 
 // 7.防抖截流
-    const debounce = function(fn,delay) {
-        let timer = null
-        return (function() {
-            clearTimeout(timer)
-            timer = setTimeout(fn,delay)
-        })()
-    }
+    // const debounce = function(fn,delay) {
+    //     let timer = null
+    //     return (function() {
+    //         clearTimeout(timer)
+    //         timer = setTimeout(fn,delay)
+    //     })()
+    // }
 
-    const throttle = function(fn,delay) {
-        let timer = null
-        let flag = true
-        return (function(){
-            if(flag) {
-                timer = setTimeout(function(){
-                    fn(),
-                    flag = true
-                },delay)
-            }
-            flag = false
-        })()
-    }
+    // const throttle = function(fn,delay) {
+    //     let timer = null
+    //     let flag = true
+    //     return (function(){
+    //         if(flag) {
+    //             timer = setTimeout(function(){
+    //                 fn(),
+    //                 flag = true
+    //             },delay)
+    //         }
+    //         flag = false
+    //     })()
+    // }
 
     // 8.sort的方法实现机制
     // let arr = [3,4,2,13,5,6,2]
@@ -407,3 +484,16 @@ alex.sayHello.myBind(bob,26,1.65)
     //     return item + 1
     // })
     // console.log(ne)
+
+
+// 10.类型相关的坑
+// typeof 可以返回除null和array的所有类型紫的字符串结果
+// console.log(typeof "123")
+// console.log(typeof 123)
+// console.log(typeof [1,2,3,4])
+// console.log(typeof undefined)
+// console.log(typeof null)
+// console.log(typeof Symbol(112))
+// console.log(typeof function(){})
+// console.log(typeof {})
+// console.log(typeof true)
