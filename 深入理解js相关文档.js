@@ -422,16 +422,77 @@ Function.prototype.myBind = function() {
 
 // 5. 宏任务和微任务
     // 1) 定时器是个典型的宏任务，promise是微任务
-// setTimeout(_ => console.log(4))
+        // setTimeout(_ => console.log(4))
 
-// new Promise(resolve => {
-//   resolve()
-//   console.log(1)
-// }).then(_ => {
-//   console.log(3)
-// })
+        // new Promise(resolve => {
+        //   resolve()
+        //   console.log(1)
+        // }).then(_ => {
+        //   console.log(3)
+        // })
 
-// console.log(2)
+        // console.log(2)
+
+        // 2).就是说，并不是要等promise包含的语句快全部执行完毕才继续，依旧是循环
+        // console.log(1)
+        
+        // setTimeout(() => {
+        // console.log(2);
+        // Promise.resolve().then(() => {
+        // console.log(3)
+        // });
+        // }, 0);
+        
+        // new Promise((resolve) => {
+        // console.log(4);
+        // resolve();
+        // }).then(() => {
+        // console.log(5);
+        // setTimeout(() => console.log(6), 0)
+        // });
+        
+        // console.log(7);
+
+        // 3).惭愧啊，下面代码给了我如何每隔一秒发送一个请求的解决方案
+        // const syncFunc = () => {
+        //     const time = new Date().getTime();
+        //     while(true) {
+        //       if(new Date().getTime() - time > 2000) {
+        //         break;
+        //       }
+        //     }
+        //     console.log(2);
+        //   }
+          
+        //   console.log(1);
+        //   syncFunc();
+        //   console.log(3);
+
+        // 4).
+        // console.log('outer');
+
+        // setTimeout(() => {
+        //   setTimeout(() => {
+        //     console.log('setTimeout');
+        //   }, 0);
+        //   setImmediate(() => {
+        //     console.log('setImmediate');
+        //   });
+        // }, 0);
+
+        // console.log('outer');
+// -------------------
+        setTimeout(() => {
+        console.log('setTimeout');
+        }, 0);
+
+        setImmediate(() => {
+        console.log('setImmediate');
+        });
+
+        
+          
+          
 
 // 6. 闭包--彻底理解
 // function outer() {
