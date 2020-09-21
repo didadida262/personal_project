@@ -5,8 +5,6 @@
 //     configurable: true
 // })
 
-
-
 // console.log('test:',test)
 
 // 1.this指向问题
@@ -30,71 +28,29 @@
 // }
 
 
-
-
-
-
-
-Function.prototype.myCall = function() {
-    // eslint-disable-next-line prefer-rest-params
-    const args = [...arguments]
-    const target = args[0]
-    target._f = this
-    target._f(...args.splice(1))
-    delete target._f
-}
-
-Function.prototype.myApply = function() {
-    const args = [...arguments]
-    const target = args[0]
-    target._f = this
-    target._f(...args[1])
-    delete target._f
-}
-
-Function.prototype.myBind = function() {
-    const args = [...arguments]
-    const target = args[0]
-    target._f = this
-    return () => {
-        target._f(...args.slice(1))
-        delete target._f
-    }
-}
-// 上述代码，堪称完美
-
-// ----------------------错误写法 为什么要有return呢你大爷的
-// Function.prototype.myCall = function() {
-//     const args = [...arguments]
-//     let target = args[0]
-//     target._f_ = this
-//     let res = target._f_(...args.slice(1))
-//     delete target._f_
-//     return res
+// Function.prototype.myCall = function(...args) {
+//     const target = args[0]
+//     target._f = this
+//     target._f(...args.slice(1))
+//     delete target._f
 // }
 
-// Function.prototype.myApply = function() {
-//     const args = [...arguments]
+// Function.prototype.myApply = function(...args) {
 //     const target = args[0]
-//     target._f_ = this
-//     let res = target._f_(...args[1])
-//     delete target._f_
-//     return res
+//     target._f = this
+//     target._f(...args[1])
+//     delete target._f
 // }
 
-
-// Function.prototype.myBind = function() {
-//     const args = [...arguments]
+// Function.prototype.myBind = function(...args) {
 //     const target = args[0]
-//     target._f_ = this
-//     let res = target._f_(...args.slice(1))
-//     delete target._f_
-//     return function() {
-//         return res
+//     target._f = this
+//     return () => {
+//         target._f(...args.slice(1))
+//         delete target._f
 //     }
 // }
-// ------------------------------------------
-
+// // 上述代码，堪称完美
 
 
 // alex.sayHello.myCall(bob,26,1.65)
@@ -104,41 +60,41 @@ Function.prototype.myBind = function() {
 // 习题轰炸
 // 1). 默认绑定
     // function a(){
-    //     var user = '剃了胡子';
-    //     console.log(this.user);    // undefined
-    //     console.log(this);    // window
-    //     }
-    // a();    // 这里相当于 window.a();
+    //     const user = '剃了胡子';
+    //     console.log(this.user); // undefined
+    //     console.log(this); // window
+    // }
+    // a(); // 这里相当于 window.a();
     // this 最终指向的是调用它的对象，这里的函数a实际是被 window 对象所点出来的
 
-    // var o = {
-    //         a: 10,
-    //         b: {
-    //             a: 12,
-    //             fn: function(){
-    //                 console.log(this.a);    // undefined
-    //                 console.log(this);    // window
-    //             }
-    //         }
+    // const o = {
+    //     a: 10,
+    //     b: {
+    //         a: 12,
+    //         fn: function(){
+    //             console.log(this.a); // undefined
+    //             console.log(this); // window
+    //         }
     //     }
-    //     var j = o.b.fn;
-    //     j();
+    // }
+    // const j = o.b.fn;
+    // j();
 
-// 2). 隐士绑定
-    // var a = {
-    //     user: '剃了胡子',
-    //     fn: function(){
-    //         console.log(this.user);    // 剃了胡子
-    //         console.log(this);    // {user: '剃了胡子', fn:  ƒ}
-    //     }
+// 2). 隐式绑定
+    // const a = {
+    //     user: '剃了胡子',
+    //     fn: function(){
+    //         console.log(this.user);// 剃了胡子
+    //         console.log(this);// {user: '剃了胡子', fn: ƒ}
+    //     }
     // }
 
-    // a.fn();    // this 执行时被它的上一级对象 o{user: "剃了胡子", fn: ƒ} 调用
+    // a.fn();//this 执行时被它的上一级对象 o{user: "剃了胡子", fn: ƒ} 调用
 
 // 3). 当this遇到return，这里其实可以考察对new的理解
     // function fn(){
-    //     this.user = '剃了胡子';
-    //     return {};
+    //     this.user = '剃了胡子';
+    //     return {};
     // }
     // const fn2 = function() {
     //     this.user = "nima"
@@ -146,23 +102,37 @@ Function.prototype.myBind = function() {
     // }
 
     // let a = new fn();
-    // console.log("a:",a.user);    // undefined,因为return了一个空对象
+    // console.log("a:",a.user);// undefined,因为return了一个空对象
 
     // function fn(){
-    //     this.user = '剃了胡子';
-    //     return function() {};
+    //     this.user = '剃了胡子';
+    //     return function() {
+
+    //     }
     // }
-    // var a = new fn;
-    // console.log(a.user);    // undefined
+    // const a = new fn;
+    // console.log(a.user);// undefined
 
     // function fn(){
-    //     this.user = '剃了胡子';
-    //     return 1
+    //     this.user = '剃了胡子';
+    //     return 1
     // }
     // var a = new fn;
-    // console.log(a.user);    // 剃了胡子，因为1是数字不是对象类型
-    // function fn() { this.user = '剃了胡子'; return undefined; } var a = new fn; console.log(a.user); //剃了胡子
-    // function fn() { this.user = '剃了胡子'; return null; } var a = new fn; console.log(a.user); //剃了胡子，null比较特殊
+    // console.log(a.user); // 剃了胡子，因为1是数字不是对象类型，防不胜防啊
+    
+    // function fn() { 
+    //     this.user = '剃了胡子'; 
+    //     return undefined; 
+    // } 
+    // var a = new fn; 
+    // console.log(a.user); //剃了胡子
+
+    // function fn() { 
+    //     this.user = '剃了胡子'; 
+    //     return null; 
+    // } 
+    // var a = new fn; 
+    // console.log(a.user); //剃了胡子，null比较特殊
 
  
 
@@ -482,13 +452,13 @@ Function.prototype.myBind = function() {
 
         // console.log('outer');
 // -------------------
-        setTimeout(() => {
-        console.log('setTimeout');
-        }, 0);
+        // setTimeout(() => {
+        // console.log('setTimeout');
+        // }, 0);
 
-        setImmediate(() => {
-        console.log('setImmediate');
-        });
+        // setImmediate(() => {
+        // console.log('setImmediate');
+        // });
 
         
           
