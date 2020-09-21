@@ -67,3 +67,15 @@
     const f = (arr1,arr2) => {
         
     }
+
+    // 4.快排js
+    // const quickSort = function(nums) {
+    //     if(nums.length == 0 || nums.length == 1)  return nums
+    //     let pivot = nums[0]
+    //     let left = nums.slice(1).filter(item => item < pivot)
+    //     let right = nums.slice(1).filter(item => item >= pivot)
+    //     return quickSort(left).concat(pivot).concat(quickSort(right))
+    // }
+
+    // let arr = [5,2,7,8,4]
+    // console.log(quickSort(arr))
