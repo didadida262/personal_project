@@ -134,7 +134,7 @@
     // var a = new fn; 
     // console.log(a.user); //剃了胡子，null比较特殊
 
- 
+//  ======================================================================
 
 // 2.new 一个对象发生了啥,prototype指向原型对象
     // 1) 创建一个空对象
@@ -503,7 +503,7 @@
     // })
     // console.log(ne)
 
-
+// =================================================================
 // 10.类型相关的坑
 // typeof 可以返回除null和array的所有类型紫的字符串结果
 // console.log(typeof "123")
@@ -518,15 +518,20 @@
 
 // instance 判断一个变量是否是另一个变量的实例
 
-// constructor,null和undefined十五小对象，不存在constructor,可以用来判断数组
+// constructor,null和undefined symbol不存在constructor,可以用来判断数组
     // const a = []
     // console.log(a.constructor === Number)
     // console.log(a.constructor === String)
     // console.log(a.constructor === Boolean)
-    // console.log(a.constructor === symbol)
+    // // console.log(a.constructor === symbol)
     // console.log(a.constructor === Object)
     // console.log(a.constructor === Function)
     // console.log(a.constructor === Array)
 
     // Object.prototype.toString.call()，最保险
-    console.log('Object.prototype.toString.call',Object.prototype.toString.call(''))
+    // console.log('Object.prototype.toString.call',Object.prototype.toString.call(''))
+
+
+const arr = [1,2,3,4,5]
+let res = arr.reduce((a,b) => a+b)
+console.log(res)
