@@ -268,4 +268,9 @@
 
     // 10.给定一个范围，返回区间内的随机数
         // 1) Math.random() 生成0-1之间的随机数，不包括1
-        
+    
+
+
+
+const arr = [1,2,3,4]
+console.log(Math.max(arr))
