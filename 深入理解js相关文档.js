@@ -532,6 +532,9 @@
     // console.log('Object.prototype.toString.call',Object.prototype.toString.call(''))
 
 
-const arr = [1,2,3,4,5]
-let res = arr.reduce((a,b) => a+b)
-console.log(res)
+// const arr = [1,2,3,4,5]
+// let res = arr.reduce((a,b) => a+b)
+// console.log(res)
+
+console.log("a:",a)
+const a = 2

@@ -41,21 +41,39 @@
 // };
 
 // 2. 树的遍历--非递归版本
-// 先序
+// 先序---先塞又儿子，再塞做儿子，保证根左右的遍历，精彩
 // var inorderTraversal = function(root) {
 //     if(!root) return []
+//     let stack = []
 //     let res = []
-//     let nodelist = []
-//     nodelist.push(root)
-//     while(nodelist.length > 0) {
-//         let node = nodelist.pop()
+//     stack.push(root)
+//     while(stack.length) {
+//         let node = stack.pop()
 //         res.push(node.val)
-//         if(node.left) nodelist.push(node.left)
-//         if(node.right) nodelist.push(node.right)
+//         node.right && stack.push(node.right)
+//         node.left && stack.push(node.left)
 //     }
 //     return res
-
 // };
+
+// 中序遍历：
+
+const midSort = (root) => {
+    if(!root) return []
+    let res = []
+    let stack = []
+    while(root || stack.length) {
+        while(root) {
+            stack.push(root)
+            root = root.left
+        }
+        root = stack.pop()
+        res.push(root.val)
+        stack.push(root.right)
+    }
+    return res    
+}
+
 
 // 3. 
 //     输入：
