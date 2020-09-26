@@ -58,21 +58,21 @@
 
 // 中序遍历：
 
-const midSort = (root) => {
-    if(!root) return []
-    let res = []
-    let stack = []
-    while(root || stack.length) {
-        while(root) {
-            stack.push(root)
-            root = root.left
-        }
-        root = stack.pop()
-        res.push(root.val)
-        stack.push(root.right)
-    }
-    return res    
-}
+// const midSort = (root) => {
+//     if(!root) return []
+//     let res = []
+//     let stack = []
+//     while(root || stack.length) {
+//         while(root) {
+//             stack.push(root)
+//             root = root.left
+//         }
+//         root = stack.pop()
+//         res.push(root.val)
+//         stack.push(root.right)
+//     }
+//     return res    
+// }
 
 
 // 3. 
@@ -82,9 +82,9 @@ const midSort = (root) => {
     // 输出：3
     // 解释：
     // 长度最长的公共子数组是 [3, 2, 1] 。
-    const f = (arr1,arr2) => {
+    // const f = (arr1,arr2) => {
         
-    }
+    // }
 
     // 4.快排js
     // const quickSort = function(nums) {

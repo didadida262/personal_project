@@ -10,8 +10,8 @@
     </div>
     <div class="word">{{data}}</div>
     <div class="testcss"></div>
+    <a-button @click="throttle(fn,1000)">test_d</a-button>
     <Test/>
-
   </div>
 
 </template>
@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { commonAPI } from '../api/common'
+// import { commonAPI } from '../api/common'
 import Test from '../components/Test.vue'
 
 
@@ -32,9 +32,10 @@ import Test from '../components/Test.vue'
 export default class Home extends Vue {
 
 
-  private word: any = ""
-  private data: any = ""
-
+  private word = ""
+  private data = ""
+  timer = null as any
+  flag = true
   private created(): void {
     // this.getWord()
     this.getImg('https://baike.baidu.com/pic/%E8%92%99%E5%A5%87%C2%B7D%C2%B7%E8%B7%AF%E9%A3%9E/726966/1/a8014c086e061d95f662155f76f40ad162d9cab5?fr=lemma&ct=single#aid=1&pic=a8014c086e061d95f662155f76f40ad162d9cab5')
@@ -74,14 +75,20 @@ export default class Home extends Vue {
     console.log("click")
   }
 
-  private debounce = function(fn: any,delay: any) {
-    let timer = null as any
-    const x = function(){
-      clearTimeout(timer)
-      timer = setTimeout(fn,delay)
+  private debounce = (fn: any,delay: any) => {
+      clearTimeout(this.timer)
+      this.timer = setTimeout(fn,delay)
+  }
+
+
+  private throttle = (fn: any, delay: any) => {
+    if(this.flag) {
+      this.flag = false
+      this.timer = setTimeout(() => {
+        fn()
+        this.flag = true
+      }, delay)
     }
-    x()
-    
   }
 
 

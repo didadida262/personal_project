@@ -5,6 +5,7 @@
 //     configurable: true
 // })
 
+
 // console.log('test:',test)
 
 // 1.this指向问题
@@ -167,6 +168,8 @@
 
 // 4.promise
 
+
+
     // 1).new promise时是同步执行回调函数，.then是异步的
     // const promise  = new Promise((resolve,reject) => {
     //     console.log(1)
@@ -198,7 +201,7 @@
     //     throw new Error('error!!!')
     // })
     // .catch(err => {
-    //     console.log(err)
+    //     console.log('err')
     // })    
     
     // 3).new promise时的回调函数只执行第一次的resolve或者reject
@@ -230,26 +233,22 @@
     //   console.log(res)
     // })
 
-    // 5). 
-    // const promise = new Promise((resolve, reject) => {
-    //     setTimeout(() => {
-    //       console.log('once')
-    //       resolve('success')
-    //     }, 1000)
-    //   })
-      
-    // const start = Date.now()
-    // console.log('start:',start)
-    // promise.then((res) => {
-    //     console.log('now1:',Date.now())
-    //     console.log(res, Date.now() - start)
-    // })
-    // promise.then((res) => {
-    //     console.log('now2:',Date.now())
-    //     console.log(res, Date.now() - start)
-    // })
+// 拓展:每秒钟发出一个ajax请求
+// let c = 0
+// const send = function(){
+//     const m =setInterval(function() {
+//         c++
+//         console.log("hahah")
+//         if(c>10) clearInterval(m)
 
-    // 6). return刨除错误并不会捕获catch还是走的then
+//     },2000)
+// }
+// send()
+
+
+
+
+// 5). return抛出错误并不会捕获catch还是走的then
     // Promise.resolve()
     // .then(() => {
     //   return new Error('error!!!')
@@ -275,6 +274,7 @@
     // .then(2)
     // .then(Promise.resolve(3))
     // .then(console.log)
+
 
     // 9). 骚气的写法
 
@@ -321,93 +321,59 @@
     //                 if(len === arr.length) resolve(resolveArr)      
     //             })
     //             .catch(err => {
-    //                 return 'err'
+    //                 reject(err)
     //             })
     //         }) 
     //     })
     // }
-    // let promise = new Promise((resolve,reject) => {
-    //     resolve()
-    // })
-    // promise.then(() => {
-    //       console.log("succ")
-    //   })
-    //   .catch(() => {
-    //       console.log('fail')
-    //   })
 
 
-    // const promiseAll = function(arr) {
+    // const promiserace = function(arr) {
     //     return new Promise((resolve,reject) => {
     //         let n = 0
-    //         let resolveArr = []
-    //         for(let i=0;i < arr.length;i++) {
-    //             arr[i]
-    //               .then(() => {
-    //                     n++
-    //                     resolvedArr.push(res)
-    //                     if(n === arr.length) resolve(resolvedArr)
+    //         arr.foreach(promise => {
+    //             promise
+    //               then(res => {
+    //                   resolve(res)
     //               })
-    //               .catch((err) => {
-    //                   reject(err)
+    //               .catch(err => {
+    //                   n++
+    //                   if(n === arr.length) reject(err)
     //               })
-    //         }
+    //         })
+            
     //     })
     // }
-
-    // test
-    // let p1 = new Promise(function (resolve, reject) {
-    //         resolve(1)
-    //         // reject(new Error('error 1'))
-    // })
-    
-    // let p2 = new Promise(function (resolve, reject) {
-    //         resolve(2)
-    // })
-    
-    // let p3 = new Promise(function (resolve, reject) {
-    //         resolve(3)
-    // })
-    
-    // promiseAll([p1, p2, p3]).then(res => {
-    //     console.log(res) // [1, 2, 3]
-    // }).catch(console.log)
-
-    // 12) 每隔一段时间同时向服务器发送多个请求
-
 
 
 // 5. 宏任务和微任务
     // 1) 定时器是个典型的宏任务，promise是微任务
-        // setTimeout(_ => console.log(4))
-
+        // setTimeout(() => console.log(4))
         // new Promise(resolve => {
         //   resolve()
         //   console.log(1)
         // }).then(_ => {
         //   console.log(3)
         // })
-
         // console.log(2)
 
-        // 2).就是说，并不是要等promise包含的语句快全部执行完毕才继续，依旧是循环
+        // 2).就是说，并不是要等promise包含的语句快全部执行完毕才继续，依旧是循环---不知道说的啥。。。。
         // console.log(1)
-        
         // setTimeout(() => {
-        // console.log(2);
-        // Promise.resolve().then(() => {
-        // console.log(3)
-        // });
+        //     console.log(2);
+        //     Promise.resolve().then(() => {
+        //        console.log(3)
+        //     });
         // }, 0);
         
         // new Promise((resolve) => {
-        // console.log(4);
-        // resolve();
-        // }).then(() => {
-        // console.log(5);
-        // setTimeout(() => console.log(6), 0)
+        //     console.log(4);
+        //     resolve();
+        // })
+        // .then(() => {
+        //     console.log(5);
+        //     setTimeout(() => console.log(6), 0)
         // });
-        
         // console.log(7);
 
         // 3).惭愧啊，下面代码给了我如何每隔一秒发送一个请求的解决方案
@@ -420,24 +386,23 @@
         //     }
         //     console.log(2);
         //   }
-          
         //   console.log(1);
         //   syncFunc();
         //   console.log(3);
 
         // 4).
-        // console.log('outer');
+        console.log('outer');
+        setTimeout(() => {
+          setTimeout(() => {
+            console.log('setTimeout');
+          }, 0);
+          setImmediate(() => {
+            console.log('setImmediate');
+          });
+        }, 0);
 
-        // setTimeout(() => {
-        //   setTimeout(() => {
-        //     console.log('setTimeout');
-        //   }, 0);
-        //   setImmediate(() => {
-        //     console.log('setImmediate');
-        //   });
-        // }, 0);
-
-        // console.log('outer');
+        console.log('outer');
+        
 // -------------------
         // setTimeout(() => {
         // console.log('setTimeout');
@@ -452,19 +417,19 @@
           
 
 // 6. 闭包--彻底理解
-function outer() {
-    var i = 1
-    return function() {
-        console.log(i++)
-    }
-}
-let getnum = outer()
-console.log(getnum)
-getnum()
-getnum()
-i = 1
-getnum()
-getnum()
+// function outer() {
+//     var i = 1
+//     return function() {
+//         console.log(i++)
+//     }
+// }
+// let getnum = outer()
+// console.log(getnum)
+// getnum()
+// getnum()
+// i = 1
+// getnum()
+// getnum()
 
 // 7.防抖截流
     // const debounce = function(fn,delay) {
@@ -488,6 +453,24 @@ getnum()
     //         flag = false
     //     })()
     // }
+
+    // private debounce = (fn: any,delay: any) => {
+    //     clearTimeout(this.timer)
+    //     this.timer = setTimeout(fn,delay)
+    // }
+  
+  
+    // private throttle = (fn: any, delay: any) => {
+    //   if(this.flag) {
+    //     this.flag = false
+    //     this.timer = setTimeout(() => {
+    //       fn()
+    //       this.flag = true
+    //     }, delay)
+    //   }
+    // }
+
+
 
     // 8.sort的方法实现机制
     // let arr = [3,4,2,13,5,6,2]
@@ -576,5 +559,3 @@ getnum()
 // let res = arr.reduce((a,b) => a+b)
 // console.log(res)
 
-console.log("a:",a)
-const a = 2
