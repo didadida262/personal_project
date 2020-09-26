@@ -452,19 +452,19 @@
           
 
 // 6. 闭包--彻底理解
-// function outer() {
-//     var i = 1
-//     return function() {
-//         console.log(i++)
-//     }
-// }
-// let getnum = outer()
-// console.log(getnum)
-// getnum()
-// getnum()
-// i = 1
-// getnum()
-// getnum()
+function outer() {
+    var i = 1
+    return function() {
+        console.log(i++)
+    }
+}
+let getnum = outer()
+console.log(getnum)
+getnum()
+getnum()
+i = 1
+getnum()
+getnum()
 
 // 7.防抖截流
     // const debounce = function(fn,delay) {
@@ -530,6 +530,46 @@
 
     // Object.prototype.toString.call()，最保险
     // console.log('Object.prototype.toString.call',Object.prototype.toString.call(''))
+
+// ==========================================================================================
+
+// 11.函数柯里化及其通用封装
+    // 我们知道reduce这个方法其实就是，可以将对数组做累计的操作
+    // const arr = [1,2,3,4,5]
+    // function add(...args) {
+    //     return args.reduce((a,b) => a+b)
+    // }
+    // console.log(add(1)(2))
+
+// ==========================================================================================
+
+
+// 12.正则匹配相关 
+    // const test = "07751770896"
+    // var result = "hello".replace(/^|$/g, '#');
+
+    // 匹配一个字符串是否有数字字母下划线组成
+    // const regex = /^[0-9a-zA-Z_]{1,}$/g
+    // const regex = /^[0-9a-zA-Z_]+$/g
+    // 上述两者等价
+
+    // 完全匹配
+    // const regex = /_?/
+
+    // 匹配一个字符串是否为合法的电话号码,得视情况而定
+    // const regex = /^1[0-9]{11}/g
+
+    // 匹配以某字符开头
+    // const regex = /^1.*/g
+
+    // 匹配一个字符串是否为合法的email
+    // const regex = /^[/w-]+(/.[/w-]+)*@[/w-]+(/.[/w-]+)+$/g
+    // console.log(regex.test(test))
+    
+
+
+
+
 
 
 // const arr = [1,2,3,4,5]
