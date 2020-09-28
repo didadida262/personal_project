@@ -97,3 +97,23 @@
 
     // let arr = [5,2,7,8,4]
     // console.log(quickSort(arr))
+
+    // 5 相交区间--真尼玛肯爹，云从科技要求写重叠区间居然都挂了。。。
+    const f = (arr1,arr2) => {
+        if(arr2[0] >= arr1[1]) {
+            return false
+        } 
+        if(arr2[0] > arr1[0] && arr2[0] < arr1[1]) {
+            return true
+        }
+        if(arr2[1] > arr1[0] && arr2[1] < arr1[1]) {
+            return true
+        }
+        if(arr2[1] <= arr1[0]) {
+            return false
+        }
+    }
+    console.log(f([1,10],[10,11]))
+    console.log(f([1,10],[8,11]))
+    console.log(f([1,10],[0,8]))
+    console.log(f([3,10],[1,3]))
