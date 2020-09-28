@@ -1,11 +1,13 @@
 <template>
   <div class="hello">
-    <img src="../assets/bg1.jpg" class="poster" style="">
-    <button @click="handleVideo">click</button>
-    <video controls autoplay="true">
-       <source src="../assets/flowers.mp4" type="video/mp4">
-        <source src="../assets/flowers.webm" type="video/webm">
-     </video>
+    <img
+     v-if="img"
+     src="../assets/bg1.jpg" class="poster" style="">
+    <video
+     v-else
+     controls width="600">
+       <source src="../assets/test.mp4" type="video/mp4">
+    </video>
   </div>
 </template>
 
@@ -14,6 +16,7 @@ import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class Childtwo extends Vue {
+  img = true
 
 
  

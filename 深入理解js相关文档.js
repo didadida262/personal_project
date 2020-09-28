@@ -135,6 +135,71 @@
     // var a = new fn; 
     // console.log(a.user); //剃了胡子，null比较特殊
 
+
+// 作用域相关--被一图科技搞死
+    // 1)
+    // part1 考察function的变量提升高于var
+    // console.log(a);
+    // function a() {};
+    // console.log(a);
+    // var a = 1;
+    // console.log(a);
+
+    // // part2--这尼玛考察啥？---还是考察变凉提升
+    // var foo = 1;
+    // console.log(foo); 
+    // function foo() {};
+    // console.log(foo); 
+
+    // 2)
+    // part1
+    // var scope = "global scope";
+    // function checkscope(){
+    //     var scope = "local scope";
+    //     function f(){
+    //         return scope;
+    //     }
+    //     return f();
+    // }
+    // let res = checkscope()
+    // console.log('res:',res)
+
+    // part2 ---尼玛，原本能好好的回答的
+    // var scope = "global scope";
+    // function checkscope(){
+    //     var scope = "local scope";
+    //     function f(){
+    //         return scope;
+    //     }
+    //     return f;
+    // }
+    // let res = checkscope()()
+    // console.log('res:',res)
+
+    // 3）：注意两件事，第一个，this指向调用他的对象作用域 第二个，尖头函数不改变
+    // var name = 'window'
+    // var obj1 = {
+    //   name: 'obj1',
+    //   foo: function () {
+    //     console.log(this.name)
+    //     return function() {
+    //       console.log(this.name)
+    //     }
+    //   }
+    // }
+    // var obj2 = {
+    //   name: 'obj2',
+    //   foo: () => {
+    //     console.log(this.name)
+    //     return function () {
+    //       console.log(this.name)
+    //     }
+    //   }
+    // }
+    
+    // // obj1.foo()()
+    // obj2.foo()()
+
 //  ======================================================================
 
 // 2.new 一个对象发生了啥,prototype指向原型对象
@@ -167,9 +232,6 @@
 
 
 // 4.promise
-
-
-
     // 1).new promise时是同步执行回调函数，.then是异步的
     // const promise  = new Promise((resolve,reject) => {
     //     console.log(1)
@@ -549,6 +611,17 @@
     // const regex = /^[/w-]+(/.[/w-]+)*@[/w-]+(/.[/w-]+)+$/g
     // console.log(regex.test(test))
     
+
+// 13.定时器是按照时间长短依次塞入宏任务队列，并不是先进先出 
+
+console.log("start")
+setTimeout(() => {
+    console.log("set")
+},5000)
+setTimeout(() => {
+    console.log('set2')
+},0)
+console.log("end")
 
 
 

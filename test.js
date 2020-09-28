@@ -98,92 +98,27 @@
 
 
 
-
-// 6. 作用域相关--被一图科技搞死
-    // 1）
-    // part1 考察function的变量提升高于var
-    // console.log(a);
-    // function a() {};
-    // console.log(a);
-    // var a = 1;
-    // console.log(a);
-
-    // // part2--这尼玛考察啥？---还是考察变凉提升
-    // var foo = 1;
-    // console.log(foo); 
-    // function foo() {};
-    // console.log(foo); 
-
-    // 2）
-// part1
-    // var scope = "global scope";
-    // function checkscope(){
-    //     var scope = "local scope";
-    //     function f(){
-    //         return scope;
-    //     }
-    //     return f();
-    // }
-    // let res = checkscope()
-    // console.log('res:',res)
-
-    // part2 ---尼玛，原本能好好的回答的
-    // var scope = "global scope";
-    // function checkscope(){
-    //     var scope = "local scope";
-    //     function f(){
-    //         return scope;
-    //     }
-    //     return f;
-    // }
-    // let res = checkscope()()
-    // console.log('res:',res)
-
-    // 3）：注意两件事，第一个，this指向调用他的对象作用域 第二个，尖头函数不改变
-    // var name = 'window'
-    // var obj1 = {
-    //   name: 'obj1',
-    //   foo: function () {
-    //     console.log(this.name)
-    //     return function() {
-    //       console.log(this.name)
-    //     }
-    //   }
-    // }
-    // var obj2 = {
-    //   name: 'obj2',
-    //   foo: () => {
-    //     console.log(this.name)
-    //     return function () {
-    //       console.log(this.name)
-    //     }
-    //   }
-    // }
-    
-    // // obj1.foo()()
-    // obj2.foo()()
-
     // 7.事件循环
     // 很神奇，只能勉强解释
-    // async function async1() {
-    //     console.log("async1 start");
-    //     await async2();
-    //     console.log("async1 end");
-    //     setTimeout(() => {
-    //       console.log('timer1')
-    //     }, 0)
-    //   }
-    // async function async2() {
-    //     setTimeout(() => {
-    //       console.log('timer2')
-    //     }, 0)
-    //     console.log("async2");
-    //   }
-    // async1();
-    // setTimeout(() => {
-    // console.log('timer3')
-    // }, 0)
-    // console.log("start")
+    async function async1() {
+        console.log("async1 start");
+        await async2();
+        console.log("async1 end");
+        setTimeout(() => {
+          console.log('timer1')
+        }, 0)
+      }
+    async function async2() {
+        setTimeout(() => {
+          console.log('timer2')
+        }, 0)
+        console.log("async2");
+      }
+    async1();
+    setTimeout(() => {
+    console.log('timer3')
+    }, 0)
+    console.log("start")
 
     // 8.worker--创建独立于主线成的线程--啥啥啥？都特么是啥玩意儿
     // var i = 0, count = 0; 
