@@ -3,11 +3,11 @@
     <img
      v-if="img"
      src="../assets/bg1.jpg" class="poster" style="">
-    <video
+    <!-- <video
      v-else
      controls width="600">
        <source src="../assets/test.mp4" type="video/mp4">
-    </video>
+    </video> -->
   </div>
 </template>
 

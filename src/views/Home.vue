@@ -11,7 +11,10 @@
     <div class="word">{{data}}</div>
     <div class="testcss"></div>
     <a-button @click="throttle(fn,1000)">test_d</a-button>
-    <Test/>
+    <Test
+      value="test"
+      @submit="testemit"
+    />
   </div>
 
 </template>
@@ -73,6 +76,10 @@ export default class Home extends Vue {
 
   private fn = function() {
     console.log("click")
+  }
+
+  private testemit(val: any): void{
+    console.log("儿子提交的值：",val)
   }
 
   private debounce = (fn: any,delay: any) => {
