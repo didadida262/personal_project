@@ -41,6 +41,10 @@ html {
 body {
 }
 
+// @function px2rem($px) {
+//   @return $px / 1080 * 10rem;
+// }
+
 // @media screen and (max-width: 320px) {
 //   html{
 //     font-size: 32px;
