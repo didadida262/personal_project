@@ -1,20 +1,25 @@
 <template>
   <div class="login">
     <div class="content">
-      <div class="_header"><h1>Login In</h1></div>
+      <div class="_header"><h1>Sign In</h1></div>
       <div class="_content">
           <div>
             <a-input
              placeholder="用户名" 
-             v-model="loginForm.username"/></div>
+             v-model="loginForm.username">
+              <a-icon slot="prefix" type="user" />
+             </a-input>
+          </div>
           <div>
             <a-input-password
               placeholder="密码" 
-              v-model="loginForm.password"/></div>
+              v-model="loginForm.password">
+            </a-input-password>
+          </div>
       </div>
       <div class="_footer">
-        <a-button @click="login">登录</a-button>
-        <a-button @click="signup" class="sign_up">注册</a-button>
+        <a-button @click="signIn">登录</a-button>
+        <a-button @click="signUp" class="sign_up">注册</a-button>
       </div>
     </div>
 </div>
@@ -25,7 +30,7 @@ import { Component, Vue, Watch } from 'vue-property-decorator';
 import { commonAPI } from '../api/common'
 
 @Component
-export default class Childthree extends Vue {
+export default class Login extends Vue {
 
   @Watch("loginForm.username",{ immediate: true })
   private nameChange(newvalue: any,oldvalue: any): void {
@@ -43,18 +48,23 @@ export default class Childthree extends Vue {
     password: ""
   }
 
-  private login(): void {
+  private signIn(): void {
     console.log("提交信息：", this.loginForm)
-    commonAPI.postUserInfo(this.loginForm)
+    commonAPI.signIn(this.loginForm)
       .then((res: any) => {
-        console.log("返回结果:",res)
+        localStorage.setItem('userInfo',res.data.username)
+        this.$router.push({
+          name: 'home'
+        }).catch(err => {
+          console.log('抱你吗的错:',err)
+        })
       })
       .catch((err: any) => {
         console.log(err)
       })
   }
 
-  private signup(): void {
+  private signUp(): void {
     console.log("注册")
   }
 

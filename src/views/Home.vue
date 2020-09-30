@@ -1,29 +1,26 @@
 <template>
   <div class="home">
-
-    <!-- <h1>{{word}}</h1> -->
-
-    <div class="logo"><img alt="Vue logo" src="../assets/logo.jpg" width="300" height="200"></div>
-
-    <div class="btn" @click="toNewoWorld">
-      <a-button>Enter</a-button>
+    <div class="index">
+      <h3>{{ data }}</h3>
+      <div class="logo"><img alt="Vue logo" src="../assets/logo.jpg" width="300" height="200"></div>
+      <div class="btn" @click="toNewoWorld">
+        <a-button>Enter</a-button>
+      </div>
+      <div class="testcss"></div>
+      <!-- <a-button @click="throttle(fn,1000)">test_d</a-button> -->
+      <!-- <Test
+        value="test"
+        @submit="testemit"
+      /> -->
     </div>
-    <div class="word">{{data}}</div>
-    <div class="testcss"></div>
-    <a-button @click="throttle(fn,1000)">test_d</a-button>
-    <Test
-      value="test"
-      @submit="testemit"
-    />
   </div>
-
 </template>
 
 
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-// import { commonAPI } from '../api/common'
+import { commonAPI } from '../api/common'
 import Test from '../components/Test.vue'
 
 
@@ -40,9 +37,9 @@ export default class Home extends Vue {
   timer = null as any
   flag = true
   private created(): void {
-    // this.getWord()
-    this.getImg('https://baike.baidu.com/pic/%E8%92%99%E5%A5%87%C2%B7D%C2%B7%E8%B7%AF%E9%A3%9E/726966/1/a8014c086e061d95f662155f76f40ad162d9cab5?fr=lemma&ct=single#aid=1&pic=a8014c086e061d95f662155f76f40ad162d9cab5')
-    console.log('kaiji')
+    this.getWord()
+    // this.getImg('https://baike.baidu.com/pic/%E8%92%99%E5%A5%87%C2%B7D%C2%B7%E8%B7%AF%E9%A3%9E/726966/1/a8014c086e061d95f662155f76f40ad162d9cab5?fr=lemma&ct=single#aid=1&pic=a8014c086e061d95f662155f76f40ad162d9cab5')
+    // console.log('kaiji')
   }
 
   private getImg = (url: any) => {
@@ -98,16 +95,15 @@ export default class Home extends Vue {
     }
   }
 
-
-
   private getWord(): void {
-    // commonAPI.getWorld()
-    // .then((res: any) => {
-    //   this.data = res.data.data
-    // })
-    // .catch((err: any) => {
-    //   console.log(err)
-    // })
+    commonAPI.getWorld()
+    .then((res: any) => {
+      this.data = res.data.data
+      console.log("数据:",res)
+    })
+    .catch((err: any) => {
+      console.log(err)
+    })
   }
 
 
@@ -125,22 +121,28 @@ export default class Home extends Vue {
 
 <style scoped lang="scss">
 .home {
-
-  border-radius: 1%;
-  display: flex;
+  background-image: linear-gradient(120deg,green,blue);
+  height: 100%;
   width: 100%;
-  height: 80%;
+  display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  .logo {
-    box-shadow:3px 2px 14px #333333;
+  .index {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .logo {
+      box-shadow:3px 2px 14px #333333;
+    }
+    .btn {
+      margin-top: 10px;
+    }
+    .word {
+      font-size: 1rem;
+    }
   }
-  .btn {
-    margin-top: 10px;
-  }
-  .word {
-    font-size: 1rem;
-  }
+  
 }
 </style>

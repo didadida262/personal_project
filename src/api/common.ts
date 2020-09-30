@@ -17,10 +17,9 @@ const commonAPI = {
         return axios.get(`${ROOT}/word`)
     },
 
-    postUserInfo(params: any) {
-        return axios.post(`${ROOT}/postUserInfo`, params)
+    signIn(params: any) {
+        return axios.post(`${ROOT}/signIn`, params)
     }
-
 }
 
 

@@ -8,7 +8,6 @@ var log = function(){
 
 //音乐盒这么个对象，包含播放器本体，歌曲目录，创建播放器，播放，暂停。。。。。
 var musicBox= {
-
     musicDom : null, //播放器对象
     songs : [],        //歌曲目录，用数组来存储
     currentIndex : 0,

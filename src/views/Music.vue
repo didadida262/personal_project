@@ -4,13 +4,15 @@
       <h1>My Music-player</h1>
     </div>
     <div class="content" ref="content">
-      <audio
+      <img src="../assets/icon.png" alt="" ref="logo" class="logo">
+      <!-- <audio
+       ref="audio"
        id="audio" 
-       src="../assets/1.mp3" 
+       src="" 
        controls 
        loop>
         你的浏览器不支持audio标签
-      </audio>
+      </audio> -->
 
     </div>
     <div class="operations">
@@ -31,23 +33,22 @@ import { Component, Vue } from 'vue-property-decorator';
 
 
 @Component
-export default class Childthree extends Vue {
+export default class Music extends Vue {
   private playflag = true
   private musicBox = {
     musicDom: null as any,
-    songs: ['../assets/1.mp3'] as string[],
+    songs: [] as any,
     currentIndex: 0,
-
     init: function() {
       this.musicDom = document.createElement('audio')
-      this.musicDom.src = this.songs[this.currentIndex]
     },
     
     add: function(src: any) {
-      src = '../assets/' + src
+      // src = '../assets/' + src
       this.songs.push(src)
     },
     play: function() {
+      this.musicDom.src = this.songs[this.currentIndex]
       this.musicDom.play()
     },
     stop: function() {
@@ -80,26 +81,46 @@ export default class Childthree extends Vue {
 
   private mounted(): void {
       this.init()
+      this.musicBox.add('http://go.163.com/2018/0209/mengniu/audio/bgm.mp3')
+      // this.musicBox.add('2.mp3')
+      // this.musicBox.add('3.mp3')
+      // console.log("songs:",this.musicBox.songs)
   }
 
   private play(): void {
-    console.log('1')
     this.musicBox.play()
-    console.log('2')
     this.playflag = false
+    this.logoPlay()
   }
 
   private stop(): void {
     this.musicBox.stop()
     this.playflag = true
+    this.logoPause()
+  }
+
+  private logoInit(): void{
+    const logo = document.querySelector('.logo') as any
+    logo.classList.add('logo-pause')
+  }
+
+  private logoPause(): void{
+    const logo = document.querySelector('.logo') as any
+    logo.classList.remove('logo-play')
+    logo.classList.add('logo-pause')
+  }
+
+  private logoPlay(): void{
+    const logo = document.querySelector('.logo') as any
+    logo.classList.add('logo-play')
+    logo.classList.remove('logo-pause')
   }
 
   private init(): void {
+    this.logoInit()
     this.musicBox.init()
     const target = document.querySelector('.content') as any
     console.log("this.musicBox.musicDom::",this.musicBox.musicDom)
-    this.musicBox.add('2.mp3')
-    this.musicBox.add('3.mp3')
     target.appendChild(this.musicBox.musicDom)
   }
 
@@ -108,20 +129,18 @@ export default class Childthree extends Vue {
 
 <style scoped lang="scss">
 .music {
-  padding: 10px;
-  width: 500px;
+  width: 100%;
   height: 800px;
-  border: 1px solid gray;
   margin: 20px auto;
   border-radius: 6px;
-  box-shadow: 0px 0px 20px black;
   text-align: center;
   .header {
     height: 20%;
-    border: 1px solid red;
+    background-image: linear-gradient(120deg, green,blue);
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 5px;
   }  
   .content {
     display: flex;
@@ -130,18 +149,42 @@ export default class Childthree extends Vue {
     flex-direction: column;
     padding: 10px;
     height: 50%;
-    border: 1px solid green;
+    background-image: linear-gradient(240deg,gray,black);
+    margin-bottom: 5px;
     .pic {
       width: 100%;
     }    
     #video {
       width: 100%;
     }
+    .logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
   }
   .operations {
     padding: 10px;
     height: 30%;
-    border: 1px solid blue;
+    background-image: linear-gradient(120deg,gray,black);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .logo-pause {
+    animation-play-state: paused !important;
+  }
+
+  .logo-play {
+    animation-play-state: running !important;
   }
 }
 

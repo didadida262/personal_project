@@ -6,7 +6,7 @@
           <span>这帮孙子！！！</span>
         </div>
       <div class="imgg">
-        <img src="../assets/dog.png" alt="">      
+        <img src="../assets/dog.png" alt="" width="100%">      
       </div>
       </div>
 
@@ -24,7 +24,7 @@
       <div class="slide">
         <img src="../assets/bg4.jpg" alt="" width="100%">      
       </div>
-    </div> -->
+    </div>
     <div class="section">      
       <img src="../assets/bg5.jpg" alt="" width="100%">      
     </div>
@@ -44,7 +44,7 @@ export default class Childthree extends Vue {
     //用来控制slide幻灯片的箭头，设置为false，两侧的箭头会消失
     controlArrows: false,
     //每一页幻灯片的内容是否垂直居中
-    verticalCentered: true,
+    // verticalCentered: true,
     // //字体是否随着窗口缩放而缩放
     resize: true,
     loopBottom: true,
@@ -57,7 +57,7 @@ export default class Childthree extends Vue {
     // //定义section页面的滚动方式，需要引入jquery.easings插件
     // // easing:,
     // //是否使用css3 transform来实现滚动效果
-    // css3: false,
+    // css3: true,
     // //滚动到最顶部后是否连续滚动到底部
     loopTop: true,
     // //滚动到最底部后是否连续滚动到顶部

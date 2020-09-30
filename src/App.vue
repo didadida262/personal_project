@@ -5,10 +5,26 @@
       <router-link to="/two">two</router-link> |
       <router-link to="/three">three</router-link>
     </div> -->
+    <!-- <Login /> -->
     <router-view/>
   </div>
 </template>
 
+<script lang='ts'>
+import { Component, Vue } from 'vue-property-decorator';
+import Login from './views/Login.vue'
+
+@Component({
+  components: ({
+    Login
+  })
+})
+
+export default class App extends Vue {
+
+}
+
+</script>
 <style lang="scss">
 #app {
   // font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -16,17 +32,13 @@
   // -moz-osx-font-smoothing: grayscale;
   // text-align: center;
   // color: #2c3e50;
-  // padding: 10px;
-  // height: 100%;
+  // padding: 16px;
+  height: 100%;
 }
 html {
-  height: 100%;
   font-size: 1vw;
 }
 body {
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
 }
 
 // @media screen and (max-width: 320px) {

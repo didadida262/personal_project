@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 
   const routes: Array<RouteConfig> = [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
     component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
   },
@@ -50,6 +50,25 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+
+router.beforeEach((to, from, next) => {
+  const userInfo = localStorage.userInfo
+  console.log('userInfo:',userInfo)
+  if(userInfo || to.name === 'login') {
+    next()
+  } else {
+    router.push({
+      name: 'login'
+    })
+    // next({
+    //   name: 'login',
+    //   query: {
+    //     redirect: to.path
+    //   }
+    // })
+  }
 })
 
 export default router
