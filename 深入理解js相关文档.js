@@ -7,22 +7,22 @@
 
 
 // 1.this指向问题
-let alex = {
-    name: 'alex',
-    sayHello: function(age,tall) {
-        console.log('i am ' + this.name + ',this year i am ' + age + ' years old... and i am ' + tall + ' m')
-    },
-    test: function(){
-        console.log("this:",this)
-    },
-    test2: () => {
-        console.log("this:",this)
-    }
-}
+// let alex = {
+//     name: 'alex',
+//     sayHello: function(age,tall) {
+//         console.log('i am ' + this.name + ',this year i am ' + age + ' years old... and i am ' + tall + ' m')
+//     },
+//     test: function(){
+//         console.log("this:",this)
+//     },
+//     test2: () => {
+//         console.log("this:",this)
+//     }
+// }
 
-let bob = {
-    name: 'bob',
-}
+// let bob = {
+//     name: 'bob',
+// }
 
 
 // Function.prototype.myCall = function(...args) {
@@ -48,7 +48,6 @@ let bob = {
 //     }
 // }
 // // 上述代码，堪称完美
-
 
 // alex.sayHello.myCall(bob,26,1.65)
 // alex.sayHello.myApply(bob,[26,1.65])
@@ -80,8 +79,7 @@ let bob = {
 // 2). 隐式绑定
     // const a = {
     //     user: '剃了胡子',
-    //     fn: function(){
-    //         console.log(this.user);// 剃了胡子
+    //     fn: () => {
     //         console.log(this);// {user: '剃了胡子', fn: ƒ}
     //     }
     // }
@@ -141,7 +139,7 @@ let bob = {
     // var a = 1;
     // console.log(a);
 
-    // // part2--这尼玛考察啥？---还是考察变凉提升
+    // part2--这尼玛考察啥？---还是考察变量提升--不单单是变量提升的问题，发现var a = 1而后在function时，a还是1，原因在于并不是赋值
     // var foo = 1;
     // console.log(foo); 
     // function foo() {};
@@ -193,7 +191,7 @@ let bob = {
     //   }
     // }
     
-    // // obj1.foo()()
+    // obj1.foo()()
     // obj2.foo()()
 
 //  ======================================================================
@@ -209,20 +207,16 @@ let bob = {
     // };
 
     // let test = new Parent('alice',23)
-    // const myNew = function() {
-    //     const args = [...arguments]
-    //     const parent = args[0]
-    //     let child = Object.create(parent.prototype)
-    //     console.log(child)
-    //     let res = parent.apply(child,args.slice(1))
+    // const myNew = function(...args) {
+    //     let child = Object.create(args[0].prototype)
+    //     let res = args[0].call(child,...args.slice(1))
     //     return typeof res === 'object'? res: child
     // }
-    // let test2 = myNew(Parent,'alice',23)
 
-    // console.log('test:',test)
-    // console.log('test2:',test2)
-    // console.log('test.__proto__:',test.__proto__)
-    // console.log('test2.__proto__:',test2.__proto__)
+    // let test2 = myNew(Parent,'alice',23)
+    // console.log(test)
+    // console.log(test2)
+
     // 妈的越看越懵逼
     // 也就那么回事，关键是不熟悉
 
@@ -640,9 +634,9 @@ let bob = {
     // const child = new Parent()
     // console.log(child.name)
     
-    const test = function() {
-        console.log("this")
-    }
+    // const test = function() {
+    //     console.log("this")
+    // }
 
 
     // 3.组合继承
