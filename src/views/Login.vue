@@ -61,6 +61,7 @@ export default class Login extends Vue {
       })
       .catch((err: any) => {
         console.log(err)
+        console.log(err)
       })
   }
 

@@ -6,27 +6,26 @@
 // })
 
 
-// console.log('test:',test)
+
+
 
 // 1.this指向问题
-// let alex = {
-//     name: 'alex',
-//     sayHello: function(age,tall) {
-//         console.log('i am ' + this.name + ',this year i am ' + age + ' years old... and i am ' + tall + ' m')
-//     },
-//     test: function(){
-//         console.log("this:",this)
-//     },
-//     test2: () => {
-//         console.log("this:",this)
-//     }
-// }
-// // alex.test()
-// // alex.test2()
+let alex = {
+    name: 'alex',
+    sayHello: function(age,tall) {
+        console.log('i am ' + this.name + ',this year i am ' + age + ' years old... and i am ' + tall + ' m')
+    },
+    test: function(){
+        console.log("this:",this)
+    },
+    test2: () => {
+        console.log("this:",this)
+    }
+}
 
-// let bob = {
-//     name: 'bob',
-// }
+let bob = {
+    name: 'bob',
+}
 
 
 // Function.prototype.myCall = function(...args) {
@@ -371,6 +370,10 @@
     // .catch(err => {
     //     console.log('err')
     // })
+
+
+
+
     // const promiseAll = function(arr) {
     //     return new Promise((resolve,reject) => {
     //         let len = 0
@@ -453,17 +456,17 @@
         //   console.log(3);
 
         // 4).
-        console.log('outer');
-        setTimeout(() => {
-          setTimeout(() => {
-            console.log('setTimeout');
-          }, 0);
-          setImmediate(() => {
-            console.log('setImmediate');
-          });
-        }, 0);
+        // console.log('outer');
+        // setTimeout(() => {
+        //   setTimeout(() => {
+        //     console.log('setTimeout');
+        //   }, 0);
+        //   setImmediate(() => {
+        //     console.log('setImmediate');
+        //   });
+        // }, 0);
 
-        console.log('outer');
+        // console.log('outer');
         
 // -------------------
         // setTimeout(() => {
@@ -614,21 +617,15 @@
 
 // 13.定时器是按照时间长短依次塞入宏任务队列，并不是先进先出 
 
-console.log("start")
-setTimeout(() => {
-    console.log("set")
-},5000)
-setTimeout(() => {
-    console.log('set2')
-},0)
-console.log("end")
+// console.log("start")
+// setTimeout(() => {
+//     console.log("set")
+// },5000)
+// // setTimeout(() => {
+// //     console.log('set2')
+// // },0)
+// console.log("end")
 
 
 
-
-
-
-// const arr = [1,2,3,4,5]
-// let res = arr.reduce((a,b) => a+b)
-// console.log(res)
 
