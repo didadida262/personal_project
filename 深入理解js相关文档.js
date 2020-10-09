@@ -6,9 +6,6 @@
 // })
 
 
-
-
-
 // 1.this指向问题
 let alex = {
     name: 'alex',
@@ -625,6 +622,31 @@ let bob = {
 // //     console.log('set2')
 // // },0)
 // console.log("end")
+
+// 14.js中的集中继承的方式
+
+    // 1.构造函数继承
+
+
+    // 2.原型链继承
+    // const Parent = function() {
+    //     this.name = 'father'
+    // }
+    
+    // Parent.prototype.getName = function() {
+    //     return this.name
+    // }
+
+    // const child = new Parent()
+    // console.log(child.name)
+    
+    const test = function() {
+        console.log("this")
+    }
+
+
+    // 3.组合继承
+    // 4.es6class继承
 
 
 
