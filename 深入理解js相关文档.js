@@ -191,8 +191,17 @@
     //   }
     // }
     
-    // obj1.foo()()
+    // // obj1.foo()()
     // obj2.foo()()
+    // const name = 'baba'
+    // const test = {
+    //     name: "hah",
+    //     f:() =>{
+    //         console.log('this.name:',this.name)
+    //     }
+    // }
+    // test.f()
+
 
 //  ======================================================================
 
