@@ -1,10 +1,11 @@
+// const test = {}
 // Object.defineProperty(test,'test',{
 //     value: 'test',
 //     enumerable: true,
 //     writable: true,
 //     configurable: true
 // })
-
+// console.log("test:",test)
 
 // 1.this指向问题
 // let alex = {
