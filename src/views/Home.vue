@@ -30,8 +30,6 @@ import Test from '../components/Test.vue'
   })
 })
 export default class Home extends Vue {
-
-
   private word = ""
   private data = ""
   timer = null as any
