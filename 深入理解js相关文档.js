@@ -10,6 +10,8 @@
 // 1.this指向问题
 // 云从面试突然发现的问题，var let const 的区别在于，var是全局作用域，有变量提升，后两者是块级作用域，没有变量提升，不就这些嘛
 // 一点补充，所谓的全局作用域，就是var声明的变量会挂载到window上，卧槽，这细节我特么怎么知道
+// 关于this指向的问题，其实我们只需要知道两点，一个是this的四种绑定，另一个就是，this的指向取决于调用位置
+
 
 // let alex = {
 //     name: 'alex',
@@ -143,9 +145,9 @@
     // var a = 1;
     // console.log(a);
 
-    function a(){}
-    var a 
-    console.log(a)
+    // function a(){}
+    // var a 
+    // console.log(a)
 
 
     // part2--这尼玛考察啥？---还是考察变量提升--不单单是变量提升的问题，发现var a = 1而后在function时，a还是1，原因在于并不是赋值
