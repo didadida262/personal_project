@@ -9,53 +9,15 @@
     margin: 0;
     padding: 0;
     }
-    .box {
-        border: 1px solid #000;
-        /* display: inline-block; */
-    }
-    .info1{
-        background-color: red;
-        width: 100px;
-        float: left;
-    }
-    .info2{
-        margin-left: 100px;
-        margin-right: 100px;
-    }
-    .info3{
-        background-color: green;
-        width: 100px;
-        float: right;
-    }
-
-    /* .father {
-        border: 1px solid red;
-    }
-    .info11 {
-        width: 200px;
-        height: 100px;
-        background-color: black;
-        float: left;
-    }
-    .info22 {
-        background-color: green;
-        height: 200px;
-    } */
     </style>
 </head>
 
 <body>
-    <div class="box">
-        <div class="info1">left</div>
-        <div class="info3">right</div>
-        <div class="info2">mid</div>
-    </div> 
-    <!-- <div class="father">
-        <div class="info11">left</div>
-        <div class="info22">right</div>
-    </div> -->
- 
-
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
 </body>
 <script>
     const debounce = function(fn,delay) {
@@ -81,10 +43,13 @@
             flag = false
         }
     }
-
-    // let target = document.getElementById("test")
     
-    // target.addEventListener("click",throttle(fn,2000))
+    var nodes = document.getElementsByTagName('div')
+    for(let i = 0;i < nodes.length;i++) {
+        nodes[i].onclick = function() {
+            console.log('i:',i)
+        }
+    }
 
 </script>
 </html>

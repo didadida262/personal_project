@@ -121,7 +121,7 @@
 
 
 
-// 最短路径
+//  6 最短路径
 // const f = (grid) => {
 //     const m = grid.length
 //     const n = grid[0].length
@@ -157,49 +157,60 @@
 
 // ========================
 
-// 数组全排列
-// const f = (arr) => {
-//     if(!arr.length) return
-//     let path = []
-//     let res = []
-//     let visited = new Array(arr.length).fill(false)
-//     const seek = (path) =>{
-//         if(path.length === arr.length) {
-//            res.push(path) 
-//         }
-//         for(let i=0;i < arr.length;i++) {
-//             if(!visited[i]) {
-//                 path.push(arr[i])
-//                 visited[i] = true
-//             }
-//         }
-//     }
-    
-//     seek(path)
+// 7 数组全排列,兼容包含重复数字的数组，不过力扣官方表示超时？你大爷的
+// 这道题在我看来不简单，毕竟递归理解起来还是蛮费劲的，其实从这道题我们就能看出计算机相对于人脑的先天优势，就通过下面这个函数，
+// 我们成功实现了输入数组输出全排列的问题，相信以后的应用场景还是蛮多的
+const f = (arr) => {
+    if(!arr.length) return
+    let path = []
+    let res = []
+    let visited = new Array(arr.length).fill(false)
+    const seek = (path) =>{
+        if(path.length === arr.length) {
+            let flag = res.filter(item => JSON.stringify(item) === JSON.stringify(path))
+            if(!flag.length) {
+                res.push([...path])
+            }
+            return
+        }
+        for(let i=0;i < arr.length;i++) {
+            if(!visited[i]) {
+                path.push(arr[i])
+                visited[i] = true
+                seek(path)
+                path.pop()
+                visited[i] = false
+            }
+        }
+    }
+    seek(path)
+    return res
+}
 
-// }
+let arr = [1,1,2,3]
+console.log('res:',f(arr))
 
 
 // 连续子序列
-const f = (arr) =>{
-    let res = []
-    for(let i = 0; i< arr.length;i++) {
-        for(let j = i; j < arr.length;j++) {
-            let temp = arr.slice(i,j+1)
-            res.push(temp)
-        }
-    }
-    let sum = 0
-    res = res.filter(item => item.length % 2 !== 0)
-    let result = []
-    for(let i=0;i< res.length;i++) {
-        result.push(...res[i])
-    }
-    let s = result.reduce((a,b) => {
-        return a+b
-    })
-    return s
+// const f = (arr) =>{
+//     let res = []
+//     for(let i = 0; i< arr.length;i++) {
+//         for(let j = i; j < arr.length;j++) {
+//             let temp = arr.slice(i,j+1)
+//             res.push(temp)
+//         }
+//     }
+//     let sum = 0
+//     res = res.filter(item => item.length % 2 !== 0)
+//     let result = []
+//     for(let i=0;i< res.length;i++) {
+//         result.push(...res[i])
+//     }
+//     let s = result.reduce((a,b) => {
+//         return a+b
+//     })
+//     return s
 
-}
+// }
 
-f([1,2,3])
+// f([1,2,3])

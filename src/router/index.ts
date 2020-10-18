@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 
   const routes: Array<RouteConfig> = [
   {
-    path: '/home',
+    path: '/',
     name: 'home',
     component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
   },
@@ -56,9 +56,13 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   const userInfo = localStorage.userInfo
   console.log('userInfo:',userInfo)
-  if(userInfo || to.name === 'login') {
+  console.log('to:',to)
+  console.log('from:',from)
+  if(userInfo || to.path === '/login') {
+    console.log(1)
     next()
   } else {
+    console.log(2)
     router.push({
       name: 'login'
     })

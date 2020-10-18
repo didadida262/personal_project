@@ -6,7 +6,7 @@
       <router-link to="/three">three</router-link>
     </div> -->
     <!-- <Login /> -->
-    <router-view/>
+    <router-view />
   </div>
 </template>
 

@@ -7,6 +7,7 @@
 // })
 // console.log("test:",test)
 
+
 // 1.this指向问题
 // 云从面试突然发现的问题，var let const 的区别在于，var是全局作用域，有变量提升，后两者是块级作用域，没有变量提升，不就这些嘛
 // 一点补充，所谓的全局作用域，就是var声明的变量会挂载到window上，卧槽，这细节我特么怎么知道
@@ -30,7 +31,6 @@
 //     name: 'bob',
 // }
 
-
 // Function.prototype.myCall = function(...args) {
 //     const target = args[0]
 //     target._f = this
@@ -53,11 +53,15 @@
 //         delete target._f
 //     }
 // }
-// // 上述代码，堪称完美
+
 
 // alex.sayHello.myCall(bob,26,1.65)
 // alex.sayHello.myApply(bob,[26,1.65])
 // alex.sayHello.myBind(bob,26,1.65)()
+
+// // 上述代码，堪称完美
+
+
 
 // 习题轰炸
 // 1). 默认绑定
@@ -491,58 +495,58 @@
           
 
 // 6. 闭包--彻底理解
-// function outer() {
-//     var i = 1
-//     return function() {
-//         console.log(i++)
-//     }
-// }
-// let getnum = outer()
-// console.log(getnum)
-// getnum()
-// getnum()
-// i = 1
-// getnum()
-// getnum()
+function outer() {
+    var i = 1
+    return function() {
+        console.log(i++)
+    }
+}
+let getnum = outer()
+console.log(getnum)
+getnum()
+getnum()
+i = 1
+getnum()
+getnum()
 
 // 7.防抖截流
-    // const debounce = function(fn,delay) {
-    //     let timer = null
-    //     return (function() {
-    //         clearTimeout(timer)
-    //         timer = setTimeout(fn,delay)
-    //     })()
-    // }
+    const debounce = function(fn,delay) {
+        let timer = null
+        return (function() {
+            clearTimeout(timer)
+            timer = setTimeout(fn,delay)
+        })()
+    }
 
-    // const throttle = function(fn,delay) {
-    //     let timer = null
-    //     let flag = true
-    //     return (function(){
-    //         if(flag) {
-    //             timer = setTimeout(function(){
-    //                 fn(),
-    //                 flag = true
-    //             },delay)
-    //         }
-    //         flag = false
-    //     })()
-    // }
+    const throttle = function(fn,delay) {
+        let timer = null
+        let flag = true
+        return (function(){
+            if(flag) {
+                timer = setTimeout(function(){
+                    fn(),
+                    flag = true
+                },delay)
+            }
+            flag = false
+        })()
+    }
 
-    // private debounce = (fn: any,delay: any) => {
-    //     clearTimeout(this.timer)
-    //     this.timer = setTimeout(fn,delay)
-    // }
+    private debounce = (fn: any,delay: any) => {
+        clearTimeout(this.timer)
+        this.timer = setTimeout(fn,delay)
+    }
   
   
-    // private throttle = (fn: any, delay: any) => {
-    //   if(this.flag) {
-    //     this.flag = false
-    //     this.timer = setTimeout(() => {
-    //       fn()
-    //       this.flag = true
-    //     }, delay)
-    //   }
-    // }
+    private throttle = (fn: any, delay: any) => {
+      if(this.flag) {
+        this.flag = false
+        this.timer = setTimeout(() => {
+          fn()
+          this.flag = true
+        }, delay)
+      }
+    }
 
 
 
@@ -660,6 +664,10 @@
     // 3.组合继承
     // 4.es6class继承
 
+
+    // ts与js的区别
+    // 1.弱类型 ---> 强类型
+    // 2.ts代码需编译成js再执行
 
 
 
