@@ -53,26 +53,26 @@ const router = new VueRouter({
 })
 
 
-router.beforeEach((to, from, next) => {
-  const userInfo = localStorage.userInfo
-  console.log('userInfo:',userInfo)
-  console.log('to:',to)
-  console.log('from:',from)
-  if(userInfo || to.path === '/login') {
-    console.log(1)
-    next()
-  } else {
-    console.log(2)
-    router.push({
-      name: 'login'
-    })
-    // next({
-    //   name: 'login',
-    //   query: {
-    //     redirect: to.path
-    //   }
-    // })
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   const userInfo = localStorage.userInfo
+//   console.log('userInfo:',userInfo)
+//   console.log('to:',to)
+//   console.log('from:',from)
+//   if(userInfo || to.path === '/login') {
+//     console.log(1)
+//     next()
+//   } else {
+//     console.log(2)
+//     router.push({
+//       name: 'login'
+//     })
+//     // next({
+//     //   name: 'login',
+//     //   query: {
+//     //     redirect: to.path
+//     //   }
+//     // })
+//   }
+// })
 
 export default router

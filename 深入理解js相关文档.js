@@ -495,58 +495,58 @@
           
 
 // 6. 闭包--彻底理解
-function outer() {
-    var i = 1
-    return function() {
-        console.log(i++)
-    }
-}
-let getnum = outer()
-console.log(getnum)
-getnum()
-getnum()
-i = 1
-getnum()
-getnum()
+// function outer() {
+//     var i = 1
+//     return function() {
+//         console.log(i++)
+//     }
+// }
+// let getnum = outer()
+// console.log(getnum)
+// getnum()
+// getnum()
+// i = 1
+// getnum()
+// getnum()
 
-// 7.防抖截流
-    const debounce = function(fn,delay) {
-        let timer = null
-        return (function() {
-            clearTimeout(timer)
-            timer = setTimeout(fn,delay)
-        })()
-    }
+// // 7.防抖截流
+//     const debounce = function(fn,delay) {
+//         let timer = null
+//         return (function() {
+//             clearTimeout(timer)
+//             timer = setTimeout(fn,delay)
+//         })()
+//     }
 
-    const throttle = function(fn,delay) {
-        let timer = null
-        let flag = true
-        return (function(){
-            if(flag) {
-                timer = setTimeout(function(){
-                    fn(),
-                    flag = true
-                },delay)
-            }
-            flag = false
-        })()
-    }
+//     const throttle = function(fn,delay) {
+//         let timer = null
+//         let flag = true
+//         return (function(){
+//             if(flag) {
+//                 timer = setTimeout(function(){
+//                     fn(),
+//                     flag = true
+//                 },delay)
+//             }
+//             flag = false
+//         })()
+//     }
 
-    private debounce = (fn: any,delay: any) => {
-        clearTimeout(this.timer)
-        this.timer = setTimeout(fn,delay)
-    }
+//     private debounce = (fn: any,delay: any) => {
+//         clearTimeout(this.timer)
+//         this.timer = setTimeout(fn,delay)
+//     }
   
   
-    private throttle = (fn: any, delay: any) => {
-      if(this.flag) {
-        this.flag = false
-        this.timer = setTimeout(() => {
-          fn()
-          this.flag = true
-        }, delay)
-      }
-    }
+//     private throttle = (fn: any, delay: any) => {
+//       if(this.flag) {
+//         this.flag = false
+//         this.timer = setTimeout(() => {
+//           fn()
+//           this.flag = true
+//         }, delay)
+//       }
+//     }
 
 
 
@@ -671,3 +671,12 @@ getnum()
 
 
 
+
+
+    let arr = [1,2,3,4]
+    let data = arr.reduce((prev,cur,index,arr) => {
+        console.log('prev:',prev)
+        console.log('cur:',cur)
+        return prev+cur   
+    })
+    console.log(data)

@@ -22,7 +22,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { commonAPI } from '../api/common'
 import Test from '../components/Test.vue'
-
+import { Button, Select } from 'element-ui';
 
 @Component({
   components:({
