@@ -1,8 +1,9 @@
 <template>
   <div class="home">
-    <div class="index">
+    <a-spin v-if="data.length === 0" />
+    <div class="index" v-else>
       <h3>{{ data }}</h3>
-      <div class="logo"><img alt="Vue logo" src="../assets/logo.jpg" width="300" height="200"></div>
+      <div class="logo"><img alt="Vue logo" src="../assets/logo.jpg"></div>
       <div class="btn" @click="toNewoWorld">
         <a-button>Enter</a-button>
       </div>
@@ -12,6 +13,7 @@
         value="test"
         @submit="testemit"
       /> -->
+        <!-- <el-button>默认按钮</el-button> -->
     </div>
   </div>
 </template>
@@ -22,7 +24,6 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { commonAPI } from '../api/common'
 import Test from '../components/Test.vue'
-import { Button, Select } from 'element-ui';
 
 @Component({
   components:({
@@ -36,8 +37,6 @@ export default class Home extends Vue {
   flag = true
   private created(): void {
     this.getWord()
-    // this.getImg('https://baike.baidu.com/pic/%E8%92%99%E5%A5%87%C2%B7D%C2%B7%E8%B7%AF%E9%A3%9E/726966/1/a8014c086e061d95f662155f76f40ad162d9cab5?fr=lemma&ct=single#aid=1&pic=a8014c086e061d95f662155f76f40ad162d9cab5')
-    // console.log('kaiji')
   }
 
   private getImg = (url: any) => {
@@ -57,30 +56,20 @@ export default class Home extends Vue {
         .catch(err => {
           console.log('err')
         })
-        
-
-    // const xml = new XMLHttpRequest()
-    // xml.onreadystatechange = function(){
-    //   if(xml.readyState === 4 && xml.status === 200) {
-    //     console.log('获取图片数据：',xml.responseText)
-    //   }
-    // }
-    // xml.open('Get','http://127.0.0.1:5000/word',true)
-    // xml.send()
   }
 
-  private fn = function() {
-    console.log("click")
-  }
+  // private fn = function() {
+  //   console.log("click")
+  // }
 
-  private testemit(val: any): void{
-    console.log("儿子提交的值：",val)
-  }
+  // private testemit(val: any): void{
+  //   console.log("儿子提交的值：",val)
+  // }
 
-  private debounce = (fn: any,delay: any) => {
-      clearTimeout(this.timer)
-      this.timer = setTimeout(fn,delay)
-  }
+  // private debounce = (fn: any,delay: any) => {
+  //     clearTimeout(this.timer)
+  //     this.timer = setTimeout(fn,delay)
+  // }
 
 
   private throttle = (fn: any, delay: any) => {
@@ -119,12 +108,21 @@ export default class Home extends Vue {
 
 <style scoped lang="scss">
 .home {
-  background-image: linear-gradient(120deg,green,blue);
+  background-image: linear-gradient(120deg,white,black);
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  img {
+    width:300px;
+    height:200px;
+    transition: 1s height cubic-bezier(.83,.97,.05,1.44);
+  }
+  img:hover {
+    width: 400px;
+    height: 300px;
+  }
   .index {
     display: flex;
     justify-content: center;

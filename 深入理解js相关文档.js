@@ -142,17 +142,14 @@
 
 // 作用域相关--被一图科技搞死
     // 1)
-    // part1 考察function的变量提升高于var
-    // console.log(a);
-    // function a() {};
-    // // console.log(a);
-    // var a = 1;
-    // console.log(a);
-
-    // function a(){}
-    // var a 
-    // console.log(a)
-
+    // part1 考察function的变量提升高于var,相当于先执行了var，再执行function
+    console.log(a); //f
+    function a() {
+        console.log('shshahh')
+    };
+    console.log(a); //f
+    var a = 1;
+    console.log(a); //1
 
     // part2--这尼玛考察啥？---还是考察变量提升--不单单是变量提升的问题，发现var a = 1而后在function时，a还是1，原因在于并不是赋值
     // var foo = 1;
@@ -510,13 +507,13 @@
 // getnum()
 
 // // 7.防抖截流
-//     const debounce = function(fn,delay) {
-//         let timer = null
-//         return (function() {
-//             clearTimeout(timer)
-//             timer = setTimeout(fn,delay)
-//         })()
-//     }
+    // const debounce = function(fn,delay) {
+    //     let timer = null
+    //     return (function() {
+    //         clearTimeout(timer)
+    //         timer = setTimeout(fn,delay)
+    //     })()
+    // }
 
 //     const throttle = function(fn,delay) {
 //         let timer = null
@@ -639,44 +636,41 @@
 // // },0)
 // console.log("end")
 
-// 14.js中的集中继承的方式
-
-    // 1.构造函数继承
 
 
-    // 2.原型链继承
-    // const Parent = function() {
-    //     this.name = 'father'
+// 14 类,继承，等等相关 
+    // 1) es6中的class类
+    // class Animal {
+    //     constructor(name,sound) {
+    //         this.name = name
+    //         this.sound = sound
+    //     }
+    //     shout() {
+    //         console.log(this.sound)
+    //     }
     // }
+    // const tiger = new Animal('tiger','wow')
+    // const dog = new Animal('dog','wawa')
+    // console.log(dog.sound)
+
+    // 2) es6之前实现类得方法
+    // const Animal = function(name,sound) {
+    //     this.parent = 'babab'
+    //     this.name = name
+    //     this.sound =sound
+    // }
+
+    // Animal.prototype.shout = function() {
+    //     console.log(this.parent)
+    // }
+
+    // const tiger = new Animal('tiger','wow')
+    // const dog = new Animal('dog','wawwa')
+    // tiger.shout()
     
-    // Parent.prototype.getName = function() {
-    //     return this.name
-    // }
-
-    // const child = new Parent()
-    // console.log(child.name)
-    
-    // const test = function() {
-    //     console.log("this")
-    // }
-
-
-    // 3.组合继承
-    // 4.es6class继承
 
 
     // ts与js的区别
     // 1.弱类型 ---> 强类型
     // 2.ts代码需编译成js再执行
 
-
-
-
-
-    let arr = [1,2,3,4]
-    let data = arr.reduce((prev,cur,index,arr) => {
-        console.log('prev:',prev)
-        console.log('cur:',cur)
-        return prev+cur   
-    })
-    console.log(data)
