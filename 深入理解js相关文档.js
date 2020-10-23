@@ -142,14 +142,14 @@
 
 // 作用域相关--被一图科技搞死
     // 1)
-    // part1 考察function的变量提升高于var,相当于先执行了var，再执行function
-    console.log(a); //f
-    function a() {
-        console.log('shshahh')
-    };
-    console.log(a); //f
-    var a = 1;
-    console.log(a); //1
+    // // part1 考察function的变量提升高于var,相当于先执行了var，再执行function
+    // console.log(a); //f
+    // function a() {
+    //     console.log('shshahh')
+    // };
+    // console.log(a); //f
+    // var a = 1;
+    // console.log(a); //1
 
     // part2--这尼玛考察啥？---还是考察变量提升--不单单是变量提升的问题，发现var a = 1而后在function时，a还是1，原因在于并不是赋值
     // var foo = 1;
@@ -667,7 +667,20 @@
     // const tiger = new Animal('tiger','wow')
     // const dog = new Animal('dog','wawwa')
     // tiger.shout()
+
+    // 3) js中继承的几种方式
+    // 构造函数继承
+    const parent = function(){
+        this.name = 'baba'
+        const s = 'test'
+    }
+    const child = new parent()
+    console.log(child.name)
     
+    // 原型链继承
+    let child2 = {}
+    child2.__proto__ = parent.prototype
+    console.log(child2.s)
 
 
     // ts与js的区别

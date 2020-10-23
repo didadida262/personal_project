@@ -4,9 +4,7 @@
     <div class="index" v-else>
       <h3>{{ data }}</h3>
       <div class="logo"><img alt="Vue logo" src="../assets/logo.jpg"></div>
-      <div class="btn" @click="toNewoWorld">
-        <a-button>Enter</a-button>
-      </div>
+        <a-button @click="toNewoWorld" style="margin-top:10px">Enter</a-button>
       <div class="testcss"></div>
       <!-- <a-button @click="throttle(fn,1000)">test_d</a-button> -->
       <!-- <Test
@@ -37,6 +35,14 @@ export default class Home extends Vue {
   flag = true
   private created(): void {
     this.getWord()
+    this.gettestdata()
+  }
+
+  private gettestdata(): void {
+    commonAPI.testdata()
+    .then((res: any) => {
+      console.log("获取测试数据：",res.data)
+    })
   }
 
   private getImg = (url: any) => {

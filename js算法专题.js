@@ -216,17 +216,35 @@
 // f([1,2,3])
 
 // 9. 求根节点到叶子结点的数字之和
+// 递归得代码下意识地会去背。。。
 
-const sumNumbers = function(root) {
-    if(!root) return 0
-    let sum = 0
-    const dfs = (node, cur) => {
-        cur = cur *10 + node.value
-        if(!node.left && !node.rigth) {
-            sum = sum + cur
-        }
-        if(node.left) dfs(node.left,cur)
-        if(node.right) dfs(node.right,cur)
-    }
-    dfs(root,0)
-}
+// var sumNumbers = function(root) {
+//     if(!root) return 0
+//     let sum = 0
+//     const dfs = (node, cur) => {
+//         cur = cur *10 + node.val
+//         if(!node.left && !node.right) {
+//             sum = sum + cur
+//         }
+//         if(node.left) dfs(node.left,cur)
+//         if(node.right) dfs(node.right,cur)
+//     }
+//     dfs(root,0)
+//     return sum
+//     // console.log(sum)
+// };
+
+// 10.判断回文链表
+// const isPalindrome = function(head) {
+//     const arr = []
+//     while(head) {
+//         arr.push(head.val)
+//         head = head.next
+//     }
+//     const origin = JSON.parse(JSON.stringify(arr))
+//     arr.reverse()
+//     for(let i =0;i <arr.length;i++) {
+//         if(arr[i] !== origin[i]) return false
+//     }
+//     return true
+// };

@@ -19,6 +19,9 @@ const commonAPI = {
 
     signIn(params: any) {
         return axios.post(`${ROOT}/signIn`, params)
+    },
+    testdata() {
+        return axios.get(`${ROOT}/testdata`)
     }
 }
 
