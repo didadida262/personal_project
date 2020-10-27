@@ -235,16 +235,58 @@
 // };
 
 // 10.判断回文链表
-// const isPalindrome = function(head) {
-//     const arr = []
-//     while(head) {
-//         arr.push(head.val)
-//         head = head.next
-//     }
-//     const origin = JSON.parse(JSON.stringify(arr))
-//     arr.reverse()
-//     for(let i =0;i <arr.length;i++) {
-//         if(arr[i] !== origin[i]) return false
-//     }
-//     return true
-// };
+const isPalindrome = function(head) {
+    const arr = []
+    while(head) {
+        arr.push(head.val)
+        head = head.next
+    }
+    const origin = JSON.parse(JSON.stringify(arr))
+    arr.reverse()
+    for(let i =0;i <arr.length;i++) {
+        if(arr[i] !== origin[i]) return false
+    }
+    return true
+};
+
+// 11.
+// 输入:
+// [
+//   [1,3,1],
+//   [1,5,1],
+//   [4,2,1]
+// ]
+// 输出: 7
+// 解释: 因为路径 1→3→1→1→1 的总和最小。
+
+
+
+const f = (grid) => {
+    let dp = JSON.parse(JSON.stringify(grid))
+    dp = dp.map(item => {
+        item = item.map(itemm => parseInt(itemm))
+        return item
+    })
+    console.log('dp1:',dp)
+    
+    for(let i =1;i < grid[0].length;i++) {
+        dp[0][i] = dp[0][i-1] + dp[0][i]
+    }
+
+    for(let i =1; i< grid.length;i++) {
+        dp[i][0] = dp[i-1][0] + dp[i][0] 
+    }
+    for(let i =1;i < grid.length;i++) {
+        for(let j = 1; j< grid[0].length;j++) {
+            dp[i][j] = Math.min(dp[i-1][j],dp[i][j-1]) + dp[i][j]
+        }
+    }
+    console.log('dp2:',dp)
+    return dp[grid.length-1][grid[0].length-1]
+}
+
+f([
+    [1,3,1],
+    [1,5,1],
+    [4,2,1]
+  ])

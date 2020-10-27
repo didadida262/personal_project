@@ -26,83 +26,83 @@
     'use strict';
 
     // keeping central set of classnames and selectors
-    var WRAPPER =               'fullpage-wrapper';
-    var WRAPPER_SEL =           '.' + WRAPPER;
+    const WRAPPER =               'fullpage-wrapper';
+    const WRAPPER_SEL =           '.' + WRAPPER;
 
     // slimscroll
-    var SCROLLABLE =            'fp-scrollable';
-    var SCROLLABLE_SEL =        '.' + SCROLLABLE;
+    const SCROLLABLE =            'fp-scrollable';
+    const SCROLLABLE_SEL =        '.' + SCROLLABLE;
 
     // util
-    var RESPONSIVE =            'fp-responsive';
-    var NO_TRANSITION =         'fp-notransition';
-    var DESTROYED =             'fp-destroyed';
-    var ENABLED =               'fp-enabled';
-    var VIEWING_PREFIX =        'fp-viewing';
-    var ACTIVE =                'active';
-    var ACTIVE_SEL =            '.' + ACTIVE;
-    var COMPLETELY =            'fp-completely';
-    var COMPLETELY_SEL =        '.' + COMPLETELY;
+    const RESPONSIVE =            'fp-responsive';
+    const NO_TRANSITION =         'fp-notransition';
+    const DESTROYED =             'fp-destroyed';
+    const ENABLED =               'fp-enabled';
+    const VIEWING_PREFIX =        'fp-viewing';
+    const ACTIVE =                'active';
+    const ACTIVE_SEL =            '.' + ACTIVE;
+    const COMPLETELY =            'fp-completely';
+    const COMPLETELY_SEL =        '.' + COMPLETELY;
 
     // section
-    var SECTION_DEFAULT_SEL =   '.section';
-    var SECTION =               'fp-section';
-    var SECTION_SEL =           '.' + SECTION;
-    var SECTION_ACTIVE_SEL =    SECTION_SEL + ACTIVE_SEL;
-    var TABLE_CELL =            'fp-tableCell';
-    var TABLE_CELL_SEL =        '.' + TABLE_CELL;
-    var AUTO_HEIGHT =           'fp-auto-height';
-    var AUTO_HEIGHT_SEL =       '.' + AUTO_HEIGHT;
-    var AUTO_HEIGHT_RESPONSIVE = 'fp-auto-height-responsive';
-    var AUTO_HEIGHT_RESPONSIVE_SEL = '.' + AUTO_HEIGHT_RESPONSIVE;
-    var NORMAL_SCROLL =         'fp-normal-scroll';
-    var NORMAL_SCROLL_SEL =     '.' + NORMAL_SCROLL;
+    const SECTION_DEFAULT_SEL =   '.section';
+    const SECTION =               'fp-section';
+    const SECTION_SEL =           '.' + SECTION;
+    const SECTION_ACTIVE_SEL =    SECTION_SEL + ACTIVE_SEL;
+    const TABLE_CELL =            'fp-tableCell';
+    const TABLE_CELL_SEL =        '.' + TABLE_CELL;
+    const AUTO_HEIGHT =           'fp-auto-height';
+    const AUTO_HEIGHT_SEL =       '.' + AUTO_HEIGHT;
+    const AUTO_HEIGHT_RESPONSIVE = 'fp-auto-height-responsive';
+    const AUTO_HEIGHT_RESPONSIVE_SEL = '.' + AUTO_HEIGHT_RESPONSIVE;
+    const NORMAL_SCROLL =         'fp-normal-scroll';
+    const NORMAL_SCROLL_SEL =     '.' + NORMAL_SCROLL;
 
     // section nav
-    var SECTION_NAV =           'fp-nav';
-    var SECTION_NAV_SEL =       '#' + SECTION_NAV;
-    var SECTION_NAV_TOOLTIP =   'fp-tooltip';
-    var SECTION_NAV_TOOLTIP_SEL='.'+SECTION_NAV_TOOLTIP;
-    var SHOW_ACTIVE_TOOLTIP =   'fp-show-active';
+    const SECTION_NAV =           'fp-nav';
+    const SECTION_NAV_SEL =       '#' + SECTION_NAV;
+    const SECTION_NAV_TOOLTIP =   'fp-tooltip';
+    const SECTION_NAV_TOOLTIP_SEL='.'+SECTION_NAV_TOOLTIP;
+    const SHOW_ACTIVE_TOOLTIP =   'fp-show-active';
 
     // slide
-    var SLIDE_DEFAULT_SEL =     '.slide';
-    var SLIDE =                 'fp-slide';
-    var SLIDE_SEL =             '.' + SLIDE;
-    var SLIDE_ACTIVE_SEL =      SLIDE_SEL + ACTIVE_SEL;
-    var SLIDES_WRAPPER =        'fp-slides';
-    var SLIDES_WRAPPER_SEL =    '.' + SLIDES_WRAPPER;
-    var SLIDES_CONTAINER =      'fp-slidesContainer';
-    var SLIDES_CONTAINER_SEL =  '.' + SLIDES_CONTAINER;
-    var TABLE =                 'fp-table';
+    const SLIDE_DEFAULT_SEL =     '.slide';
+    const SLIDE =                 'fp-slide';
+    const SLIDE_SEL =             '.' + SLIDE;
+    const SLIDE_ACTIVE_SEL =      SLIDE_SEL + ACTIVE_SEL;
+    const SLIDES_WRAPPER =        'fp-slides';
+    const SLIDES_WRAPPER_SEL =    '.' + SLIDES_WRAPPER;
+    const SLIDES_CONTAINER =      'fp-slidesContainer';
+    const SLIDES_CONTAINER_SEL =  '.' + SLIDES_CONTAINER;
+    const TABLE =                 'fp-table';
 
     // slide nav
-    var SLIDES_NAV =            'fp-slidesNav';
-    var SLIDES_NAV_SEL =        '.' + SLIDES_NAV;
-    var SLIDES_NAV_LINK_SEL =   SLIDES_NAV_SEL + ' a';
-    var SLIDES_ARROW =          'fp-controlArrow';
-    var SLIDES_ARROW_SEL =      '.' + SLIDES_ARROW;
-    var SLIDES_PREV =           'fp-prev';
-    var SLIDES_PREV_SEL =       '.' + SLIDES_PREV;
-    var SLIDES_ARROW_PREV =     SLIDES_ARROW + ' ' + SLIDES_PREV;
-    var SLIDES_ARROW_PREV_SEL = SLIDES_ARROW_SEL + SLIDES_PREV_SEL;
-    var SLIDES_NEXT =           'fp-next';
-    var SLIDES_NEXT_SEL =       '.' + SLIDES_NEXT;
-    var SLIDES_ARROW_NEXT =     SLIDES_ARROW + ' ' + SLIDES_NEXT;
-    var SLIDES_ARROW_NEXT_SEL = SLIDES_ARROW_SEL + SLIDES_NEXT_SEL;
+    const SLIDES_NAV =            'fp-slidesNav';
+    const SLIDES_NAV_SEL =        '.' + SLIDES_NAV;
+    const SLIDES_NAV_LINK_SEL =   SLIDES_NAV_SEL + ' a';
+    const SLIDES_ARROW =          'fp-controlArrow';
+    const SLIDES_ARROW_SEL =      '.' + SLIDES_ARROW;
+    const SLIDES_PREV =           'fp-prev';
+    const SLIDES_PREV_SEL =       '.' + SLIDES_PREV;
+    const SLIDES_ARROW_PREV =     SLIDES_ARROW + ' ' + SLIDES_PREV;
+    const SLIDES_ARROW_PREV_SEL = SLIDES_ARROW_SEL + SLIDES_PREV_SEL;
+    const SLIDES_NEXT =           'fp-next';
+    const SLIDES_NEXT_SEL =       '.' + SLIDES_NEXT;
+    const SLIDES_ARROW_NEXT =     SLIDES_ARROW + ' ' + SLIDES_NEXT;
+    const SLIDES_ARROW_NEXT_SEL = SLIDES_ARROW_SEL + SLIDES_NEXT_SEL;
 
     function initialise(containerSelector, options) {
-        var isOK = options && new RegExp('([\\d\\w]{8}-){3}[\\d\\w]{8}|^(?=.*?[A-Y])(?=.*?[a-y])(?=.*?[0-8])(?=.*?[#?!@$%^&*-]).{8,}$').test(options['li'+'cen'+'seK' + 'e' + 'y']) || document.domain.indexOf('al'+'varotri' +'go' + '.' + 'com') > -1;
+        const isOK = options && new RegExp('([\\d\\w]{8}-){3}[\\d\\w]{8}|^(?=.*?[A-Y])(?=.*?[a-y])(?=.*?[0-8])(?=.*?[#?!@$%^&*-]).{8,}$').test(options['li'+'cen'+'seK' + 'e' + 'y']) || document.domain.indexOf('al'+'varotri' +'go' + '.' + 'com') > -1;
 
         // cache common elements
-        var $htmlBody = $('html, body');
-        var $html = $('html')[0];
-        var $body = $('body')[0];
+        const $htmlBody = $('html, body');
+        const $html = $('html')[0];
+        const $body = $('body')[0];
 
         //only once my friend!
         if(hasClass($html, ENABLED)){ displayWarnings(); return; }
 
-        var FP = {};
+        const FP = {};
 
         // Creating some defaults, extending them with any options that were provided
         options = deepExtend({
@@ -196,38 +196,38 @@
         }, options);
 
         //flag to avoid very fast sliding for landscape sliders
-        var slideMoving = false;
+        let slideMoving = false;
 
-        var isTouchDevice = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|playbook|silk|BlackBerry|BB10|Windows Phone|Tizen|Bada|webOS|IEMobile|Opera Mini)/);
-        var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0) || (navigator.maxTouchPoints));
-        var container = typeof containerSelector === 'string' ? $(containerSelector)[0] : containerSelector;
-        var windowsHeight = getWindowHeight();
-        var windowsWidth = getWindowWidth();
-        var isResizing = false;
-        var isWindowFocused = true;
-        var lastScrolledDestiny;
-        var lastScrolledSlide;
-        var canScroll = true;
-        var scrollings = [];
-        var controlPressed;
-        var startingSection;
-        var isScrollAllowed = {};
+        const isTouchDevice = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|playbook|silk|BlackBerry|BB10|Windows Phone|Tizen|Bada|webOS|IEMobile|Opera Mini)/);
+        const isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0) || (navigator.maxTouchPoints));
+        const container = typeof containerSelector === 'string' ? $(containerSelector)[0] : containerSelector;
+        let windowsHeight = getWindowHeight();
+        let windowsWidth = getWindowWidth();
+        let isResizing = false;
+        let isWindowFocused = true;
+        let lastScrolledDestiny;
+        let lastScrolledSlide;
+        let canScroll = true;
+        let scrollings = [];
+        let controlPressed;
+        let startingSection;
+        const isScrollAllowed = {};
         isScrollAllowed.m = {  'up':true, 'down':true, 'left':true, 'right':true };
         isScrollAllowed.k = deepExtend({}, isScrollAllowed.m);
-        var MSPointer = getMSPointer();
-        var events = {
+        const MSPointer = getMSPointer();
+        const events = {
             touchmove: 'ontouchmove' in window ? 'touchmove' :  MSPointer.move,
             touchstart: 'ontouchstart' in window ? 'touchstart' :  MSPointer.down
         };
-        var scrollBarHandler;
+        let scrollBarHandler;
 
         // taken from https://github.com/udacity/ud891/blob/gh-pages/lesson2-focus/07-modals-and-keyboard-traps/solution/modal.js
-        var focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
+        const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
 
         //cheks for passive event support
-        var g_supportsPassive = false;
+        let g_supportsPassive = false;
         try {
-          var opts = Object.defineProperty({}, 'passive', {
+          const opts = Object.defineProperty({}, 'passive', {
             get: function() {
               g_supportsPassive = true;
             }
@@ -237,21 +237,21 @@
         } catch (e) {}
 
         //timeouts
-        var resizeId;
-        var resizeHandlerId;
-        var afterSectionLoadsId;
-        var afterSlideLoadsId;
-        var scrollId;
-        var scrollId2;
-        var keydownId;
-        var g_doubleCheckHeightId;
-        var originals = deepExtend({}, options); //deep copy
-        var activeAnimation;
-        var g_initialAnchorsInDom = false;
-        var g_canFireMouseEnterNormalScroll = true;
-        var g_mediaLoadedId;
-        var g_transitionLapseId;
-        var extensions = [
+        let resizeId;
+        let resizeHandlerId;
+        let afterSectionLoadsId;
+        let afterSlideLoadsId;
+        let scrollId;
+        let scrollId2;
+        let keydownId;
+        let g_doubleCheckHeightId;
+        const originals = deepExtend({}, options); //deep copy
+        let activeAnimation;
+        let g_initialAnchorsInDom = false;
+        let g_canFireMouseEnterNormalScroll = true;
+        let g_mediaLoadedId;
+        let g_transitionLapseId;
+        const extensions = [
             'parallax',
             'scrollOverflowReset',
             'dragAndMove',
@@ -286,7 +286,7 @@
 
             setVariableState('autoScrolling', value, type);
 
-            var element = $(SECTION_ACTIVE_SEL)[0];
+            const element = $(SECTION_ACTIVE_SEL)[0];
 
             if(options.autoScrolling && !options.scrollBar){
                 css($htmlBody, {
@@ -312,7 +312,7 @@
                     'height' : 'initial'
                 });
 
-                var recordHistory = !options.autoScrolling ? false : originals.recordHistory;
+                const recordHistory = !options.autoScrolling ? false : originals.recordHistory;
                 setRecordHistory(recordHistory, 'internal');
 
                 //for IE touch devices
@@ -323,7 +323,7 @@
 
                 //scrolling the page to the section with no animation
                 if (element != null) {
-                    var scrollSettings = getScrollSettings(element.offsetTop);
+                    const scrollSettings = getScrollSettings(element.offsetTop);
                     scrollSettings.element.scrollTo(0, scrollSettings.options);
                 }
             }
@@ -422,7 +422,7 @@
         * Moves the page up one section.
         */
         function moveSectionUp(){
-            var prev = prevUntil($(SECTION_ACTIVE_SEL)[0], SECTION_SEL);
+            let prev = prevUntil($(SECTION_ACTIVE_SEL)[0], SECTION_SEL);
 
             //looping to the bottom if there's no more sections above
             if (!prev && (options.loopTop || options.continuousVertical)) {
@@ -438,7 +438,7 @@
         * Moves the page down one section.
         */
         function moveSectionDown(){
-            var next = nextUntil($(SECTION_ACTIVE_SEL)[0], SECTION_SEL);
+            let next = nextUntil($(SECTION_ACTIVE_SEL)[0], SECTION_SEL);
 
             //looping to the top if there's no more sections below
             if(!next &&
@@ -466,7 +466,7 @@
         * Anchors or index positions can be used as params.
         */
         function moveTo(sectionAnchor, slideAnchor){
-            var destiny = getSectionByAnchor(sectionAnchor);
+            const destiny = getSectionByAnchor(sectionAnchor);
 
             if (typeof slideAnchor !== 'undefined'){
                 scrollPageAndSlide(sectionAnchor, slideAnchor);
@@ -503,11 +503,11 @@
             windowsHeight = getWindowHeight();
             windowsWidth = getWindowWidth();
 
-            var sections = $(SECTION_SEL);
-            for (var i = 0; i < sections.length; ++i) {
-                var section = sections[i];
-                var slidesWrap = $(SLIDES_WRAPPER_SEL, section)[0];
-                var slides = $(SLIDE_SEL, section);
+            const sections = $(SECTION_SEL);
+            for (let i = 0; i < sections.length; ++i) {
+                const section = sections[i];
+                const slidesWrap = $(SLIDES_WRAPPER_SEL, section)[0];
+                const slides = $(SLIDE_SEL, section);
 
                 //adjusting the height of the table-cell for IE and Firefox
                 if(options.verticalCentered){
@@ -526,8 +526,8 @@
                 scrollBarHandler.createScrollBarForAll();
             }
 
-            var activeSection = $(SECTION_ACTIVE_SEL)[0];
-            var sectionIndex = index(activeSection, SECTION_SEL);
+            const activeSection = $(SECTION_ACTIVE_SEL)[0];
+            const sectionIndex = index(activeSection, SECTION_SEL);
 
             //isn't it the first section?
             if(sectionIndex){
@@ -556,7 +556,7 @@
         * are smaller than the set limit values.
         */
         function setResponsive(active){
-            var isResponsive = isResponsiveMode();
+            const isResponsive = isResponsiveMode();
 
             if(active){
                 if(!isResponsive){
@@ -614,15 +614,15 @@
                 top: '0px',
                 translate3d: 'translate3d(0px, 0px, 0px)',
                 translate3dH: (function(){
-                    var a = [];
-                    for(var i = 0; i < $(options.sectionSelector, container).length; i++){
+                    const a = [];
+                    for(let i = 0; i < $(options.sectionSelector, container).length; i++){
                         a.push('translate3d(0px, 0px, 0px)');
                     }
                     return a;
                 })(),
                 left: (function(){
-                    var a = [];
-                    for(var i = 0; i < $(options.sectionSelector, container).length; i++){
+                    const a = [];
+                    for(let i = 0; i < $(options.sectionSelector, container).length; i++){
                         a.push(0);
                     }
                     return a;
@@ -729,7 +729,7 @@
         }
 
         function delegatedEvents(e){
-            var target = e.target;
+            const target = e.target;
 
             if(target && closest(target, SECTION_NAV_SEL + ' a')){
                 sectionBulletHandler.call(target, e);
@@ -755,12 +755,12 @@
         }
 
         function onMouseEnterOrLeave(e) {
-            var type = e.type;
-            var isInsideOneNormalScroll = false;
-            var isUsingScrollOverflow = options.scrollOverflow;
+            const type = e.type;
+            let isInsideOneNormalScroll = false;
+            const isUsingScrollOverflow = options.scrollOverflow;
 
             //onMouseLeave will use the destination target, not the one we are moving away from
-            var target = type === 'mouseleave' ? e.toElement || e.relatedTarget : e.target;
+            const target = type === 'mouseleave' ? e.toElement || e.relatedTarget : e.target;
 
             //coming from closing a normalScrollElements modal or moving outside viewport?
             if(target == document || !target){
@@ -785,14 +785,14 @@
                 return;
             }
 
-            var normalSelectors = options.normalScrollElements.split(',');
+            const normalSelectors = options.normalScrollElements.split(',');
 
             normalSelectors.forEach(function(normalSelector){
                 if(!isInsideOneNormalScroll){
-                    var isNormalScrollTarget = matches(target, normalSelector);
+                    const isNormalScrollTarget = matches(target, normalSelector);
 
                     //leaving a child inside the normalScoll element is not leaving the normalScroll #3661
-                    var isNormalScrollChildFocused = closest(target, normalSelector);
+                    const isNormalScrollChildFocused = closest(target, normalSelector);
 
                     if(isNormalScrollTarget || isNormalScrollChildFocused){
                         if(!FP.shared.isNormalScrollElement){
@@ -825,7 +825,7 @@
         * see if it has changed in any of those. If that's the case, it resizes.
         */
         function doubleCheckHeight(){
-            for(var i = 1; i < 4; i++){
+            for(let i = 1; i < 4; i++){
                 g_doubleCheckHeightId = setTimeout(adjustToNewViewport, 350 * i);
             }
         }
@@ -834,8 +834,8 @@
         * Adjusts a section to the viewport if it has changed.
         */
         function adjustToNewViewport(){
-            var newWindowHeight = getWindowHeight();
-            var newWindowWidth = getWindowWidth();
+            const newWindowHeight = getWindowHeight();
+            const newWindowWidth = getWindowWidth();
 
             if(windowsHeight !== newWindowHeight || windowsWidth !== newWindowWidth){
                 windowsHeight = newWindowHeight;
@@ -851,8 +851,8 @@
 
             //no anchors option? Checking for them in the DOM attributes
             if(!options.anchors.length){
-                var anchorsAttribute = '[data-anchor]';
-                var anchors = $(options.sectionSelector.split(',').join(anchorsAttribute + ',') + anchorsAttribute, container);
+                const anchorsAttribute = '[data-anchor]';
+                const anchors = $(options.sectionSelector.split(',').join(anchorsAttribute + ',') + anchorsAttribute, container);
                 if(anchors.length && anchors.length === $(SECTION_SEL).length){
                     g_initialAnchorsInDom = true;
                     anchors.forEach(function(item){
@@ -863,8 +863,8 @@
 
             //no tooltips option? Checking for them in the DOM attributes
             if(!options.navigationTooltips.length){
-                var tooltipsAttribute = '[data-tooltip]';
-                var tooltips = $(options.sectionSelector.split(',').join(tooltipsAttribute + ',') + tooltipsAttribute, container);
+                const tooltipsAttribute = '[data-tooltip]';
+                const tooltips = $(options.sectionSelector.split(',').join(tooltipsAttribute + ',') + tooltipsAttribute, container);
                 if(tooltips.length){
                     tooltips.forEach(function(item){
                         options.navigationTooltips.push(item.getAttribute('data-tooltip').toString());
@@ -893,14 +893,14 @@
 
             addInternalSelectors();
 
-            var sections = $(SECTION_SEL);
+            const sections = $(SECTION_SEL);
 
             //styling the sections / slides / menu
-            for(var i = 0; i<sections.length; i++){
-                var sectionIndex = i;
-                var section = sections[i];
-                var slides = $(SLIDE_SEL, section);
-                var numSlides = slides.length;
+            for(let i = 0; i<sections.length; i++){
+                const sectionIndex = i;
+                const section = sections[i];
+                const slides = $(SLIDE_SEL, section);
+                const numSlides = slides.length;
 
                 //caching the original styles to add them back on destroy('all')
                 section.setAttribute('data-fp-styles', section.getAttribute('style'));
@@ -941,14 +941,14 @@
         * Styles the horizontal slides for a section.
         */
         function styleSlides(section, slides, numSlides){
-            var sliderWidth = numSlides * 100;
-            var slideWidth = 100 / numSlides;
+            const sliderWidth = numSlides * 100;
+            const slideWidth = 100 / numSlides;
 
-            var slidesWrapper = document.createElement('div');
+            const slidesWrapper = document.createElement('div');
             slidesWrapper.className = SLIDES_WRAPPER; //fp-slides
             wrapAll(slides, slidesWrapper);
 
-            var slidesContainer = document.createElement('div');
+            const slidesContainer = document.createElement('div');
             slidesContainer.className = SLIDES_CONTAINER; //fp-slidesContainer
             wrapAll(slides, slidesContainer);
 
@@ -972,7 +972,7 @@
                 }
             });
 
-            var startingSlide = $(SLIDE_ACTIVE_SEL, section)[0];
+            const startingSlide = $(SLIDE_ACTIVE_SEL, section)[0];
 
             //if the slide won't be an starting point, the default will be the first one
             //the active section isn't the first one? Is not the first slide of the first section? Then we load that section/slide by default.
@@ -1044,7 +1044,7 @@
         * Creates the control arrows for the given section
         */
         function createSlideArrows(section){
-            var arrows = [createElementFromHTML('<div class="' + SLIDES_ARROW_PREV + '"></div>'), createElementFromHTML('<div class="' + SLIDES_ARROW_NEXT + '"></div>')];
+            const arrows = [createElementFromHTML('<div class="' + SLIDES_ARROW_PREV + '"></div>'), createElementFromHTML('<div class="' + SLIDES_ARROW_NEXT + '"></div>')];
             after($(SLIDES_WRAPPER_SEL, section)[0], arrows);
 
             if(options.controlArrowColor !== '#fff'){
@@ -1061,14 +1061,14 @@
         * Creates a vertical navigation bar.
         */
         function addVerticalNavigation(){
-            var navigation = document.createElement('div');
+            const navigation = document.createElement('div');
             navigation.setAttribute('id', SECTION_NAV);
 
-            var divUl = document.createElement('ul');
+            const divUl = document.createElement('ul');
             navigation.appendChild(divUl);
 
             appendTo(navigation, $body);
-            var nav = $(SECTION_NAV_SEL)[0];
+            const nav = $(SECTION_NAV_SEL)[0];
 
             addClass(nav, 'fp-' + options.navigationPosition);
 
@@ -1076,10 +1076,10 @@
                 addClass(nav, SHOW_ACTIVE_TOOLTIP);
             }
 
-            var li = '';
+            let li = '';
 
-            for (var i = 0; i < $(SECTION_SEL).length; i++) {
-                var link = '';
+            for (let i = 0; i < $(SECTION_SEL).length; i++) {
+                let link = '';
                 if (options.anchors.length) {
                     link = options.anchors[i];
                 }
@@ -1087,7 +1087,7 @@
                 li += '<li><a href="#' + link + '"><span class="fp-sr-only">' + getBulletLinkName(i, 'Section') + '</span><span></span></a>';
 
                 // Only add tooltip if needed (defined by user)
-                var tooltip = options.navigationTooltips[i];
+                const tooltip = options.navigationTooltips[i];
 
                 if (typeof tooltip !== 'undefined' && tooltip !== '') {
                     li += '<div class="' + SECTION_NAV_TOOLTIP + ' fp-' + options.navigationPosition + '">' + tooltip + '</div>';
@@ -1099,7 +1099,7 @@
             
             //activating the current active section
 
-            var bullet = $('li', $(SECTION_NAV_SEL)[0])[index($(SECTION_ACTIVE_SEL)[0], SECTION_SEL)];
+            const bullet = $('li', $(SECTION_NAV_SEL)[0])[index($(SECTION_ACTIVE_SEL)[0], SECTION_SEL)];
             addClass($('a', bullet), ACTIVE);
         }
 
@@ -1107,7 +1107,7 @@
         * Gets the name for screen readers for a section/slide navigation bullet.
         */
         function getBulletLinkName(i, defaultName, item){
-            var anchor = defaultName === 'Section' ? options.anchors[i] : item.getAttribute('data-anchor');
+            const anchor = defaultName === 'Section' ? options.anchors[i] : item.getAttribute('data-anchor');
             return options.navigationTooltips[i]
                 || anchor
                 || defaultName + ' ' + (i+1);
@@ -1126,7 +1126,7 @@
         * Adds a new parameter and its value to the `src` of a given element
         */
         function addURLParam(element, newParam){
-            var originalSrc = element.getAttribute('src');
+            const originalSrc = element.getAttribute('src');
             element.setAttribute('src', originalSrc + getUrlParamSign(originalSrc) + newParam);
         }
 
@@ -1143,7 +1143,7 @@
         * Actions and callbacks to fire afterRender
         */
         function afterRenderActions(){
-            var section = $(SECTION_ACTIVE_SEL)[0];
+            const section = $(SECTION_ACTIVE_SEL)[0];
 
             addClass(section, COMPLETELY);
 
@@ -1176,29 +1176,29 @@
         * Determines if the URL anchor destiny is the starting section (the one using 'active' class before initialization)
         */
         function isDestinyTheStartingSection(){
-            var anchor = getAnchorsURL();
-            var destinationSection = getSectionByAnchor(anchor.section);
+            const anchor = getAnchorsURL();
+            const destinationSection = getSectionByAnchor(anchor.section);
             return !anchor.section || !destinationSection || typeof destinationSection !=='undefined' && index(destinationSection) === index(startingSection);
         }
 
-        var isScrolling = false;
-        var lastScroll = 0;
+        let isScrolling = false;
+        let lastScroll = 0;
 
         //when scrolling...
         function scrollHandler(){
-            var currentSection;
+            let currentSection;
 
             if(isResizing){
                 return;
             }
             
             if(!options.autoScrolling || options.scrollBar){
-                var currentScroll = getScrollTop();
-                var scrollDirection = getScrollDirection(currentScroll);
-                var visibleSectionIndex = 0;
-                var screen_mid = currentScroll + (getWindowHeight() / 2.0);
-                var isAtBottom = $body.offsetHeight - getWindowHeight() === currentScroll;
-                var sections =  $(SECTION_SEL);
+                const currentScroll = getScrollTop();
+                const scrollDirection = getScrollDirection(currentScroll);
+                let visibleSectionIndex = 0;
+                const screen_mid = currentScroll + (getWindowHeight() / 2.0);
+                const isAtBottom = $body.offsetHeight - getWindowHeight() === currentScroll;
+                const sections =  $(SECTION_SEL);
 
                 //when using `auto-height` for a small last section it won't be centered in the viewport
                 if(isAtBottom){
@@ -1211,8 +1211,8 @@
 
                 //taking the section which is showing more content in the viewport
                 else{
-                    for (var i = 0; i < sections.length; ++i) {
-                        var section = sections[i];
+                    for (let i = 0; i < sections.length; ++i) {
+                        const section = sections[i];
 
                         // Pick the the last section which passes the middle line of the screen.
                         if (section.offsetTop <= screen_mid)
@@ -1236,15 +1236,15 @@
                 //executing only once the first time we reach the section
                 if(!hasClass(currentSection, ACTIVE)){
                     isScrolling = true;
-                    var leavingSection = $(SECTION_ACTIVE_SEL)[0];
-                    var leavingSectionIndex = index(leavingSection, SECTION_SEL) + 1;
-                    var yMovement = getYmovement(currentSection);
-                    var anchorLink  = currentSection.getAttribute('data-anchor');
-                    var sectionIndex = index(currentSection, SECTION_SEL) + 1;
-                    var activeSlide = $(SLIDE_ACTIVE_SEL, currentSection)[0];
-                    var slideIndex;
-                    var slideAnchorLink;
-                    var callbacksParams = {
+                    const leavingSection = $(SECTION_ACTIVE_SEL)[0];
+                    const leavingSectionIndex = index(leavingSection, SECTION_SEL) + 1;
+                    const yMovement = getYmovement(currentSection);
+                    const anchorLink  = currentSection.getAttribute('data-anchor');
+                    const sectionIndex = index(currentSection, SECTION_SEL) + 1;
+                    const activeSlide = $(SLIDE_ACTIVE_SEL, currentSection)[0];
+                    let slideIndex;
+                    let slideAnchorLink;
+                    const callbacksParams = {
                         activeSection: leavingSection,
                         sectionIndex: sectionIndex -1,
                         anchorLink: anchorLink,
@@ -1326,8 +1326,8 @@
         * Determines whether the active section has seen in its whole or not.
         */
         function isCompletelyInViewPort(movement){
-            var top = $(SECTION_ACTIVE_SEL)[0].offsetTop;
-            var bottom = top + getWindowHeight();
+            const top = $(SECTION_ACTIVE_SEL)[0].offsetTop;
+            const bottom = top + getWindowHeight();
 
             if(movement == 'up'){
                 return bottom >= (getScrollTop() + getWindowHeight());
@@ -1339,18 +1339,18 @@
         * Determines whether a section is in the viewport or not.
         */
         function isSectionInViewport (el) {
-            var rect = el.getBoundingClientRect();
-            var top = rect.top;
-            var bottom = rect.bottom;
+            const rect = el.getBoundingClientRect();
+            const top = rect.top;
+            const bottom = rect.bottom;
 
             //sometimes there's a 1px offset on the bottom of the screen even when the 
             //section's height is the window.innerHeight one. I guess because pixels won't allow decimals.
             //using this prevents from lazyLoading the section that is not yet visible 
             //(only 1 pixel offset is)
-            var pixelOffset = 2;
+            const pixelOffset = 2;
             
-            var isTopInView = top + pixelOffset < windowsHeight && top > 0;
-            var isBottomInView = bottom > pixelOffset && bottom < windowsHeight;
+            const isTopInView = top + pixelOffset < windowsHeight && top > 0;
+            const isBottomInView = bottom > pixelOffset && bottom < windowsHeight;
 
             return isTopInView || isBottomInView;
         }
@@ -1359,7 +1359,7 @@
         * Gets the directon of the the scrolling fired by the scroll event.
         */
         function getScrollDirection(currentScroll){
-            var direction = currentScroll > lastScroll ? 'down' : 'up';
+            const direction = currentScroll > lastScroll ? 'down' : 'up';
 
             lastScroll = currentScroll;
 
@@ -1378,11 +1378,11 @@
                 return;
             }
 
-            var scrollSection = (type === 'down') ? moveSectionDown : moveSectionUp;
+            const scrollSection = (type === 'down') ? moveSectionDown : moveSectionUp;
 
             if(options.scrollOverflow){
-                var scrollable = options.scrollOverflowHandler.scrollable($(SECTION_ACTIVE_SEL)[0]);
-                var check = (type === 'down') ? 'bottom' : 'top';
+                const scrollable = options.scrollOverflowHandler.scrollable($(SECTION_ACTIVE_SEL)[0]);
+                const check = (type === 'down') ? 'bottom' : 'top';
 
                 if(scrollable != null ){
                     //is the scrollbar at the start/end of the scroll?
@@ -1411,10 +1411,10 @@
             }
         }
 
-        var touchStartY = 0;
-        var touchStartX = 0;
-        var touchEndY = 0;
-        var touchEndX = 0;
+        let touchStartY = 0;
+        let touchStartX = 0;
+        let touchEndY = 0;
+        let touchEndX = 0;
 
         /* Detecting touch events
 
@@ -1423,7 +1423,7 @@
         * used one to determine the direction.
         */
         function touchMoveHandler(e){
-            var activeSection = closest(e.target, SECTION_SEL) || $(SECTION_ACTIVE_SEL)[0];
+            const activeSection = closest(e.target, SECTION_SEL) || $(SECTION_ACTIVE_SEL)[0];
 
             if (isReallyTouch(e) ) {
 
@@ -1432,7 +1432,7 @@
                     preventDefault(e);
                 }
 
-                var touchEvents = getEventsPage(e);
+                const touchEvents = getEventsPage(e);
 
                 touchEndY = touchEvents.y;
                 touchEndX = touchEvents.x;
@@ -1489,7 +1489,7 @@
             }
 
             if(isReallyTouch(e)){
-                var touchEvents = getEventsPage(e);
+                const touchEvents = getEventsPage(e);
                 touchStartY = touchEvents.y;
                 touchStartX = touchEvents.x;
             }
@@ -1499,12 +1499,12 @@
         * Gets the average of the last `number` elements of the given array.
         */
         function getAverage(elements, number){
-            var sum = 0;
+            let sum = 0;
 
             //taking `number` elements from the end to make the average, if there are not enought, 1
-            var lastElements = elements.slice(Math.max(elements.length - number, 1));
+            const lastElements = elements.slice(Math.max(elements.length - number, 1));
 
-            for(var i = 0; i < lastElements.length; i++){
+            for(let i = 0; i < lastElements.length; i++){
                 sum = sum + lastElements[i];
             }
 
@@ -1517,11 +1517,11 @@
          * http://blogs.sitepointstatic.com/examples/tech/mouse-wheel/index.html
          * http://www.sitepoint.com/html5-javascript-mouse-wheel/
          */
-        var prevTime = new Date().getTime();
+        let prevTime = new Date().getTime();
 
         function MouseWheelHandler(e) {
-            var curTime = new Date().getTime();
-            var isNormalScroll = hasClass($(COMPLETELY_SEL)[0], NORMAL_SCROLL);
+            const curTime = new Date().getTime();
+            const isNormalScroll = hasClass($(COMPLETELY_SEL)[0], NORMAL_SCROLL);
 
             //is scroll allowed?
             if (!isScrollAllowed.m.down && !isScrollAllowed.m.up) {
@@ -1533,11 +1533,11 @@
             if(options.autoScrolling && !controlPressed && !isNormalScroll){
                 // cross-browser wheel delta
                 e = e || window.event;
-                var value = e.wheelDelta || -e.deltaY || -e.detail;
-                var delta = Math.max(-1, Math.min(1, value));
+                const value = e.wheelDelta || -e.deltaY || -e.detail;
+                const delta = Math.max(-1, Math.min(1, value));
 
-                var horizontalDetection = typeof e.wheelDeltaX !== 'undefined' || typeof e.deltaX !== 'undefined';
-                var isScrollingVertically = (Math.abs(e.wheelDeltaX) < Math.abs(e.wheelDelta)) || (Math.abs(e.deltaX ) < Math.abs(e.deltaY) || !horizontalDetection);
+                const horizontalDetection = typeof e.wheelDeltaX !== 'undefined' || typeof e.deltaX !== 'undefined';
+                const isScrollingVertically = (Math.abs(e.wheelDeltaX) < Math.abs(e.wheelDelta)) || (Math.abs(e.deltaX ) < Math.abs(e.deltaY) || !horizontalDetection);
 
                 //Limiting the array to 150 (lets not waste memory!)
                 if(scrollings.length > 149){
@@ -1553,7 +1553,7 @@
                 }
 
                 //time difference between the last scroll and the current one
-                var timeDiff = curTime-prevTime;
+                const timeDiff = curTime-prevTime;
                 prevTime = curTime;
 
                 //haven't they scrolled in a while?
@@ -1564,9 +1564,9 @@
                 }
 
                 if(canScroll){
-                    var averageEnd = getAverage(scrollings, 10);
-                    var averageMiddle = getAverage(scrollings, 70);
-                    var isAccelerating = averageEnd >= averageMiddle;
+                    const averageEnd = getAverage(scrollings, 10);
+                    const averageMiddle = getAverage(scrollings, 70);
+                    const isAccelerating = averageEnd >= averageMiddle;
 
                     //to avoid double swipes...
                     if(isAccelerating && isScrollingVertically){
@@ -1595,16 +1595,16 @@
         * Optional `section` param.
         */
         function moveSlide(direction, section){
-            var activeSection = section == null ? $(SECTION_ACTIVE_SEL)[0] : section;
-            var slides = $(SLIDES_WRAPPER_SEL, activeSection)[0];
+            const activeSection = section == null ? $(SECTION_ACTIVE_SEL)[0] : section;
+            const slides = $(SLIDES_WRAPPER_SEL, activeSection)[0];
 
             // more than one slide needed and nothing should be sliding
             if (slides == null || slideMoving || $(SLIDE_SEL, slides).length < 2) {
                 return;
             }
 
-            var currentSlide = $(SLIDE_ACTIVE_SEL, slides)[0];
-            var destiny = null;
+            const currentSlide = $(SLIDE_ACTIVE_SEL, slides)[0];
+            let destiny = null;
 
             if(direction === 'left'){
                 destiny = prevUntil(currentSlide, SLIDE_SEL);
@@ -1617,7 +1617,7 @@
                 //respect loopHorizontal settin
                 if (!options.loopHorizontal) return;
 
-                var slideSiblings = siblings(currentSlide);
+                const slideSiblings = siblings(currentSlide);
                 if(direction === 'left'){
                     destiny = slideSiblings[slideSiblings.length - 1]; //last
                 }else{
@@ -1634,8 +1634,8 @@
         * (Because the `scroll` animation might get lost with some actions, such as when using continuousVertical)
         */
         function keepSlidesPosition(){
-            var activeSlides = $(SLIDE_ACTIVE_SEL);
-            for( var i =0; i<activeSlides.length; i++){
+            const activeSlides = $(SLIDE_ACTIVE_SEL);
+            for( let i =0; i<activeSlides.length; i++){
                 silentLandscapeScroll(activeSlides[i], 'internal');
             }
         }
@@ -1646,14 +1646,14 @@
         * the height of the section.
         */
         function getDestinationPosition(element){
-            var elementHeight = element.offsetHeight;
-            var elementTop = element.offsetTop;
+            const elementHeight = element.offsetHeight;
+            const elementTop = element.offsetTop;
 
             //top of the desination will be at the top of the viewport
-            var position = elementTop;
-            var isScrollingDown =  elementTop > previousDestTop;
-            var sectionBottom = position - windowsHeight + elementHeight;
-            var bigSectionsDestination = options.bigSectionsDestination;
+            let position = elementTop;
+            const isScrollingDown =  elementTop > previousDestTop;
+            const sectionBottom = position - windowsHeight + elementHeight;
+            const bigSectionsDestination = options.bigSectionsDestination;
 
             //is the destination element bigger than the viewport?
             if(elementHeight > windowsHeight){
@@ -1685,12 +1685,12 @@
         function scrollPage(element, callback, isMovementUp){
             if(element == null){ return; } //there's no element to scroll, leaving the function
 
-            var dtop = getDestinationPosition(element);
-            var slideAnchorLink;
-            var slideIndex;
+            const dtop = getDestinationPosition(element);
+            let slideAnchorLink;
+            let slideIndex;
 
             //local variables
-            var v = {
+            let v = {
                 element: element,
                 callback: callback,
                 isMovementUp: isMovementUp,
@@ -1717,7 +1717,7 @@
 
             //callback (onLeave) if the site is not just resizing and readjusting the slides
             if(!v.localIsResizing){
-                var direction = v.yMovement;
+                let direction = v.yMovement;
 
                 //required for continousVertical
                 if(typeof isMovementUp !== 'undefined'){
@@ -1779,7 +1779,7 @@
         * whether v2compatible is being used or not.
         */
         function fireCallback(eventName, v){
-            var eventData = getEventData(eventName, v);
+            const eventData = getEventData(eventName, v);
 
             if(!options.v2compatible){
                 trigger(container, eventName, eventData);
@@ -1813,7 +1813,7 @@
         * v2compatible is being used or not.
         */
         function getEventData(eventName, v){
-            var paramsPerEvent;
+            let paramsPerEvent;
 
             if(!options.v2compatible){
 
@@ -1868,15 +1868,15 @@
         * Performs the vertical movement (by CSS3 or by jQuery)
         */
         function performMovement(v){
-            var isFastSpeed = options.scrollingSpeed < 700;
-            var transitionLapse = isFastSpeed ? 700 : options.scrollingSpeed; 
+            const isFastSpeed = options.scrollingSpeed < 700;
+            const transitionLapse = isFastSpeed ? 700 : options.scrollingSpeed; 
 
             // using CSS3 translate functionality
             if (options.css3 && options.autoScrolling && !options.scrollBar) {
 
                 // The first section can have a negative value in iOS 10. Not quite sure why: -0.0142822265625
                 // that's why we round it to 0.
-                var translate3d = 'translate3d(0px, -' + Math.round(v.dtop) + 'px, 0px)';
+                const translate3d = 'translate3d(0px, -' + Math.round(v.dtop) + 'px, 0px)';
                 transformContainer(translate3d, true);
 
                 //even when the scrollingSpeed is 0 there's a little delay, which might cause the
@@ -1896,7 +1896,7 @@
 
             // using JS to animate
             else{
-                var scrollSettings = getScrollSettings(v.dtop);
+                const scrollSettings = getScrollSettings(v.dtop);
                 FP.test.top = -v.dtop + 'px';
 
                 scrollTo(scrollSettings.element, scrollSettings.options, options.scrollingSpeed, function(){
@@ -1934,7 +1934,7 @@
         * Gets the scrolling settings depending on the plugin autoScrolling option
         */
         function getScrollSettings(top){
-            var scroll = {};
+            const scroll = {};
 
             //top property animation
             if(options.autoScrolling && !options.scrollBar){
@@ -2048,7 +2048,7 @@
         * active one. 
         */
         function lazyLoadOthers(){
-            var hasAutoHeightSections = $(AUTO_HEIGHT_SEL)[0] || isResponsiveMode() && $(AUTO_HEIGHT_RESPONSIVE_SEL)[0];
+            const hasAutoHeightSections = $(AUTO_HEIGHT_SEL)[0] || isResponsiveMode() && $(AUTO_HEIGHT_RESPONSIVE_SEL)[0];
 
             //quitting when it doesn't apply
             if (!options.lazyLoading || !hasAutoHeightSections){
@@ -2071,11 +2071,11 @@
                 return;
             }
 
-            var panel = getSlideOrSection(destiny);
+            const panel = getSlideOrSection(destiny);
 
             $('img[data-src], img[data-srcset], source[data-src], source[data-srcset], video[data-src], audio[data-src], iframe[data-src]', panel).forEach(function(element){
                 ['src', 'srcset'].forEach(function(type){
-                    var attribute = element.getAttribute('data-' + type);
+                    const attribute = element.getAttribute('data-' + type);
                     if(attribute != null && attribute){
                         setSrc(element, type);
                         element.addEventListener('load', function(){
@@ -2085,7 +2085,7 @@
                 });
 
                 if(matches(element, 'source')){
-                    var elementToPlay =  closest(element, 'video, audio');
+                    const elementToPlay =  closest(element, 'video, audio');
                     if(elementToPlay){
                         elementToPlay.load();
                         elementToPlay.onloadeddata = function(){
@@ -2115,7 +2115,7 @@
         * Plays video and audio elements.
         */
         function playMedia(destiny){
-            var panel = getSlideOrSection(destiny);
+            const panel = getSlideOrSection(destiny);
 
             //playing HTML5 media elements
             $('video, audio', panel).forEach(function(element){
@@ -2150,7 +2150,7 @@
         * Stops video and audio elements.
         */
         function stopMedia(destiny){
-            var panel = getSlideOrSection(destiny);
+            const panel = getSlideOrSection(destiny);
 
             //stopping HTML5 media elements
             $('video, audio', panel).forEach(function(element){
@@ -2171,7 +2171,7 @@
         * Gets the active slide (or section) for the given section
         */
         function getSlideOrSection(destiny){
-            var slide = $(SLIDE_ACTIVE_SEL, destiny);
+            const slide = $(SLIDE_ACTIVE_SEL, destiny);
             if( slide.length ) {
                 destiny = slide[0];
             }
@@ -2183,9 +2183,9 @@
         * Scrolls to the anchor in the URL when loading the site
         */
         function scrollToAnchor(){
-            var anchors =  getAnchorsURL();
-            var sectionAnchor = anchors.section;
-            var slideAnchor = anchors.slide;
+            const anchors =  getAnchorsURL();
+            const sectionAnchor = anchors.section;
+            const slideAnchor = anchors.slide;
 
             if(sectionAnchor){  //if theres any #
                 if(options.animateAnchor){
@@ -2202,13 +2202,13 @@
         */
         function hashChangeHandler(){
             if(!isScrolling && !options.lockAnchors){
-                var anchors = getAnchorsURL();
-                var sectionAnchor = anchors.section;
-                var slideAnchor = anchors.slide;
+                const anchors = getAnchorsURL();
+                const sectionAnchor = anchors.section;
+                const slideAnchor = anchors.slide;
 
                 //when moving to a slide in the first section for the first time (first time to add an anchor to the URL)
-                var isFirstSlideMove =  (typeof lastScrolledDestiny === 'undefined');
-                var isFirstScrollMove = (typeof lastScrolledDestiny === 'undefined' && typeof slideAnchor === 'undefined' && !slideMoving);
+                const isFirstSlideMove =  (typeof lastScrolledDestiny === 'undefined');
+                const isFirstScrollMove = (typeof lastScrolledDestiny === 'undefined' && typeof slideAnchor === 'undefined' && !slideMoving);
 
                 if(sectionAnchor && sectionAnchor.length){
                     /*in order to call scrollpage() only once for each destination at a time
@@ -2226,20 +2226,20 @@
 
         //gets the URL anchors (section and slide)
         function getAnchorsURL(){
-            var section;
-            var slide;
-            var hash = window.location.hash;
+            let section;
+            let slide;
+            const hash = window.location.hash;
 
             if(hash.length){
                 //getting the anchor link in the URL and deleting the `#`
-                var anchorsParts =  hash.replace('#', '').split('/');
+                const anchorsParts =  hash.replace('#', '').split('/');
 
                 //using / for visual reasons and not as a section/slide separator #2803
-                var isFunkyAnchor = hash.indexOf('#/') > -1;
+                const isFunkyAnchor = hash.indexOf('#/') > -1;
 
                 section = isFunkyAnchor ? '/' + anchorsParts[1] : decodeURIComponent(anchorsParts[0]);
 
-                var slideAnchor = isFunkyAnchor ? anchorsParts[2] : anchorsParts[1];
+                const slideAnchor = isFunkyAnchor ? anchorsParts[2] : anchorsParts[1];
                 if(slideAnchor && slideAnchor.length){
                     slide = decodeURIComponent(slideAnchor);
                 }
@@ -2255,8 +2255,8 @@
         function keydownHandler(e) {
             clearTimeout(keydownId);
 
-            var activeElement = document.activeElement;
-            var keyCode = e.keyCode;
+            const activeElement = document.activeElement;
+            const keyCode = e.keyCode;
 
             //tab?
             if(keyCode === 9){
@@ -2268,7 +2268,7 @@
                 options.keyboardScrolling && options.autoScrolling){
 
                 //preventing the scroll with arrow keys & spacebar & Page Up & Down keys
-                var keyControls = [40, 38, 32, 33, 34];
+                const keyControls = [40, 38, 32, 33, 34];
                 if(keyControls.indexOf(keyCode) > -1){
                     preventDefault(e);
                 }
@@ -2317,9 +2317,9 @@
         * from https://developers.google.com/web/fundamentals/accessibility/focus/using-tabindex
         */
         function onTab(e){
-            var isShiftPressed = e.shiftKey;
-            var activeElement = document.activeElement;
-            var focusableElements = getFocusables(getSlideOrSection($(SECTION_ACTIVE_SEL)[0]));
+            const isShiftPressed = e.shiftKey;
+            let activeElement = document.activeElement;
+            const focusableElements = getFocusables(getSlideOrSection($(SECTION_ACTIVE_SEL)[0]));
 
             function preventAndFocusFirst(e){
                 preventDefault(e);
@@ -2367,12 +2367,12 @@
         * Determines whether the focus is outside fullpage.js sections/slides or not.
         */
         function isFocusOutside(e){
-            var allFocusables = getFocusables(document);
-            var currentFocusIndex = allFocusables.indexOf(document.activeElement);
-            var focusDestinationIndex = e.shiftKey ? currentFocusIndex - 1 : currentFocusIndex + 1;
-            var focusDestination = allFocusables[focusDestinationIndex];
-            var destinationItemSlide = nullOrSlide(closest(focusDestination, SLIDE_SEL));
-            var destinationItemSection = nullOrSection(closest(focusDestination, SECTION_SEL));
+            const allFocusables = getFocusables(document);
+            const currentFocusIndex = allFocusables.indexOf(document.activeElement);
+            const focusDestinationIndex = e.shiftKey ? currentFocusIndex - 1 : currentFocusIndex + 1;
+            const focusDestination = allFocusables[focusDestinationIndex];
+            const destinationItemSlide = nullOrSlide(closest(focusDestination, SLIDE_SEL));
+            const destinationItemSection = nullOrSection(closest(focusDestination, SECTION_SEL));
 
             return !destinationItemSlide && !destinationItemSection;
         }
@@ -2380,7 +2380,7 @@
         //Scrolling horizontally when clicking on the slider controls.
         function slideArrowHandler(){
             /*jshint validthis:true */
-            var section = closest(this, SECTION_SEL);
+            const section = closest(this, SECTION_SEL);
 
             /*jshint validthis:true */
             if (hasClass(this, SLIDES_PREV)) {
@@ -2410,7 +2410,7 @@
             preventDefault(e);
 
             /*jshint validthis:true */
-            var indexBullet = index(closest(this, SECTION_NAV_SEL + ' li'));
+            const indexBullet = index(closest(this, SECTION_NAV_SEL + ' li'));
             scrollPage($(SECTION_SEL)[indexBullet]);
         }
 
@@ -2419,8 +2419,8 @@
             preventDefault(e);
 
             /*jshint validthis:true */
-            var slides = $(SLIDES_WRAPPER_SEL, closest(this, SECTION_SEL))[0];
-            var destiny = $(SLIDE_SEL, slides)[index(closest(this, 'li'))];
+            const slides = $(SLIDES_WRAPPER_SEL, closest(this, SECTION_SEL))[0];
+            const destiny = $(SLIDE_SEL, slides)[index(closest(this, 'li'))];
 
             landscapeScroll(slides, destiny);
         }
@@ -2438,9 +2438,9 @@
         * Keydown event
         */
         function onkeydown(e){
-            var shiftPressed = e.shiftKey;
-            var activeElement = document.activeElement;
-            var isMediaFocused = matches(activeElement, 'video') || matches(activeElement, 'audio');
+            const shiftPressed = e.shiftKey;
+            const activeElement = document.activeElement;
+            const isMediaFocused = matches(activeElement, 'video') || matches(activeElement, 'audio');
 
             //do nothing if we can not scroll or we are not using horizotnal key arrows.
             if(!canScroll && [37,39].indexOf(e.keyCode) < 0){
@@ -2534,8 +2534,8 @@
         * Scrolls horizontal sliders.
         */
         function landscapeScroll(slides, destiny, direction){
-            var section = closest(slides, SECTION_SEL);
-            var v = {
+            const section = closest(slides, SECTION_SEL);
+            const v = {
                 slides: slides,
                 destiny: destiny,
                 direction: direction,
@@ -2626,10 +2626,10 @@
         * @param fireCallback {Bool} - determines whether or not to fire the callback
         */
         function performHorizontalMove(slides, v, fireCallback){
-            var destinyPos = v.destinyPos;
+            const destinyPos = v.destinyPos;
 
             if(options.css3){
-                var translate3d = 'translate3d(-' + Math.round(destinyPos.left) + 'px, 0px, 0px)';
+                const translate3d = 'translate3d(-' + Math.round(destinyPos.left) + 'px, 0px, 0px)';
 
                 FP.test.translate3dH[v.sectionIndex] = translate3d;
                 css(addAnimation($(SLIDES_CONTAINER_SEL, slides)), getTransforms(translate3d));
@@ -2660,7 +2660,7 @@
             }
         }
 
-        var previousHeight = windowsHeight;
+        let previousHeight = windowsHeight;
 
         /*
         * Resize event handler.
@@ -2677,7 +2677,7 @@
                 //issue #3336 
                 //(some apps or browsers, like Chrome/Firefox for Mobile take time to report the real height)
                 //so we check it 3 times with intervals in that case
-                for(var i = 0; i< 4; i++){
+                for(let i = 0; i< 4; i++){
                     resizeHandlerId = setTimeout(resizeActions, 200 * i);
                 }
             }, 200);
@@ -2693,11 +2693,11 @@
 
             // rebuild immediately on touch devices
             if (isTouchDevice) {
-                var activeElement = document.activeElement;
+                const activeElement = document.activeElement;
 
                 //if the keyboard is NOT visible
                 if (!matches(activeElement, 'textarea') && !matches(activeElement, 'input') && !matches(activeElement, 'select')) {
-                    var currentHeight = getWindowHeight();
+                    const currentHeight = getWindowHeight();
 
                     //making sure the change in the viewport size is enough to force a rebuild. (20 % of the window to avoid problems when hidding scroll bars)
                     if( Math.abs(currentHeight - previousHeight) > (20 * Math.max(previousHeight, currentHeight) / 100) ){
@@ -2716,12 +2716,12 @@
         * A class `fp-responsive` is added to the plugin's container in case the user wants to use it for his own responsive CSS.
         */
         function responsive(){
-            var widthLimit = options.responsive || options.responsiveWidth; //backwards compatiblity
-            var heightLimit = options.responsiveHeight;
+            const widthLimit = options.responsive || options.responsiveWidth; //backwards compatiblity
+            const heightLimit = options.responsiveHeight;
 
             //only calculating what we need. Remember its called on the resize event.
-            var isBreakingPointWidth = widthLimit && window.innerWidth < widthLimit;
-            var isBreakingPointHeight = heightLimit && window.innerHeight < heightLimit;
+            const isBreakingPointWidth = widthLimit && window.innerWidth < widthLimit;
+            const isBreakingPointHeight = heightLimit && window.innerHeight < heightLimit;
 
             if(widthLimit && heightLimit){
                 setResponsive(isBreakingPointWidth || isBreakingPointHeight);
@@ -2738,7 +2738,7 @@
         * Adds transition animations for the given element
         */
         function addAnimation(element){
-            var transition = 'all ' + options.scrollingSpeed + 'ms ' + options.easingcss3;
+            const transition = 'all ' + options.scrollingSpeed + 'ms ' + options.easingcss3;
 
             removeClass(element, NO_TRANSITION);
             return css(element, {
@@ -2793,8 +2793,8 @@
         * from the current section.
         */
         function getYmovement(destiny){
-            var fromIndex = index($(SECTION_ACTIVE_SEL)[0], SECTION_SEL);
-            var toIndex = index(destiny, SECTION_SEL);
+            const fromIndex = index($(SECTION_ACTIVE_SEL)[0], SECTION_SEL);
+            const toIndex = index(destiny, SECTION_SEL);
             if( fromIndex == toIndex){
                 return 'none';
             }
@@ -2821,7 +2821,7 @@
         function addTableClass(element){
             //In case we are styling for the 2nd time as in with reponsiveSlides
             if(!hasClass(element, TABLE)){
-                var wrapper = document.createElement('div');
+                const wrapper = document.createElement('div');
                 wrapper.className = TABLE_CELL;
                 wrapper.style.height = getTableHeight(element) + 'px';
 
@@ -2831,15 +2831,15 @@
         }
 
         function getTableHeight(element){
-            var sectionHeight = windowsHeight;
+            let sectionHeight = windowsHeight;
 
             if(options.paddingTop || options.paddingBottom){
-                var section = element;
+                let section = element;
                 if(!hasClass(section, SECTION)){
                     section = closest(element, SECTION_SEL);
                 }
 
-                var paddings = parseInt(getComputedStyle(section)['padding-top']) + parseInt(getComputedStyle(section)['padding-bottom']);
+                const paddings = parseInt(getComputedStyle(section)['padding-top']) + parseInt(getComputedStyle(section)['padding-bottom']);
                 sectionHeight = (windowsHeight - paddings);
             }
 
@@ -2869,9 +2869,9 @@
         * Gets a section by its anchor / index
         */
         function getSectionByAnchor(sectionAnchor){
-            var section = $(SECTION_SEL + '[data-anchor="'+sectionAnchor+'"]', container)[0];
+            let section = $(SECTION_SEL + '[data-anchor="'+sectionAnchor+'"]', container)[0];
             if(!section){
-                var sectionIndex = typeof sectionAnchor !== 'undefined' ? sectionAnchor -1 : 0;
+                const sectionIndex = typeof sectionAnchor !== 'undefined' ? sectionAnchor -1 : 0;
                 section = $(SECTION_SEL)[sectionIndex];
             }
 
@@ -2882,7 +2882,7 @@
         * Gets a slide inside a given section by its anchor / index
         */
         function getSlideByAnchor(slideAnchor, section){
-            var slide = $(SLIDE_SEL + '[data-anchor="'+slideAnchor+'"]', section)[0];
+            let slide = $(SLIDE_SEL + '[data-anchor="'+slideAnchor+'"]', section)[0];
             if(slide == null){
                 slideAnchor = typeof slideAnchor !== 'undefined' ? slideAnchor : 0;
                 slide = $(SLIDE_SEL, section)[slideAnchor];
@@ -2895,12 +2895,12 @@
         * Scrolls to the given section and slide anchors
         */
         function scrollPageAndSlide(sectionAnchor, slideAnchor){
-            var section = getSectionByAnchor(sectionAnchor);
+            const section = getSectionByAnchor(sectionAnchor);
 
             //do nothing if there's no section with the given anchor name
             if(section == null) return;
 
-            var slide = getSlideByAnchor(slideAnchor, section);
+            const slide = getSlideByAnchor(slideAnchor, section);
 
             //we need to scroll to the section and then to the slide
             if (getAnchor(section) !== lastScrolledDestiny && !hasClass(section, ACTIVE)){
@@ -2928,13 +2928,13 @@
         */
         function addSlidesNavigation(section, numSlides){
             appendTo(createElementFromHTML('<div class="' + SLIDES_NAV + '"><ul></ul></div>'), section);
-            var nav = $(SLIDES_NAV_SEL, section)[0];
+            const nav = $(SLIDES_NAV_SEL, section)[0];
 
             //top or bottom
             addClass(nav, 'fp-' + options.slidesNavPosition);
 
-            for(var i=0; i< numSlides; i++){
-                var slide = $(SLIDE_SEL, section)[i];
+            for(let i=0; i< numSlides; i++){
+                const slide = $(SLIDE_SEL, section)[i];
                 appendTo(createElementFromHTML('<li><a href="#"><span class="fp-sr-only">'+ getBulletLinkName(i, 'Slide', slide) +'</span><span></span></a></li>'), $('ul', nav)[0] );
             }
 
@@ -2950,7 +2950,7 @@
         * It changes the URL hash when needed and updates the body class.
         */
         function setState(slideIndex, slideAnchor, anchorLink, sectionIndex){
-            var sectionHash = '';
+            let sectionHash = '';
 
             if(options.anchors.length && !options.lockAnchors){
 
@@ -2994,7 +2994,7 @@
                 if(isTouchDevice || isTouch){
                     window.history.replaceState(undefined, undefined, '#' + url);
                 }else{
-                    var baseUrl = window.location.href.split('#')[0];
+                    const baseUrl = window.location.href.split('#')[0];
                     window.location.replace( baseUrl + '#' + url );
                 }
             }
@@ -3007,8 +3007,8 @@
             if(!element){
                 return null;
             }
-            var anchor = element.getAttribute('data-anchor');
-            var elementIndex = index(element);
+            let anchor = element.getAttribute('data-anchor');
+            const elementIndex = index(element);
 
             //Slide without anchor link? We take the index instead.
             if(anchor == null){
@@ -3022,13 +3022,13 @@
         * Sets a class for the body of the page depending on the active section / slide
         */
         function setBodyClass(){
-            var section = $(SECTION_ACTIVE_SEL)[0];
-            var slide = $(SLIDE_ACTIVE_SEL, section)[0];
+            const section = $(SECTION_ACTIVE_SEL)[0];
+            const slide = $(SLIDE_ACTIVE_SEL, section)[0];
 
-            var sectionAnchor = getAnchor(section);
-            var slideAnchor = getAnchor(slide);
+            const sectionAnchor = getAnchor(section);
+            const slideAnchor = getAnchor(slide);
 
-            var text = String(sectionAnchor);
+            let text = String(sectionAnchor);
 
             if(slide){
                 text = text + '-' + slideAnchor;
@@ -3038,7 +3038,7 @@
             text = text.replace('/', '-').replace('#','');
 
             //removing previous anchor classes
-            var classRe = new RegExp('\\b\\s?' + VIEWING_PREFIX + '-[^\\s]+\\b', "g");
+            const classRe = new RegExp('\\b\\s?' + VIEWING_PREFIX + '-[^\\s]+\\b', "g");
             $body.className = $body.className.replace(classRe, '');
 
             //adding the current anchor
@@ -3051,7 +3051,7 @@
         * http://stackoverflow.com/questions/5661671/detecting-transform-translate3d-support
         */
         function support3d() {
-            var el = document.createElement('p'),
+            let el = document.createElement('p'),
                 has3d,
                 transforms = {
                     'webkitTransform':'-webkit-transform',
@@ -3067,7 +3067,7 @@
             // Add it to the body to get the computed style.
             document.body.insertBefore(el, null);
 
-            for (var t in transforms) {
+            for (const t in transforms) {
                 if (el.style[t] !== undefined) {
                     el.style[t] = 'translate3d(1px,1px,1px)';
                     has3d = window.getComputedStyle(el).getPropertyValue(transforms[t]);
@@ -3099,8 +3099,8 @@
         * https://developer.mozilla.org/en-US/docs/Web/Events/wheel
         */
         function addMouseWheelHandler(){
-            var prefix = '';
-            var _addEventListener;
+            let prefix = '';
+            let _addEventListener;
 
             if (window.addEventListener){
                 _addEventListener = "addEventListener";
@@ -3110,10 +3110,10 @@
             }
 
             // detect available wheel event
-            var support = 'onwheel' in document.createElement('div') ? 'wheel' : // Modern browsers support "wheel"
+            const support = 'onwheel' in document.createElement('div') ? 'wheel' : // Modern browsers support "wheel"
                       document.onmousewheel !== undefined ? 'mousewheel' : // Webkit and IE support at least "mousewheel"
                       'DOMMouseScroll'; // let's assume that remaining browsers are older Firefox
-            var passiveEvent = g_supportsPassive ? {passive: false }: false;
+            const passiveEvent = g_supportsPassive ? {passive: false }: false;
 
             if(support == 'DOMMouseScroll'){
                 document[ _addEventListener ](prefix + 'MozMousePixelScroll', MouseWheelHandler, passiveEvent);
@@ -3151,7 +3151,7 @@
                     $body.addEventListener(events.touchmove, preventBouncing, {passive: false});
                 }
 
-                var touchWrapper = options.touchWrapper;
+                const touchWrapper = options.touchWrapper;
                 touchWrapper.removeEventListener(events.touchstart, touchStartHandler);
                 touchWrapper.removeEventListener(events.touchmove, touchMoveHandler, {passive: false});
 
@@ -3171,7 +3171,7 @@
                     $body.removeEventListener(events.touchmove, preventBouncing, {passive: false});
                 }
 
-                var touchWrapper = options.touchWrapper;
+                const touchWrapper = options.touchWrapper;
                 touchWrapper.removeEventListener(events.touchstart, touchStartHandler);
                 touchWrapper.removeEventListener(events.touchmove, touchMoveHandler, {passive: false});
             }
@@ -3182,7 +3182,7 @@
         * http://msdn.microsoft.com/en-us/library/ie/dn304886(v=vs.85).aspx
         */
         function getMSPointer(){
-            var pointer;
+            let pointer;
 
             //IE >= 11 & rest of browsers
             if(window.PointerEvent){
@@ -3202,7 +3202,7 @@
         * https://github.com/alvarotrigo/fullPage.js/issues/194#issuecomment-34069854
         */
         function getEventsPage(e){
-            var events = [];
+            const events = [];
 
             events.y = (typeof e.pageY !== 'undefined' && (e.pageY || e.pageX) ? e.pageY : e.touches[0].pageY);
             events.x = (typeof e.pageX !== 'undefined' && (e.pageY || e.pageX) ? e.pageX : e.touches[0].pageX);
@@ -3243,10 +3243,10 @@
         function silentScroll(top){
             // The first section can have a negative value in iOS 10. Not quite sure why: -0.0142822265625
             // that's why we round it to 0.
-            var roundedTop = Math.round(top);
+            const roundedTop = Math.round(top);
 
             if (options.css3 && options.autoScrolling && !options.scrollBar){
-                var translate3d = 'translate3d(0px, -' + roundedTop + 'px, 0px)';
+                const translate3d = 'translate3d(0px, -' + roundedTop + 'px, 0px)';
                 transformContainer(translate3d, false);
             }
             else if(options.autoScrolling && !options.scrollBar){
@@ -3254,7 +3254,7 @@
                 FP.test.top = -roundedTop + 'px';
             }
             else{
-                var scrollSettings = getScrollSettings(roundedTop);
+                const scrollSettings = getScrollSettings(roundedTop);
                 setScrolling(scrollSettings.element, scrollSettings.options);
             }
         }
@@ -3393,7 +3393,7 @@
                     options.scrollOverflowHandler.remove(item);
                 }
                 removeClass(item, TABLE + ' ' + ACTIVE + ' ' + COMPLETELY);
-                var previousStyles = item.getAttribute('data-fp-styles');
+                const previousStyles = item.getAttribute('data-fp-styles');
                 if(previousStyles){
                     item.setAttribute('style', item.getAttribute('data-fp-styles'));
                 }
@@ -3425,7 +3425,7 @@
             window.scrollTo(0, 0);
 
             //removing selectors
-            var usedSelectors = [SECTION, SLIDE, SLIDES_CONTAINER];
+            const usedSelectors = [SECTION, SLIDE, SLIDES_CONTAINER];
             usedSelectors.forEach(function(item){
                 removeClass($('.' + item), item);
             });
@@ -3448,8 +3448,8 @@
         * Displays warnings
         */
         function displayWarnings(){
-            var l = options['li' + 'c' + 'enseK' + 'e' + 'y'];
-            var msgStyle = 'font-size: 15px;background:yellow;';
+            const l = options['li' + 'c' + 'enseK' + 'e' + 'y'];
+            const msgStyle = 'font-size: 15px;background:yellow;';
 
             if(!isOK){
                 showError('error', 'Fullpage.js version 3 has changed its license to GPLv3 and it requires a `licenseKey` option. Read about it here:');
@@ -3499,17 +3499,17 @@
             options.anchors.forEach(function(name){
 
                 //case insensitive selectors (http://stackoverflow.com/a/19465187/1081396)
-                var nameAttr = [].slice.call($('[name]')).filter(function(item) {
+                const nameAttr = [].slice.call($('[name]')).filter(function(item) {
                     return item.getAttribute('name') && item.getAttribute('name').toLowerCase() == name.toLowerCase();
                 });
 
-                var idAttr = [].slice.call($('[id]')).filter(function(item) {
+                const idAttr = [].slice.call($('[id]')).filter(function(item) {
                     return item.getAttribute('id') && item.getAttribute('id').toLowerCase() == name.toLowerCase();
                 });
 
                 if(idAttr.length || nameAttr.length ){
                     showError('error', 'data-anchor tags can not have the same value as any `id` element on the site (or `name` element for IE).');
-                    var propertyName = idAttr.length ? 'id' : 'name';
+                    const propertyName = idAttr.length ? 'id' : 'name';
 
                     if(idAttr.length || nameAttr.length){
                         showError('error', '"' + name + '" is is being used by another element `'+ propertyName +'` property');
@@ -3522,7 +3522,7 @@
         * Getting the position of the element to scroll when using jQuery animations
         */
         function getScrolledPosition(element){
-            var position;
+            let position;
 
             //is not the window element and is a slide?
             if(element.self != window && hasClass(element, SLIDES_WRAPPER)){
@@ -3544,15 +3544,15 @@
         * http://stackoverflow.com/a/16136789/1081396
         */
         function scrollTo(element, to, duration, callback) {
-            var start = getScrolledPosition(element);
-            var change = to - start;
-            var currentTime = 0;
-            var increment = 20;
+            const start = getScrolledPosition(element);
+            const change = to - start;
+            let currentTime = 0;
+            const increment = 20;
             activeAnimation = true;
 
             var animateScroll = function(){
                 if(activeAnimation){ //in order to stope it from other function whenever we want
-                    var val = to;
+                    let val = to;
 
                     currentTime += increment;
 
@@ -3599,7 +3599,7 @@
         * Gets the active slide.
         */
         function getActiveSlide(){
-            var activeSlide = $(SLIDE_ACTIVE_SEL, $(SECTION_ACTIVE_SEL)[0])[0];
+            const activeSlide = $(SLIDE_ACTIVE_SEL, $(SECTION_ACTIVE_SEL)[0])[0];
             return nullOrSlide(activeSlide);
         }
 
@@ -3659,14 +3659,14 @@
     */
     function deepExtend(out) {
         out = out || {};
-        for (var i = 1, len = arguments.length; i < len; ++i){
-            var obj = arguments[i];
+        for (let i = 1, len = arguments.length; i < len; ++i){
+            const obj = arguments[i];
 
             if(!obj){
               continue;
             }
 
-            for(var key in obj){
+            for(const key in obj){
               if (!obj.hasOwnProperty(key)){
                 continue;
               }
@@ -3718,12 +3718,12 @@
     function css(items, props) {
         items = getList(items);
 
-        var key;
+        let key;
         for (key in props) {
             if (props.hasOwnProperty(key)) {
                 if (key !== null) {
-                    for (var i = 0; i < items.length; i++) {
-                        var item = items[i];
+                    for (let i = 0; i < items.length; i++) {
+                        const item = items[i];
                         item.style[key] = props[key];
                     }
                 }
@@ -3737,7 +3737,7 @@
     * Generic function to get the previous or next element.
     */
     function until(item, selector, fn){
-        var sibling = item[fn];
+        let sibling = item[fn];
         while(sibling && !matches(sibling, selector)){
             sibling = sibling[fn];
         }
@@ -3786,9 +3786,9 @@
     */
     function index(item, selector) {
         item = isArrayOrList(item) ? item[0] : item;
-        var children = selector != null? $(selector, item.parentNode) : item.parentNode.childNodes;
-        var num = 0;
-        for (var i=0; i<children.length; i++) {
+        const children = selector != null? $(selector, item.parentNode) : item.parentNode.childNodes;
+        let num = 0;
+        for (let i=0; i<children.length; i++) {
              if (children[i] == item) return num;
              if (children[i].nodeType==1) num++;
         }
@@ -3808,7 +3808,7 @@
     function hide(el){
         el = getList(el);
 
-        for(var i = 0; i<el.length; i++){
+        for(let i = 0; i<el.length; i++){
             el[i].style.display = 'none';
         }
         return el;
@@ -3820,7 +3820,7 @@
     function show(el){
         el = getList(el);
 
-        for(var i = 0; i<el.length; i++){
+        for(let i = 0; i<el.length; i++){
             el[i].style.display = 'block';
         }
         return el;
@@ -3840,8 +3840,8 @@
     function addClass(el, className) {
         el = getList(el);
 
-        for(var i = 0; i<el.length; i++){
-            var item = el[i];
+        for(let i = 0; i<el.length; i++){
+            const item = el[i];
             if (item.classList){
                 item.classList.add(className);
             }
@@ -3859,12 +3859,12 @@
     function removeClass(el, className){
         el = getList(el);
 
-        var classNames = className.split(' ');
+        const classNames = className.split(' ');
 
-        for(var a = 0; a<classNames.length; a++){
+        for(let a = 0; a<classNames.length; a++){
             className = classNames[a];
-            for(var i = 0; i<el.length; i++){
-                var item = el[i];
+            for(let i = 0; i<el.length; i++){
+                const item = el[i];
                 if (item.classList){
                     item.classList.remove(className);
                 }
@@ -3894,10 +3894,10 @@
     https://jsfiddle.net/oya6ndka/1/ (jquery equivalent)
     */
     function wrap(toWrap, wrapper, isWrapAll) {
-        var newParent;
+        let newParent;
         wrapper = wrapper || document.createElement('div');
-        for(var i = 0; i < toWrap.length; i++){
-            var item = toWrap[i];
+        for(let i = 0; i < toWrap.length; i++){
+            const item = toWrap[i];
             if(isWrapAll && !i || !isWrapAll){
                 newParent = wrapper.cloneNode(true);
                 item.parentNode.insertBefore(newParent, item);
@@ -3950,7 +3950,7 @@
     *
     */
     function unwrap(wrapper) {
-        var wrapperContent = document.createDocumentFragment();
+        const wrapperContent = document.createDocumentFragment();
         while (wrapper.firstChild) {
             wrapperContent.appendChild(wrapper.firstChild);
         }
@@ -4004,14 +4004,14 @@
             el = [el];
         }
 
-        for(var i = 0; i<el.length; i++){
+        for(let i = 0; i<el.length; i++){
             reference.parentNode.insertBefore(el[i], beforeElement);
         }
     }
 
     //http://stackoverflow.com/questions/3464876/javascript-get-window-x-y-position-for-scroll
     function getScrollTop(){
-        var doc = document.documentElement;
+        const doc = document.documentElement;
         return (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
     }
 
@@ -4041,7 +4041,7 @@
       if (typeof item === 'function') {
         return true;
       }
-      var type = Object.prototype.toString(item);
+      const type = Object.prototype.toString(item);
       return type === '[object Function]' || type === '[object GeneratorFunction]';
     }
 
@@ -4049,7 +4049,7 @@
     * Trigger custom events
     */
     function trigger(el, eventName, data){
-        var event;
+        let event;
         data = typeof data === 'undefined' ? {} : data;
 
         // Native
@@ -4076,7 +4076,7 @@
     */
     function toggle(el, value){
         if(typeof value === "boolean"){
-            for(var i = 0; i<el.length; i++){
+            for(let i = 0; i<el.length; i++){
                 el[i].style.display = value ? 'block' : 'none';
             }
         }
@@ -4090,7 +4090,7 @@
     * https://stackoverflow.com/a/494348/1081396
     */
     function createElementFromHTML(htmlString) {
-        var div = document.createElement('div');
+        const div = document.createElement('div');
         div.innerHTML = htmlString.trim();
 
         // Change this to div.childNodes to support multiple top-level nodes
@@ -4102,8 +4102,8 @@
     */
     function remove(items){
         items = getList(items);
-        for(var i = 0; i<items.length; i++){
-            var item = items[i];
+        for(let i = 0; i<items.length; i++){
+            const item = items[i];
             if(item && item.parentElement) {
                 item.parentNode.removeChild(item);
             }
@@ -4119,8 +4119,8 @@
 
     //https://jsfiddle.net/w1rktecz/
     function untilAll(item, selector, fn){
-        var sibling = item[fn];
-        var siblings = [];
+        let sibling = item[fn];
+        const siblings = [];
         while(sibling){
             if(matches(sibling, selector) || selector == null) {
                 siblings.push(sibling);
@@ -4161,7 +4161,7 @@
     if (window.NodeList && !NodeList.prototype.forEach) {
         NodeList.prototype.forEach = function (callback, thisArg) {
             thisArg = thisArg || window;
-            for (var i = 0; i < this.length; i++) {
+            for (let i = 0; i < this.length; i++) {
                 callback.call(thisArg, this[i], i, this);
             }
         };
@@ -4230,7 +4230,7 @@ if(window.jQuery && window.fullpage){
 
         $.fn.fullpage = function(options) {
             options = $.extend({}, options, {'$': $});
-            var instance = new fullpage(this[0], options);
+            const instance = new fullpage(this[0], options);
         };
     })(window.jQuery, window.fullpage);
 }

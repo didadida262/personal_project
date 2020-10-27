@@ -13,43 +13,32 @@
 </head>
 
 <body>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
+    <div>page1</div>
+    <input type="text" id="input" />
+    <p><span id="show"></span></p>
 </body>
 <script>
-    const debounce = function(fn,delay) {
-        let timer = null
-        return function() {
-            clearTimeout(timer)
-            timer = setTimeout(fn,delay)
+    let inputdiv = document.getElementById('input')
+    let spandiv = document.getElementById('show')
+    let test = {}
+    Object.defineProperty(test,"content",{
+        // configurable: false,
+        // writable: true,
+        // enumerable: true,
+        get: function() {
+            return inputdiv.value
+        },
+        set: function(newvalue) {
+            content = newvalue
+            spandiv.innerText = newvalue
+            localStorage.setItem('data',newvalue)
+            console.log('localStorage.data:',localStorage.data)
         }
-    }
-    const fn = function() {
-        console.log("click")
-    }
-    const throttle = function(fn,delay) {
-        let timer = null
-        let flag = true
-        return function(){
-            if(flag) {
-                timer = setTimeout(function(){
-                    fn(),
-                    flag = true
-                },delay)
-            }
-            flag = false
-        }
-    }
-    
-    var nodes = document.getElementsByTagName('div')
-    for(let i = 0;i < nodes.length;i++) {
-        nodes[i].onclick = function() {
-            console.log('i:',i)
-        }
-    }
+    })
+    inputdiv.addEventListener('input',function(val) {
+        test.content = inputdiv.value
+    })
 
+    
 </script>
 </html>

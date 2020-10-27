@@ -678,7 +678,7 @@
     console.log(child.name)
     
     // 原型链继承
-    let child2 = {}
+    const child2 = {}
     child2.__proto__ = parent.prototype
     console.log(child2.s)
 

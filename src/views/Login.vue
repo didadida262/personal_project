@@ -53,6 +53,7 @@ export default class Login extends Vue {
     commonAPI.signIn(this.loginForm)
       .then((res: any) => {
         localStorage.setItem('userInfo',res.data.username)
+        localStorage.setItem('language','zh')
         this.$router.push({
           name: 'home'
         }).catch(err => {

@@ -2,6 +2,8 @@
   <div class="home">
     <a-spin v-if="data.length === 0" />
     <div class="index" v-else>
+      <a-button @click="changeLa">切换语言</a-button>
+      <p>{{ $t('message')}}</p>
       <h3>{{ data }}</h3>
       <div class="logo"><img alt="Vue logo" src="../assets/logo.jpg"></div>
         <a-button @click="toNewoWorld" style="margin-top:10px">Enter</a-button>
@@ -36,6 +38,16 @@ export default class Home extends Vue {
   private created(): void {
     this.getWord()
     this.gettestdata()
+  }
+
+  private changeLa(): void{
+    if(localStorage.language === 'zh') {
+      localStorage.setItem('language','en')
+    } else if(localStorage.language ==='en') {
+      localStorage.setItem('language','zh')
+    }
+    console.log('localStorage.language：',localStorage.language)
+    this.$i18n.locale = localStorage.language
   }
 
   private gettestdata(): void {

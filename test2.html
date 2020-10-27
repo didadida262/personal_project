@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testHtml</title>
+    <style>
+    *{
+    margin: 0;
+    padding: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div>page2</div>
+    <p><span id="spanshow"></span></p>
+</body>
+<script>
+    let spandiv = document.getElementById('spanshow')
+    let data = localStorage.data
+    window.addEventListener("storage", function (e) {
+        spandiv.innerText = e.newValue
+        console.log(e.newValue);
+});
+
+</script>
+</html>
