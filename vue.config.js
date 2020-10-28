@@ -1,8 +1,15 @@
+// const HappyPack = require('happypack');
+// const os = require('os');
+// const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
+// console.log('cpu-size:',os.cpus())
+
+
+
 module.exports = {
     // 基本路径 baseURL已经过时
     publicPath: './',  
     // 输出文件目录
-    outputDir: 'dist',
+    outputDir: 'distsssssssss',
     // eslint-loader 是否在保存的时候检查
     lintOnSave: true,
     // use the full build with in-browser compiler?
