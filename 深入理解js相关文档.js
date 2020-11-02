@@ -73,28 +73,29 @@
     // a(); // 这里相当于 window.a();
     // this 最终指向的是调用它的对象，这里的函数a实际是被 window 对象所点出来的
 
-    // const o = {
-    //     a: 10,
-    //     b: {
-    //         a: 12,
-    //         fn: function(){
-    //             console.log(this.a); // undefined
-    //             console.log(this); // window
-    //         }
-    //     }
-    // }
-    // const j = o.b.fn;
-    // j();
+    const o = {
+        a: 10,
+        b: {
+            a: 12,
+            fn: function(){
+                console.log(this.a); // undefined
+                console.log(this); // window
+            }
+        }
+    }
+    const j = o.b.fn;
+    var a = 2
+    j();
 
 // 2). 隐式绑定
-    // const a = {
-    //     user: '剃了胡子',
-    //     fn: () => {
-    //         console.log(this);// {user: '剃了胡子', fn: ƒ}
-    //     }
-    // }
+    const a = {
+        user: '剃了胡子',
+        fn: () => {
+            console.log(this);// {user: '剃了胡子', fn: ƒ}
+        }
+    }
 
-    // a.fn();//this 执行时被它的上一级对象 o{user: "剃了胡子", fn: ƒ} 调用
+    a.fn();//this 执行时被它的上一级对象 o{user: "剃了胡子", fn: ƒ} 调用
 
 // 3). 当this遇到return，这里其实可以考察对new的理解
     // function fn(){
@@ -670,20 +671,29 @@
 
     // 3) js中继承的几种方式
     // 构造函数继承
-    const parent = function(){
-        this.name = 'baba'
-        const s = 'test'
-    }
-    const child = new parent()
-    console.log(child.name)
+    // const parent = function(){
+    //     this.name = 'baba'
+    //     const s = 'test'
+    // }
+    // const child = new parent()
+    // console.log(child.name)
     
-    // 原型链继承
-    const child2 = {}
-    child2.__proto__ = parent.prototype
-    console.log(child2.s)
+    // // 原型链继承
+    // const child2 = {}
+    // child2.__proto__ = parent.prototype
+    // console.log(child2.s)
 
 
     // ts与js的区别
     // 1.弱类型 ---> 强类型
     // 2.ts代码需编译成js再执行
 
+
+    // 15.模块那些事儿
+    // console.log(__dirname)
+    // console.log(__filename)
+    
+    // // eval执行字符串,但有污染
+    // const a = 2
+    // eval('console.log(a)')
+    
