@@ -73,29 +73,29 @@
     // a(); // 这里相当于 window.a();
     // this 最终指向的是调用它的对象，这里的函数a实际是被 window 对象所点出来的
 
-    const o = {
-        a: 10,
-        b: {
-            a: 12,
-            fn: function(){
-                console.log(this.a); // undefined
-                console.log(this); // window
-            }
-        }
-    }
-    const j = o.b.fn;
-    var a = 2
-    j();
+//     const o = {
+//         a: 10,
+//         b: {
+//             a: 12,
+//             fn: function(){
+//                 console.log(this.a); // undefined
+//                 console.log(this); // window
+//             }
+//         }
+//     }
+//     const j = o.b.fn;
+//     var a = 2
+//     j();
 
-// 2). 隐式绑定
-    const a = {
-        user: '剃了胡子',
-        fn: () => {
-            console.log(this);// {user: '剃了胡子', fn: ƒ}
-        }
-    }
+// // 2). 隐式绑定
+//     const a = {
+//         user: '剃了胡子',
+//         fn: () => {
+//             console.log(this);// {user: '剃了胡子', fn: ƒ}
+//         }                   
+//     }
 
-    a.fn();//this 执行时被它的上一级对象 o{user: "剃了胡子", fn: ƒ} 调用
+//     a.fn();//this 执行时被它的上一级对象 o{user: "剃了胡子", fn: ƒ} 调用
 
 // 3). 当this遇到return，这里其实可以考察对new的理解
     // function fn(){
@@ -508,13 +508,6 @@
 // getnum()
 
 // // 7.防抖截流
-    // const debounce = function(fn,delay) {
-    //     let timer = null
-    //     return (function() {
-    //         clearTimeout(timer)
-    //         timer = setTimeout(fn,delay)
-    //     })()
-    // }
 
 //     const throttle = function(fn,delay) {
 //         let timer = null
@@ -697,3 +690,16 @@
     // const a = 2
     // eval('console.log(a)')
     
+
+
+
+// 15.ajax
+    // let xml = XMLHttpRequest()
+    // xml.onreadystatechange = function() {
+    //     if(xml.status == 200 && xml.readystate === 4) {
+    //         var data = xml.responseText
+    //     }
+    // }
+
+    // xml.open(method,url,true)
+    // xml.send()

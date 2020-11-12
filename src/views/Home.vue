@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <a-spin v-if="data.length === 0" />
-    <div class="index" v-else>
+    <!-- <a-spin v-if="data.length === 0" /> -->
+    <div class="index" >
       <a-button @click="changeLa">切换语言</a-button>
       <p>{{ $t('message')}}</p>
       <h3>{{ data }}</h3>
@@ -15,6 +15,7 @@
       /> -->
         <!-- <el-button>默认按钮</el-button> -->
     </div>
+    <button @click="debounce">ceshi</button>
   </div>
 </template>
 
@@ -76,9 +77,9 @@ export default class Home extends Vue {
         })
   }
 
-  // private fn = function() {
-  //   console.log("click")
-  // }
+  private fn = function() {
+    console.log("click")
+  }
 
   // private testemit(val: any): void{
   //   console.log("儿子提交的值：",val)
@@ -99,6 +100,15 @@ export default class Home extends Vue {
       }, delay)
     }
   }
+
+  private debounce = function(fn: any,delay: any) {
+    console.log('as')
+        let timer = null as any
+        return (function() {
+            clearTimeout(timer)
+            timer = setTimeout(fn,delay)
+        })()
+    }  
 
   private getWord(): void {
     commonAPI.getWorld()

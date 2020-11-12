@@ -9,28 +9,64 @@
     margin: 0;
     padding: 0;
     }
+    .outer {
+        width: 1200px;
+        border:1px solid red;
+        height: 500px;
+    }
+    .left{
+        width:100px;
+        height: 50px;
+        border: 1px solid green;
+        float: left;
+    }
+    .right{
+        margin-left: 100px;
+        height: 50px;
+        background-color: red;
+        border: 1px solid black;
+    }
     </style>
-    <script src="qrcode.js"></script>
+    <!-- <script src="qrcode.js"></script> -->
 </head>
+<script>
+    var timer = null
+    let debounce = function(){
+        clearTimeout(timer)
+        timer = setTimeout(function(){
+            console.log('nima')
+        },3000)
+    }
 
+    let throttle = function() {
+        timer =setTimeout(function() {
+            console.log('thro')
+        },3000)
+    }
+</script>
 <body>
-    <div>pagesd1</div>
+    <!-- <div>pagesd1</div>
     <input type="text" id="input" />
-    <p><span id="show"></span></p>
-    <div id="qrcode"></div>
+    <p><span id="show"></span></p> -->
+    <!-- <div id="qrcode"></div> -->
+    <div class="outer">
+        <div class="left">1</div>
+        <div class="right">2</div>
+    </div>
+    <button onclick="debounce()">lalalal</button>
 </body>
 
 <script>
     // new QRCode(document.getElementById('qrcode'), 'your content');
-    var qrcodee = document.getElementById('qrcode')
-    var qrcode = new QRCode(qrcodee, {
-    text: 'your content',
-    width: 256,
-    height: 256,
-    colorDark : '#000000',
-    colorLight : '#ffffff',
-    correctLevel : QRCode.CorrectLevel.H
-    });
+    // var qrcodee = document.getElementById('qrcode')
+    // var qrcode = new QRCode(qrcodee, {
+    // text: 'your content',
+    // width: 256,
+    // height: 256,
+    // colorDark : '#000000',
+    // colorLight : '#ffffff',
+    // correctLevel : QRCode.CorrectLevel.H
+    // });
 
     // // 使用 API
     // qrcode.clear();
